@@ -23,15 +23,84 @@
 		"path": "pages/mine/mine",
 		"style": {
 			"navigationBarTitleText": "我的",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": false,
+			"navigationStyle":"custom"
 		}
-
-	}],
+	}    ,{
+            "path" : "pages/mine/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/join",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "如程会员",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+            }
+            
+        },{
+			"path": "pages/mine/home",
+			"style": {
+				"navigationBarTitleText": "优惠券",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+			}
+		},
+		{
+			"path": "pages/mine/center",
+			"style": {
+				"navigationBarTitleText": "兑换中心",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+			}
+		}
+        ,{
+            "path" : "pages/mine/service",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择客服",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/qusetion",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "常见问题",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/hands",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "酒店合作",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",
 		"navigationBarBackgroundColor": "#1989fa",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8" 
 	},
 	"tabBar": {
 		"list": [{
