@@ -26,6 +26,14 @@
 			"enablePullDownRefresh": false
 		}
 
+	}, {
+		"path": "pages/hotel details/hotel details",
+		"style": {
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "酒店详情",
+			"enablePullDownRefresh": false,
+			"navigationBarBackgroundColor": "#F8F8F8"
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
