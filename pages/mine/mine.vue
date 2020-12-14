@@ -6,7 +6,7 @@
 			<view class="top">
 				<view class="shezhi">
 					<text class="iconfont icon-xianxingtubiao_huabanfuben tit1"></text>
-					<text class="iconfont icon-scan tit1"></text>
+					<text class="iconfont icon-btn_scan tit1 jl"></text>
 				</view>
 				<view class="user-info-box" @click="goLogin">
 					<view class="portrait-box">
@@ -84,7 +84,7 @@
 		</view>
 		<!-- 关注 -->
 		<view class="attention">
-			<view class="iconfont icon-weibiaoti1" style="color: #ea4204; font-size: 15px;"></view>
+			<view class="iconfont icon-weibiaoti1" style="color: #ea4204; font-size: 30rpx;"></view>
 			<view class="text">关注如程微信公众号，酒店上新不错过!</view>
 			<button class="guanzhu" plain>去关注</button>
 		</view>
@@ -111,7 +111,7 @@
 				酒店合作
 				<text class="fr icon-zuojiantou iconfont" style="color: #bcbcbc;"></text>
 			</view>
-			<view icon="icon-shoucang_xuanzhongzhuangtai" class="content">
+			<view icon="icon-shoucang_xuanzhongzhuangtai" class="content" @click="goNotice ">
 				程客须知
 				<text class="fr icon-zuojiantou iconfont" style="color: #bcbcbc;"></text>
 			</view>
@@ -131,9 +131,14 @@
 				userinfo: {}
 			}
 		},
-		onShow() {
+		/* mounted(){	
 			const userinfo = uni.getStorageSync("userinfo");
 			this.userinfo = JSON.parse(userinfo)
+		}, */
+		onLoad(options){
+			if(options.userinfo){
+				this.userinfo=options.userinfo 
+			}
 		},
 		methods: {
 			goLogin() {
@@ -172,6 +177,11 @@
 				uni.navigateTo({
 					url: `/pages/mine/hands`,
 				})
+			},
+			goNotice(){
+				uni.navigateTo({
+					url:'/pages/mine/notice'
+				})
 			}
 		}
 	}
@@ -196,7 +206,10 @@
 		background-color: #f5f5f5;
 		height: 100%;
 	}
-
+	.jl{
+		margin-left: 40rpx;
+		color: rgb(231, 231, 231);
+	}
 	.user-section {
 		height: 790rpx;
 		padding: 50rpx 15rpx 0;
@@ -323,7 +336,7 @@
 			left: 0;
 			top: 8rpx;
 			width: 100%;
-			height: 36rpx;
+			height: 38rpx;
 		}
 	}
 
@@ -412,7 +425,7 @@
 		background: #fff;
 		border-radius: 10rpx;
 		font-weight: 700;
-		height: 420rpx;
+		height: 5.4rem;
 		flex-direction: column;
 
 		view {

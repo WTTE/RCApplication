@@ -62,6 +62,8 @@
 			font-size: 36rpx;
 			font-weight: 700;
 			color: #FFFFFF;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		}
 </style>

@@ -30,7 +30,7 @@
             "path" : "pages/mine/login",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "会员登录",
                 "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
@@ -89,6 +89,17 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "酒店合作",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/notice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "程客须知",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor":"#FFFFFF",
 				"navigationBarTextStyle":"black"
