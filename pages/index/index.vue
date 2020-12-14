@@ -3,7 +3,7 @@
 		<!-- 轮播图 -->
 		<swiper indicator-dots :autoplay="true" :interval="3000" circular>
 			<swiper-item v-for="item in swipers" :key="item.id">
-				<image :src="item.pics" mode="widthFix"></image>
+				<image :src="item.pics" mode="widthFix" @click="gopages(item)"></image>
 			</swiper-item>
 		</swiper>
 		<!-- 搜索框 -->
@@ -17,7 +17,7 @@
 		<!-- 广告部分 -->
 		<view class="adv">
 			<image :src="adv[0]" mode="widthFix" @click="goVip"></image>
-			<image :src="adv[1]" mode="widthFix"></image>
+			<image :src="adv[1]" mode="widthFix" @click="goPrize"></image>
 		</view>
 		<!-- 下方轮播图 -->
 		
@@ -37,7 +37,7 @@
 						id: 0,
 						pics: "https://image.ructrip.com/ructrip/1607512632892/双十二每日抢购头图的副本banner.jpg",
 						title: "双十二每日抢购",
-						// path: "/pages/news/news"
+						path: "/pages/welfare/welfare"
 					},
 					{
 						id: 1,
@@ -55,7 +55,7 @@
 						id: 3,
 						pics: "https://image.ructrip.com/ructrip/1607420370102/1204-如程小程序版本更新-客服热线-banner .jpg",
 						title: "小程序版本更新",
-						// path: "/pages/videos/videos"
+						path: "/pages/customer/customer"
 					},
 					{
 						id: 4,
@@ -123,7 +123,12 @@
 			},
 			goVip(){
 				uni.navigateTo({
-					url:"/pages/VIP/VIP"
+					url:"/pages/welfare/welfare"
+				})
+			},
+			goPrize(){
+				uni.navigateTo({
+					url:"/pages/prize/prize"
 				})
 			}
 		},

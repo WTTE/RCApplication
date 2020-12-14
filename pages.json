@@ -99,16 +99,6 @@
             
         }
         ,{
-            "path" : "pages/VIP/VIP",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        
-        ,{
             "path" : "pages/questions/questions",
             "style" :                                                                                    
             {
