@@ -3,7 +3,8 @@
 		<!-- 顶部标题图片 -->
 		<image :src="topurl" mode="widthFix"></image>
 		<!-- 轮播图部分 -->
-		<swiperAdv :storeImage="storeImage"></swiperAdv>
+		<swiperAdv :res="res"></swiperAdv>
+		<!-- <swiperAdv :res=""></swiperAdv> -->
 	</view>
 </template>
 
@@ -17,8 +18,8 @@
 		data() {
 			return {
 				topurl: "https://s3.ax1x.com/2020/12/13/reVo7T.png",
-				storeImage: [],
-				sellingLabel: []
+				res:[]
+
 			}
 		},
 
@@ -37,21 +38,24 @@
 					"sign": "D1A762F8F38768856D0A5B69085CE13A"
 				});
 				if (result.respCode === "00") {
-					for (var i = 0; i <= 19; i++) {
-						this.storeImage[i] = result.respData[i].storeImage
-					}
-					console.log(this.storeImage)
+					// this.RespData = result.respData
+					// console.log(this.RespData)
+					this.res=[...this.res,...result.respData]
+					console.log(this.res,"11111111")
 				}
 			},
 		},
 		components: {
-
+			swiperAdv
 		}
 	}
 </script>
 
-<style>
-	image {
-		width: 750rpx;
+<style lang="less">
+	.home {
+		image {
+			display: block;
+			width: 750rpx;
+		}
 	}
 </style>

@@ -1,45 +1,62 @@
 <template>
 	<view>
-		<uni-swiper-dot :info="info" :current="current" field="content" :mode="nav">
-			<swiper class="swiper-box" @change="change">
-				<swiper-item v-for="item in storeImage">
-					<view class="swiper-item">
-						<image :src="item"
-					
-					</view>
+		<view class="body">
+			<!-- <swiper indicator-dots :autoplay="true" :interval="3000" circular>
+				<swiper-item v-for="item in swipers">
+					<image :src="item.pics" mode="widthFix"></image>
 				</swiper-item>
 			</swiper>
-		</uni-swiper-dot>
+			<view class="child"></view> -->
+		</view>
 	</view>
 </template>
 
 <script>
-	import uniSwiperDot from "@/components/uni-ui/uni-swiper-dot/uni-swiper-dot.vue"
+	
 	export default {
+		props: ['res'],
 		data() {
 			return {
-				info: [{
-					content: '内容 A'
-				}, {
-					content: '内容 B'
-				}, {
-					content: '内容 C'
-				}],
-				current: 0,
-				mode: 'round',
+				
 			}
 		},
+		onLoad() {
+			this.start()
+			
+		},
 		methods: {
-			change(e) {
-				this.current = e.detail.current;
+			start(){
+				console.log(res,"0000000000");
 			}
 		},
 		components: {
-			uniSwiperDot
+			
 		}
 	}
 </script>
 
-<style>
-
+<style lang="less">
+	.body{
+		width: 750rpx;
+		height: 500rpx;
+		padding: 50rpx;
+		background-color: black;
+		margin-bottom: 20rpx;
+		display: flex;
+		swiper {
+			height: 380rpx;
+		
+			image {
+				width: 650rpx;
+				
+			}
+		.child{
+			flex: 1;
+			margin-top: 300rpx;
+			width: 750rpx;
+			height: 100rpx;
+			background-color: #FFFFFF;
+		}
+		}
+	}
 </style>
