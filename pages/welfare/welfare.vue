@@ -1,6 +1,5 @@
 <template>
 	<view>
-
 		<image :src="pics[0]" mode="widthFix"></image>
 		<image :src="pics[1]" mode="widthFix"></image>
 		<image :src="pics[2]" mode="widthFix"></image>
@@ -53,11 +52,31 @@
 			width: 750rpx;
 		}
 		
-		button {
-			margin-left: 40rpx;
-			width: 670rpx;
-			top: 1100rpx;
+		
+		.footer {
+			display: flex;
 			position: fixed;
+			bottom: 100rpx;
+			width: 100%;
+			background-color: #FFFFFF;
+			box-shadow: 0 2px;
+			
+			
+			button {
+				margin-left: 40rpx;
+				width: 670rpx;
+				
+				position: fixed;
+			}
 		}
+			// button {
+			// 	width: 325rpx;
+			// 	height: 90rpx;
+			// 	background-color: #fc6315;
+			// 	font-size: 36rpx;
+			// 	font-weight: 700;
+			// 	color: #FFFFFF;
+			// }
+		
 	}
 </style>

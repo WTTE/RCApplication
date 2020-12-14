@@ -37,13 +37,10 @@
 					"sign": "D1A762F8F38768856D0A5B69085CE13A"
 				});
 				if (result.respCode === "00") {
-					for (var i = 0; i <= 18; i++) {
-						console.log("9999999999"),
-						this.storeImage[i] = result.respData[i].storeImage,
-						console.log(this.storeImage)
+					for (var i = 0; i <= 19; i++) {
+						this.storeImage[i] = result.respData[i].storeImage
 					}
-
-
+					console.log(this.storeImage)
 				}
 			},
 		},

@@ -4,8 +4,8 @@
 			<swiper class="swiper-box" @change="change">
 				<swiper-item v-for="item in storeImage">
 					<view class="swiper-item">
-						<image :src="item"></image>
-						<!-- {{item.content}} -->
+						<image :src="item"
+					
 					</view>
 				</swiper-item>
 			</swiper>

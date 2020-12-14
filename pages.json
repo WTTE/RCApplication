@@ -108,6 +108,15 @@
             
         }
         
+        ,{
+            "path" : "pages/questions/questions",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
