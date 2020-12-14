@@ -26,11 +26,93 @@
 			"enablePullDownRefresh": false
 		}
 
-	}],
+	}    ,{
+            "path" : "pages/news/news",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "最新上线",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/reservation/reservation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预定指南",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/customer/customer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "专属客服",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/hotel/hotel",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "酒店合集",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/cities/cities",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "开放城市",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/reservationList/reservationList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预定榜单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/prize/prize",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "天天抽奖",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/welfare/welfare",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新人福利",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/VIP/VIP",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+    ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "首页",
-		"navigationBarBackgroundColor": "#1989fa",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
