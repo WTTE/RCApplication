@@ -23,7 +23,7 @@
 		},
 		methods: {
 		formSubmit(e){
-			console.log(e.detail.value.input)
+			// console.log(e.detail.value.input)
 			 var formdata = e.detail.value.input
 			uni.showModal({
 			    content: '您的兑换码是' + formdata,

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<collapse v-model="activeName" accordion>
+		<collapse v-model="activeNames" accordion>
 			<collapse-item title="1.会员的有效期是多久？" name="1">
 				如程任享电子会员有效期自购当日起至1年后止；会员有效期期满后，会员有权益保留会员资格。续费金额以平台当时公示金额为准。
 			</collapse-item>

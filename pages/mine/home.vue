@@ -3,7 +3,7 @@
 		<view class="other_type">
 			<view class="text"><span>全面型优惠券</span></view>
 		</view>
-		<coupon v-for="(item, index) in coupon[0].list" :key="index" v-bind:item="item" theme="#ff0000"></coupon>
+		<coupon v-for="(item, index) in coupon[0].list" :key="'info2-'+index" v-bind:item="item" theme="#ff0000"></coupon>
 		<view class="other_type">
 			<view class="text"><span>简洁型优惠券</span></view>
 		</view>

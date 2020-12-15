@@ -47,7 +47,7 @@
 	}
 
 	.bg {
-		background-color: #f8f8f8;
+		// background-color: #f8f8f8;
 		margin: 80rpx 40rpx;
 		
 		
