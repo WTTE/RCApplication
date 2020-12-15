@@ -5,7 +5,7 @@
 			<view class="zuixin" @click="chenked(1)">
 				<text class="wen">最新发布</text>
 			</view>
-			<view class="zuixin active"  >
+			<view class="zuixin active">
 				|
 			</view>
 			<view class="zuixin" @click="chenked(2)">
@@ -51,10 +51,17 @@
 			this.getLoods();
 		},
 		methods: {
+			chenked(type) {
+				this.isActive = type;
+				this.pageNum=1;
+				
+			
+			
+			},
 			async getList() {
 
 				let result = await myRequestPost("/sojo.order.evaluation.list.page", {
-					
+
 					"pageSize": 6,
 					"pageNum": this.pageNum,
 					"orderByType": 10,
@@ -64,11 +71,11 @@
 					"mobileModel": "microsoft",
 					"osVersion": "win10",
 					"timestamp": 1607427013000,
-					
+
 				});
 
 				this.res = [...this.res, ...result.respData.list]
-				
+
 				console.log(this.res);
 
 
@@ -76,45 +83,38 @@
 			},
 			async getLoods() {
 
-				let result = await myRequestPost("/sojo.order.evaluation.list.page", {
+				let res = await myRequestPost("/sojo.order.evaluation.list.page", {
+
 
 					
 						"pageSize": 6,
 						"pageNum": this.pageNum,
-						"orderByType": 10,
-						"userGuid": "rc61007bb64721f4f46f68",
+						"orderByType": 20,
+						"userGuid": "rc355e390778041925cb4d",
 						"client": "applets",
 						"mobileBrand": "microsoft",
 						"mobileModel": "microsoft",
-						"osVersion": "win10",
-						"timestamp": 1607427023000,
-						"sign": "6A1FFD720D4F058A8F5383C62C30B9F8"
+						"osVersion": "Windows 10 x64",
+						"timestamp": 1607426292000,
+						"sign": "45A1C99613B96EE1F0A16A1A46EA4DEC"
 					
+
 
 				});
 
-				this.msg = [...this.msg, ...result.respData.list]
+				this.msg = [...this.msg, ...res.respData.list]
 				console.log(this.msg);
-
-
-
 			},
-			chenked(type) {
-				this.isActive = type;
-				this.pageNum = 6;
-
-
-			}
+			
 
 		},
 		onReachBottom() {
 			this.pageNum++;
 			if (this.pageNum <= 5) {
+				this.getLoods();
 				this.getList();
 
-			}
-			
-			 else {
+			} else {
 				//没有更多数据了
 				this.flag = true;
 			}
@@ -131,32 +131,39 @@
 		background: #eee;
 
 		.buju {
+			
 			display: flex;
 			width: 750rpx;
 			height: 100rpx;
 			background-color: white;
 			margin-bottom: 10px;
+			position: fixed;
+			z-index: 2;
 
 			.zuixin {
+				
 				flex: 1;
 				font-size: 16px;
-				color: rgb(74,74,74);
-				
+				color: rgb(74, 74, 74);
+
 				text-align: center;
 				line-height: 100rpx;
-				position: relative;
-				.wen{
+				
+
+				.wen {
 					position: absolute;
 					left: 50px;
 				}
-				.ben{
+
+				.ben {
 					position: absolute;
 					right: 50px;
 				}
 
 			}
-			.active{
-				font-size:10px ;
+
+			.active {
+				font-size: 10px;
 			}
 		}
 
