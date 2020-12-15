@@ -43,13 +43,13 @@
 						id: 1,
 						pics: "https://image.ructrip.com/ructrip/1607437690458/NO46&47民宿上新banner-双十二  新版.jpg",
 						title: "民宿上新",
-						// path: "/pages/pics/pics"
+						path: "/pages/news/news"
 					},
 					{
 						id: 2,
-						pics: "https://image.ructrip.com/ructrip/1607492285087/新不文明 banner-20201209.png",
-						title: "新不文明",
-						// path: "/pages/contact/contact"
+						pics: "https://image.ructrip.com/ructrip/1608030369899/1215 如程-高定（江西丨高岭宿集）banner.jpg",
+						title: "高定（江西丨高岭宿集）",
+						path: "/pages/reservationList/reservationList"
 					},
 					{
 						id: 3,
@@ -61,7 +61,7 @@
 						id: 4,
 						pics: "https://image.ructrip.com/ructrip/1607420414465/1204-如程小程序版本更新-12月上新预告.jpg",
 						title: "上新预告",
-						// path: "/pages/videos/videos"
+						path: "/pages/hotel/hotel"
 					}
 				],
 				navs: [{
@@ -143,10 +143,11 @@
 <style lang="scss">
 	.home {
 		swiper {
-			height: 380rpx;
+			height: 450rpx;
 
 			image {
 				width: 750rpx;
+				
 			}
 
 		}
