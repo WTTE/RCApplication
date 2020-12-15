@@ -28,7 +28,12 @@
 
 	}    ,{
             "path" : "pages/finddetail/finddetail",
-            "style" : {}
+			"style" : {
+				"navigationBarTitleText": "体验详情",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "white",
+				"navigationBarTextStyle": "black"
+			}
         }
     ],
 	"globalStyle": {

@@ -111,7 +111,7 @@
 			this.pageNum++;
 			if (this.pageNum <= 5) {
 				this.getList();
-
+				this.getLoods();
 			}
 			
 			 else {
