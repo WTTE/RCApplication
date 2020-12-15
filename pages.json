@@ -15,7 +15,7 @@
 	}, {
 		"path": "pages/cart/cart",
 		"style": {
-			"navigationBarTitleText": "订单",
+			"navigationBarTitleText": "我的订单",
 			"enablePullDownRefresh": false
 		}
 
@@ -26,7 +26,16 @@
 			"enablePullDownRefresh": false
 		}
 
-	}],
+	}    ,{
+            "path" : "pages/vip/vip",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "如程会员",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",
