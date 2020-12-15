@@ -1,40 +1,75 @@
 {
 	"pages": [{
-		"path": "pages/index/index",
-		"style": {
-			"navigationBarTitleText": "首页",
-			"enablePullDownRefresh": false
-		}
-	}, {
-		"path": "pages/find/find",
-		"style": {
-			"navigationBarTitleText": "发现",
-			"enablePullDownRefresh": true
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/find/find",
+			"style": {
+				"navigationBarTitleText": "发现",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "订单",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/hotelDetails/hotelDetails",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "酒店详情",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8"
+			}
+		}, {
+			"path": "pages/viewAllphotos/viewAllphotos",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": ""
+			}
+		}, {
+			"path": "pages/toViewmore/toViewmore",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": ""
+			}
 		}
 
-	}, {
-		"path": "pages/cart/cart",
-		"style": {
-			"navigationBarTitleText": "订单",
-			"enablePullDownRefresh": false
+		, {
+			"path": "pages/viewDetails/viewDetails",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": ""
+			}
+		}, {
+			"path": "pages/trafficGuidance/trafficGuidance",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": ""
+			}
 		}
-
-	}, {
-		"path": "pages/mine/mine",
-		"style": {
-			"navigationBarTitleText": "我的",
-			"enablePullDownRefresh": false
-		}
-
-	}, {
-		"path": "pages/hotel details/hotel details",
-		"style": {
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "酒店详情",
-			"enablePullDownRefresh": false,
-			"navigationBarBackgroundColor": "#F8F8F8"
-		}
-	}],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",
