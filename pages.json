@@ -32,7 +32,7 @@
             {
                 "navigationBarTitleText": "会员登录",
                 "enablePullDownRefresh": false,
-				"navigationStyle":"custom"
+				"navigationBarTextStyle":"white"
             }
             
         }
