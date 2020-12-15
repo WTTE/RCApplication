@@ -5,8 +5,8 @@
 		<view class="user-section">
 			<view class="top">
 				<view class="shezhi">
-					<text class="iconfont icon-xianxingtubiao_huabanfuben tit1"></text>
-					<text class="iconfont icon-btn_scan tit1"></text>
+					<text class="iconfont icon-xianxingtubiao_huabanfuben tit1 "></text>
+					<text class="iconfont icon-btn_scan tit1 jl"></text>
 				</view>
 				<view class="user-info-box" @click="goLogin">
 					<view class="portrait-box">
@@ -111,7 +111,7 @@
 				酒店合作
 				<text class="fr icon-zuojiantou iconfont" style="color: #bcbcbc;"></text>
 			</view>
-			<view icon="icon-shoucang_xuanzhongzhuangtai" class="content">
+			<view icon="icon-shoucang_xuanzhongzhuangtai" class="content" @click="goNotice">
 				程客须知
 				<text class="fr icon-zuojiantou iconfont" style="color: #bcbcbc;"></text>
 			</view>
@@ -131,9 +131,8 @@
 				userinfo: {}
 			}
 		},
-		onShow() {
-			const userinfo = uni.getStorageSync("userinfo");
-			this.userinfo = JSON.parse(userinfo)
+		onLoad() {
+			options.userInfo && (this.userInfo = JSON.parse(options.userInfo))	
 		},
 		methods: {
 			goLogin() {
@@ -171,6 +170,11 @@
 			goHands(){
 				uni.navigateTo({
 					url: `/pages/mine/hands`,
+				})
+			},
+			goNotice(){
+				uni.navigateTo({
+					url: `/pages/mine/notice`,
 				})
 			}
 		}
@@ -210,7 +214,9 @@
 		display: flex;
 		align-items: center;
 	}
-
+	.jl{
+		margin-left: 40rpx;
+	}
 	.user-info-box {
 		height: 212rpx;
 		display: flex;
@@ -427,7 +433,9 @@
 				line-height: 99rpx;
 			}
 		}
-
+		.jl{
+			margin-left: 20rpx;
+		}
 		.xian {
 			border-bottom: 2px solid #fafafa !important;
 		}
