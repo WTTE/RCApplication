@@ -2,38 +2,42 @@
 	<view class="goods_list">
 		<view class="goods_item" v-for="item in res" :key="item.id" @click="itemchange(item)">
 			<image :src="item.defaultImage"></image>
+			<!-- <view class="xuanfu"><text>{{item.storeName}}</text></view> -->
 			<view class="price">
 				<text class="tex">{{item.evaluation}}</text>
 			</view>
 			<view class="bao">
-				<view class="name">
+				<view class="tupian">
 					<image :src="item.avatarLink" mode=""></image>
-					<text>{{item.nickname}}</text></view>
-				<view  class="item" :class="{active:istrue==true}" @click="ai(istrue)">❤</view>
-				
+				</view>
+				<view class="info">
+					<text>{{item.nickname}}</text>
+				</view>
+				<view class="item" :class="{active:istrue==true}" @click="ai(istrue)">❤</view>
+
 			</view>
-			
+
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
-		props: ['res'],
+		props: ['res', "pageNum"],
 		data() {
 			return {
-				istrue: false,				
+				istrue: false,
 			};
 		},
-		
+
 		methods: {
-			itemchange(item){
+			itemchange(item) {
 				uni.navigateTo({
-				        url: '/pages/finddetail/finddetail?id=' + item.id
-				    })
+					url: '/pages/finddetail/finddetail?id='+ item.id
+				})
 			},
 			ai(istrue) {
-				if (istrue) {					
+				if (istrue) {
 					this.istrue = false;
 				} else {
 					this.istrue = true;
@@ -64,6 +68,14 @@
 				mix-width: 160px;
 				margin: 10px auto;
 			}
+			// .xuanfu{
+			// 	position: relative;
+			// 	width: 200px;
+			// 	height: 30px;
+			// 	text{
+					
+			// 	}
+			// }
 
 			.price {
 
@@ -82,42 +94,52 @@
 					white-space: nowrap;
 				}
 			}
-			.bao{
+
+			.bao {
 				display: flex;
-				height: 20px;
-				overflow: hidden;
-				.name {
-					flex: 2;
-					overflow: hidden;
-					display: flex;
+				height: 25px;
+				position: relative;
+
+				// overflow: hidden;
+				.tupian {
 					image {
-						flex: 1;
-						width: 100%;
-						height: 18px;
+						width: 20px;
+						height: 20px;
+						position: absolute;
+						top:-10px;
 						line-height: 20px;
 						border-radius: 50%;
+						
 					}
+				}
+
+				.info {
 					text {
-						flex: 1;
+						height: 20px;
 						color: rgb(193, 193, 193);
 						font-size: 8px;
+						position: absolute;
+						left: 25px;
+						top:-2px;
 						line-height: 20px;
+						
 					}
-					
-					
 				}
-				.item{
+
+				.item {
+					height: 20px;
 					flex: 1;
 					display: inline-block;
 					text-align: right;
+					
 					line-height: 20px;
 				}
-				
+
 				.active {
-					color: rgb(255,99,21);
+					border: 1px solid gray;
 				}
 			}
-			
+
 		}
 	}
 </style>

@@ -13,7 +13,7 @@
 			</view>
 		</view>
 		<view v-if="isActive == 1">
-			<Goods :res="res"></Goods>
+			<Goods :res="res" :pageNum="pageNum"></Goods>
 		</view>
 		<view v-if="isActive == 2">
 			<Dianzan :msg="msg"></Dianzan>
@@ -64,7 +64,7 @@
 					"mobileModel": "microsoft",
 					"osVersion": "win10",
 					"timestamp": 1607427013000,
-					"sign": "A02492345B07C193BBB46F469E98CB5F"
+					
 				});
 
 				this.res = [...this.res, ...result.respData.list]
@@ -80,7 +80,7 @@
 
 					
 						"pageSize": 6,
-						"pageNum": 6,
+						"pageNum": this.pageNum,
 						"orderByType": 10,
 						"userGuid": "rc61007bb64721f4f46f68",
 						"client": "applets",
