@@ -3,7 +3,8 @@
 		"path": "pages/index/index",
 		"style": {
 			"navigationBarTitleText": "首页",
-			"enablePullDownRefresh": false
+			"onReachBottomDistance":20,
+			"enablePullDownRefresh": true
 		}
 	}, {
 		"path": "pages/find/find",
