@@ -17,18 +17,24 @@
 				<view class="zan" @click="zan">
 					<uni-icons type="heart" size="25" :style="flag?'color:red':''" ></uni-icons>
 				</view>
-				<view class="share" >
-					<uni-icons type="redo" size="25" color="black"></uni-icons>
+				<view class="share" @click="open">
+					<uni-icons type="redo" size="25" color="#636e72"></uni-icons>
 				</view>
 			</view>
 			<view class="word"><text>{{res.evaluation}}</text></view>
 
+			<!-- 分享 -->
+			<uni-popup ref="sharepopup" type="bottom">
+				<share-btn :sharedataTemp="sharedata"></share-btn>
+			</uni-popup>
+ 
 		</view>
 	</view>
 
 </template>
 
 <script>
+	import shareBtn from '@/components/share-btn/share-btn.vue';
 	import uniPopup from '@/components/uni-ui/uni-popup/uni-popup.vue';
 	import uniIcons from "@/components/uni-ui/uni-icons/uni-icons.vue";
 	import {
@@ -41,16 +47,18 @@
 				pageNum: 1,
 				swipers: [],
 				res: {},
-				flag:false
+				flag: false
 			}
 		},
 		components: {
 			uniIcons,
-			uniPopup
+			uniPopup,
+			shareBtn
 		},
 		onLoad(options) {
 			this.id = options.id;
 			this.getSwipers();
+
 		},
 		methods: {
 			async getSwipers() {
@@ -74,12 +82,16 @@
 				var arr = str.split(",");
 				// console.log(arr, "wwewqeqw")
 				this.swipers = arr;
-				
+
 			},
-			zan(){
+			zan() {
 				this.flag = !this.flag;
 				console.log(this.flag)
-			}
+			},
+
+			open: function() {
+				this.$refs.sharepopup.open();
+			},
 		}
 	}
 </script>
@@ -109,13 +121,13 @@
 			padding: 0 25rpx;
 
 			.link {
+				// flex: 1;
 				height: 70rpx;
 
 				image {
 					width: 70rpx;
 					height: 70rpx;
 					border-radius: 50%;
-					// margin-left: 40rpx;
 				}
 
 			}
@@ -130,7 +142,6 @@
 
 			.zan {
 				margin-right: 50rpx;
-
 			}
 
 
