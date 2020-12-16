@@ -1,28 +1,37 @@
 <template>
 	<view class="content">
-		<view class="picture">
-			<image :src="this.res" mode="widthFix"></image>
+		<!-- 背景图片部分 -->
+		<view class="picture" @click="cakan">
+			<image :src="res" mode="widthFix"></image>
 		</view>
 		<view class="all">
+			<!-- 分享、收藏、介绍 -->
 			<view class="sellingLabel">
-				{{this.sellingLabel}}
-				<image class="xing" src="../../images/五角星.png"></image>
-				<image class="fen" src="../../images/分享.png"></image>
+				<text>{{sellingLabel}}</text>
+				<!-- <uni-fav :checked="checked" @click="onClick"></uni-fav>
+				<uni-fav :checked="checked" class="favBtn" circle="true" bg-color="#dd524d" bg-color-checked="#007aff" @click="onClick"></uni-fav> -->
+				<!-- <image class="xing" src="../../images/五角星.png"></image>
+				<image class="fen" src="../../images/分享.png"></image> -->
+				<uni-icons class="xing" @click="zan" type="heart" size="25" :style="flag?'color:red':''"></uni-icons>
+				<uni-icons class="fen" type="redo" size="25" color="#636e72"></uni-icons>
 			</view>
+			<!-- 宾馆名称 -->
 			<view class="subTitle">
-				{{this.subTitle}}
+				{{subTitle}}
 			</view>
+			<!-- 酒店地址、客服 -->
 			<view class="ab">
 				<view class="storeName">
-					{{this.storeName}}
-					<view class="area">
-						{{this.city}}
-						{{this.area}}
-						{{this.address}}
+					{{storeName}}
+					<view class="area" @click="map">
+						{{city}}
+						{{area}}
+						{{address}}
 						<image class="ke" src="../../images/客服.png"></image>
 					</view>
 				</view>
 			</view>
+
 			<view class="jiaotong" @click="jiaotong">
 				查看交通指南
 			</view>
@@ -52,10 +61,10 @@
 			</view>
 			<!-- {{JSON.stringify(storeModuleInfoVos)}} -->
 			<view class="attractionsImage">
-				<image :src="this.attractionsImage" mode="widthFix"></image>
+				<image :src="attractionsImage" mode="widthFix"></image>
 			</view>
 			<view class="attractionsTitle">
-				{{this.attractionsTitle}}
+				{{attractionsTitle}}
 			</view>
 			<view class="gengduo" @click="gengduo">
 				查看更多
@@ -80,7 +89,7 @@
 				订房必读
 			</view>
 			<view class="enterNoticeSubTitle">
-				{{this.enterNoticeSubTitle}}
+				{{enterNoticeSubTitle}}
 			</view>
 			<view class="xiangqing" @click="xiangqing">
 				查看详情
@@ -91,12 +100,16 @@
 </template>
 
 <script>
+	// import uniFav from '@/components/uni-ui/uni-fav/uni-fav.vue'
+	import uniPopup from '@/components/uni-ui/uni-popup/uni-popup.vue';
+	import uniIcons from "@/components/uni-ui/uni-icons/uni-icons.vue";
 	import {
 		myRequestPost
 	} from '@/utils/zgrequest.js'
 	export default {
 		data() {
 			return {
+				flag: false,
 				res: "",
 				sellingLabel: {},
 				subTitle: {},
@@ -111,17 +124,31 @@
 				defaultImageList: [],
 			}
 		},
+		// components: {uniFav},
 		onLoad() {
 			this.getPicture();
 			this.getName()
 		},
+		components: {
+			uniIcons,
+			uniPopup,
+		},
 		methods: {
+			zan() {
+				this.flag = !this.flag;
+				console.log(this.flag)
+			},
+			map() {
+				uni.navigateTo({
+					url: "../map/map"
+				})
+			},
 			jiaotong() {
 				uni.navigateTo({
 					url: "../trafficGuidance/trafficGuidance"
 				});
 			},
-			
+
 			cakan() {
 				uni.navigateTo({
 					url: "../viewAllphotos/viewAllphotos"
@@ -158,7 +185,7 @@
 				this.attractionsImage = result.respData.attractionsImage
 				this.attractionsTitle = result.respData.attractionsTitle
 				this.enterNoticeSubTitle = result.respData.enterNoticeSubTitle
-				console.log(this.res);
+				console.log(this.res, "888888888888888888888888888");
 			},
 			async getName() {
 				let result = await myRequestPost("/sojo.order.store.evaluation.list.es", {
@@ -183,233 +210,236 @@
 </script>
 
 <style lang="scss">
-	.picture {
-		width: 100%;
-		background-color: pink;
-		display: flex;
+	.content {
+		.picture {
+			width: 100%;
+			// background-color: pink;
+			// display: flex;
 
-		image {
-			width: 375px;
-		}
-	}
-
-	.all {
-		width: 100%;
-		height: 3400rpx;
-		// background-color: yellow;
-		border-top-right-radius: 10rpx;
-		border-top-left-radius: 10rpx;
-
-		.sellingLabel {
-			margin-top: 60rpx;
-			margin-left: 40rpx;
-			font-size: 16rpx;
-			font-weight: 200;
-			line-height: 100rpx;
-			display: flex;
-
-			.xing {
-				width: 40px;
-				height: 40px;
-				margin-left: 100rpx;
-
-			}
-
-			.fen {
-				width: 40px;
-				height: 40px;
-				margin-left: 70rpx;
+			image {
+				width: 100%;
+				// float: left;
 			}
 		}
 
-		.subTitle {
-			margin-top: 40rpx;
-			margin-left: 40rpx;
-			font-size: 45rpx;
-			font-weight: 300;
-		}
-
-		.ab {
-			border-radius: 3px;
-			height: 130rpx;
-			background-color: #f8f7f9;
-			margin-left: 40rpx;
-			margin-right: 40rpx;
-			margin-top: 40rpx;
-
-			.storeName {
-				margin-top: 5px;
+		.all {
+			width: 100%;
+			height: 3400rpx;
+			// background-color: yellow;
+			border-top-right-radius: 10rpx;
+			border-top-left-radius: 10rpx;
+			
+			.sellingLabel {
+				margin-top: 60rpx;
 				margin-left: 40rpx;
-				margin-right: 40rpx;
-				font-size: 30rpx;
-				font-weight: 300;
-				line-height: 45px;
+				font-size: 16rpx;
+				font-weight: 200;
+				line-height: 100rpx;
+				display: flex;
+				z-index: 1000;
+				.xing {
+					width: 40px;
+					height: 40px;
+					margin-left: 100rpx;
 
-				.area {
-					margin-top: -50rpx;
-					font-size: 16rpx;
-					font-weight: 100;
-
-					.ke {
-						width: 40px;
-						height: 40px;
-						margin-left: 170rpx;
-						float: right;
-						right: 30rpx;
-						bottom: 100rpx;
-					}
 				}
 
+				.fen {
+					width: 40px;
+					height: 40px;
+					margin-left: 70rpx;
+				}
 			}
-		}
 
-		.huiyuan {
-			width: 100%;
-			text-align: center;
-			margin-top: 30rpx;
-		}
+			.subTitle {
+				margin-top: 40rpx;
+				margin-left: 40rpx;
+				font-size: 45rpx;
+				font-weight: 300;
+			}
 
-		.jiaotong {
-			margin-left: 40rpx;
-			margin-top: 20rpx;
-			font-size: 30rpx;
-			color: #0399d4;
-		}
+			.ab {
+				border-radius: 3px;
+				height: 130rpx;
+				background-color: #f8f7f9;
+				margin-left: 40rpx;
+				margin-right: 40rpx;
+				margin-top: 40rpx;
 
-		.canguan {
-			margin-top: 40rpx;
-			margin-left: 40rpx;
-			font-size: 45rpx;
-			font-weight: 600;
-		}
+				.storeName {
+					margin-top: 5px;
+					margin-left: 40rpx;
+					margin-right: 40rpx;
+					font-size: 30rpx;
+					font-weight: 300;
+					line-height: 45px;
 
-		.storeModuleInageVos {
+					.area {
+						margin-top: -50rpx;
+						font-size: 16rpx;
+						font-weight: 100;
 
-			margin-left: 40rpx;
-			margin-top: 40rpx;
+						.ke {
+							width: 40px;
+							height: 40px;
+							margin-left: 170rpx;
+							float: right;
+							right: 30rpx;
+							bottom: 100rpx;
+						}
+					}
 
-			.san {
+				}
+			}
+
+			.huiyuan {
+				width: 100%;
+				text-align: center;
+				margin-top: 30rpx;
+			}
+
+			.jiaotong {
+				margin-left: 40rpx;
+				margin-top: 20rpx;
+				font-size: 30rpx;
+				color: #0399d4;
+			}
+
+			.canguan {
+				margin-top: 40rpx;
+				margin-left: 40rpx;
+				font-size: 45rpx;
+				font-weight: 600;
+			}
+
+			.storeModuleInageVos {
+
+				margin-left: 40rpx;
+				margin-top: 40rpx;
+
+				.san {
+					display: inline-flex;
+					flex-direction: row;
+				}
+
+				image {
+					width: 200rpx;
+					height: 200rpx;
+					margin-left: 20rpx;
+				}
+
+				.gongqu {
+					margin-top: 40rpx;
+					margin-left: 20rpx;
+					font-size: 35rpx;
+					font-weight: 200;
+				}
+			}
+
+			.cakan {
+				margin-left: 40rpx;
+				margin-top: 40rpx;
+				font-size: 30rpx;
+				color: #0399d4;
+			}
+
+			.attractionsImage {
+				text-align: center;
+				margin-top: 40rpx;
+
+				image {
+					height: 400rpx;
+					border-radius: 3px;
+				}
+			}
+
+			.attractionsTitle {
+				font-size: 29rpx;
+				font-weight: 300;
+				text-align: center;
+				margin-top: 40rpx;
+				margin-left: 35rpx;
+				margin-right: 30rpx;
+			}
+
+			.youwan {
+				margin-top: 100rpx;
+				margin-left: 40rpx;
+				font-size: 45rpx;
+				font-weight: 600;
+			}
+
+			.gengduo {
+				margin-left: 40rpx;
+				margin-top: 40rpx;
+				font-size: 30rpx;
+				color: #0399d4;
+			}
+
+			.dingfang {
+				margin-top: 100rpx;
+				margin-left: 40rpx;
+				font-size: 45rpx;
+				font-weight: 600;
+			}
+
+			.enterNoticeSubTitle {
+				font-size: 29rpx;
+				font-weight: 300;
+				text-align: center;
+				margin-top: 40rpx;
+				margin-left: 40rpx;
+				margin-right: 30rpx;
+			}
+
+			.xiangqing {
+				margin-left: 40rpx;
+				margin-top: 40rpx;
+				font-size: 30rpx;
+				color: #0399d4;
+			}
+
+			.ruzhu {
+				margin-top: 100rpx;
+				margin-left: 40rpx;
+				font-size: 45rpx;
+				font-weight: 600;
+			}
+
+			.defaultImage {
+				margin-top: 20rpx;
 				display: inline-flex;
 				flex-direction: row;
+
+				image {
+					width: 300rpx;
+					height: 300rpx;
+					margin-left: 50rpx;
+				}
 			}
 
-			image {
-				width: 200rpx;
-				height: 200rpx;
-				margin-left: 20rpx;
+			.title {
+				margin-top: 20rpx;
+				margin-left: 100rpx;
+				display: inline-block;
+				font-size: 30rpx;
+				font-weight: 300;
 			}
 
-			.gongqu {
-				margin-top: 40rpx;
-				margin-left: 20rpx;
-				font-size: 35rpx;
+			.nickname {
+				margin-top: 20rpx;
+				margin-left: 260rpx;
+				display: inline-block;
+				font-size: 20rpx;
 				font-weight: 200;
 			}
-		}
 
-		.cakan {
-			margin-left: 40rpx;
-			margin-top: 40rpx;
-			font-size: 30rpx;
-			color: #0399d4;
-		}
-
-		.attractionsImage {
-			text-align: center;
-			margin-top: 40rpx;
-
-			image {
-				height: 400rpx;
-				border-radius: 3px;
+			.quanbu {
+				margin-left: 40rpx;
+				margin-top: 40rpx;
+				font-size: 30rpx;
+				color: #0399d4;
 			}
-		}
-
-		.attractionsTitle {
-			font-size: 29rpx;
-			font-weight: 300;
-			text-align: center;
-			margin-top: 40rpx;
-			margin-left: 35rpx;
-			margin-right: 30rpx;
-		}
-
-		.youwan {
-			margin-top: 100rpx;
-			margin-left: 40rpx;
-			font-size: 45rpx;
-			font-weight: 600;
-		}
-
-		.gengduo {
-			margin-left: 40rpx;
-			margin-top: 40rpx;
-			font-size: 30rpx;
-			color: #0399d4;
-		}
-
-		.dingfang {
-			margin-top: 100rpx;
-			margin-left: 40rpx;
-			font-size: 45rpx;
-			font-weight: 600;
-		}
-
-		.enterNoticeSubTitle {
-			font-size: 29rpx;
-			font-weight: 300;
-			text-align: center;
-			margin-top: 40rpx;
-			margin-left: 40rpx;
-			margin-right: 30rpx;
-		}
-
-		.xiangqing {
-			margin-left: 40rpx;
-			margin-top: 40rpx;
-			font-size: 30rpx;
-			color: #0399d4;
-		}
-
-		.ruzhu {
-			margin-top: 100rpx;
-			margin-left: 40rpx;
-			font-size: 45rpx;
-			font-weight: 600;
-		}
-
-		.defaultImage {
-			margin-top: 20rpx;
-			display: inline-flex;
-			flex-direction: row;
-
-			image {
-				width: 300rpx;
-				height: 300rpx;
-				margin-left: 50rpx;
-			}
-		}
-
-		.title {
-			margin-top: 20rpx;
-			margin-left: 100rpx;
-			display: inline-block;
-			font-size: 30rpx;
-			font-weight: 300;
-		}
-
-		.nickname {
-			margin-top: 20rpx;
-			margin-left: 260rpx;
-			display: inline-block;
-			font-size: 20rpx;
-			font-weight: 200;
-		}
-
-		.quanbu {
-			margin-left: 40rpx;
-			margin-top: 40rpx;
-			font-size: 30rpx;
-			color: #0399d4;
 		}
 	}
 </style>

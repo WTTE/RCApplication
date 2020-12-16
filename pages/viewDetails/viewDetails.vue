@@ -4,6 +4,12 @@
 			<!-- #ifdef H5 -->
 			<rich-text :nodes="enterNotice"></rich-text>
 			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
+			<rich-text :nodes="enterNotice"></rich-text>
+			<!-- #endif -->
+			<!-- #ifdef MP-ALIPAY -->
+			<rich-text :nodes="enterNotice"></rich-text>
+			<!-- #endif -->
 		</view>
 	</view>
 </template>

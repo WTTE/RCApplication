@@ -2,7 +2,10 @@
 	<view class="all">
 		<view class="content">
 			<!-- #ifdef H5 -->
-			<rich-text :nodes="attractionsNearby"></rich-text>
+			<rich-text :nodes="attractionsNearby" aline="center"></rich-text>
+			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
+			<rich-text :nodes="attractionsNearby" aline="center"></rich-text>
 			<!-- #endif -->
 		</view>
 	</view>
@@ -39,5 +42,9 @@
 	}
 </script>
 <style lang="scss">
-	
+	.content{
+		padding: 15rpx;
+		font-size: 28rpx;
+		color: gray;
+	}
 </style>

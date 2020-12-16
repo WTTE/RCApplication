@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view @click="dianji">
 		这是首页
 	</view>
 </template>
@@ -12,7 +12,11 @@
 			}
 		},
 		methods: {
-			
+			dianji(){
+				uni.navigateTo({
+					url:"../hotelDetails/hotelDetails"
+				})
+			}
 		}
 	}
 </script>

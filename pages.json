@@ -69,7 +69,16 @@
 				"navigationBarTitleText": ""
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/map/map",
+            "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": ""
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",
