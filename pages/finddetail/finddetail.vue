@@ -109,7 +109,6 @@
 			padding: 0 25rpx;
 
 			.link {
-				// flex: 1;
 				height: 70rpx;
 
 				image {

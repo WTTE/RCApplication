@@ -31,7 +31,7 @@
 			"style" : {
 				"navigationBarTitleText": "体验详情",
 				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "white",
+				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black"
 			}
         }
