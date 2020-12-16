@@ -12,7 +12,8 @@
 				<text class="ben">最多点赞</text>
 			</view>
 		</view>
-		<view v-if="isActive == 1">
+		
+		<view v-if="isActive == 1" >
 			<Goods :res="res" :pageNum="pageNum"></Goods>
 		</view>
 		<view v-if="isActive == 2">
@@ -39,11 +40,13 @@
 	export default {
 		data() {
 			return {
+				
 				isActive: 1,
 				res: [],
 				msg: [],
 				flag: false,
 				pageNum: 1,
+				result: []
 			}
 		},
 		onLoad() {
@@ -73,10 +76,15 @@
 					"timestamp": 1607427013000,
 
 				});
-
+                 // result.respData.list[1].storeName="既见桑梓特色度假酒店";
+				
+			// 	console.log(ab,"ssssssssssssssssssssssssssss")
+			// 	console.log(result,"llllllllllllllllll")
+			
+			// 	console.log(ab,"ppppppp")
 				this.res = [...this.res, ...result.respData.list]
 
-				console.log(this.res);
+				console.log(this.res,"ffffffffffffffffffffffff");
 
 
 
@@ -110,14 +118,44 @@
 		},
 		onReachBottom() {
 			this.pageNum++;
+			
+				
+			
 			if (this.pageNum <= 5) {
 				this.getLoods();
-				this.getList();
+				this.getList()
+				// switch (this.pageNum){
+				// 	case 2:
+				// 	result.respData.list[0].storeName="eggwgwe";
+				// 		break;
+				// 		case 3:
+				// 		result.respData.list[2].storeName="333333";
+				// 			break;
+				// 			case 4:
+				// 			result.respData.list[1].storeName="既见桑梓特色度假酒店";
+				// 				break;
+				// 	default:
+				// 		break;
+				// }
 
 			} else {
 				//没有更多数据了
 				this.flag = true;
 			}
+		},
+		onPullDownRefresh() {
+			this.pageNum=1;
+			this.flag= false;
+			this.msg= [];
+			this.res= [];
+		    this.getList().then(()=>{
+				uni.stopPullDownRefresh()
+			});
+			this.getLoods().then(()=>{
+				uni.stopPullDownRefresh()
+			});
+			
+			
 		},
 		components: {
 			uniLoadMore,
@@ -135,9 +173,11 @@
 			display: flex;
 			width: 750rpx;
 			height: 100rpx;
+			
 			background-color: white;
 			margin-bottom: 10px;
-			position: fixed;
+			position: sticky;
+			top: 0;
 			z-index: 2;
 
 			.zuixin {
@@ -165,6 +205,9 @@
 			.active {
 				font-size: 10px;
 			}
+		}
+		.gaodu{
+			margin-top: 20px;
 		}
 
 

@@ -50,23 +50,25 @@
 	
 	.fabu{
 		width: 750rpx;
+		height: 500rpx;
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
+		justify-content: space-between;
+		align-content: center;
 		flex-direction: column;	
 	
 		input{
-			width: 600rpx;
+			width: 650rpx;
 			height: 80rpx;
 			
 			background-color: rgb(245,245,245);
-			margin-top: 30rpx;
+			// margin-top: 30rpx;
 		}
 		textarea{
-			width: 600rpx;
+			width: 650rpx;
 			height: 400rpx;
 			background-color: rgb(245,245,245);
-			margin-top: 60rpx;
+			// margin-top: 60rpx;
 			
 		}
 	}

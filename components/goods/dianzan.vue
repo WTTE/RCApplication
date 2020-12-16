@@ -1,7 +1,7 @@
 <template>
 	<view class="goods_list">
 		<view class="goods_item" v-for="item in msg" :key="item.id" @click="itemchange(item)">
-			<image :src="item.defaultImage"></image>
+			<view class="tianchong"><image :src="item.defaultImage" mode="scaleToFill"></image></view>
 			<view :class="{xuanfu:isend==true}" ><text class="fu">{{item.storeName}}</text></view>
 			<view class="price">
 				<text class="tex">{{item.evaluation}}</text>
@@ -13,7 +13,7 @@
 				<view class="info">
 					<text>{{item.nickname}}</text>
 				</view>
-				<view class="item" :class="{active:istrue==true}" @click="ai(istrue)">❤</view>
+				<view class="item" :class="{active:istrue==true}" @click.stop="ai(istrue)">❤</view>
 
 			</view>
 
@@ -59,7 +59,7 @@
 <style lang="scss">
 	.goods_list {
 		display: flex;
-		padding: 0 15rpx;
+		padding: 0 10rpx;
 		justify-content: space-between;
 		overflow: hidden;
 		flex-wrap: wrap;
@@ -67,33 +67,43 @@
 		.goods_item {
 			position: relative;
 			width: 355rpx;
-			margin-bottom: 15rpx;
+			margin-bottom: 20rpx;
 			background: #fff;
-			padding: 10px;
 			box-sizing: border-box;
 
-			image {
-				height: 150px;
-				width: 100%;
-				mix-width: 160px;
-				margin: 10px auto;
+			.tianchong{
+				background: #eee;
+				image {
+					// height: 150px;
+					border-top-left-radius:5px;
+					border-top-right-radius:5px;
+					width: 100%;
+					height: 180px;
+					mix-width: 330rpx;
+					
+					margin: 0 0;
+				}
+				
 			}
-			.xuanfu{
+			.xuanfu {
+				overflow: hidden;
 				position: absolute;
-				left: 15px;
-				top: 140px;
-				width: 135px;
+				left: 10px;
+				top: 150px;
+				width: 150px;
 				height: 20px;
 				font-size: 8px;
-				background-color: rgba(118,115,114,0.7);
+				background-color: rgba(118, 115, 114, 0.7);
 				border-radius: 10px;
-				text{
+			    text-align: center;
+				text {
 					line-height: 20px;
 					//text-align: center;
-					margin-left: 10px;
+					
 					color: white;
 				}
 			}
+			
 
 			.price {
 
@@ -124,7 +134,7 @@
 						width: 20px;
 						height: 20px;
 						position: absolute;
-						top:-10px;
+						top: 0px;
 						line-height: 20px;
 						border-radius: 50%;
 						
@@ -154,7 +164,7 @@
 				}
 
 				.active {
-					border: 1px solid gray;
+					color: red;
 				}
 			}
 

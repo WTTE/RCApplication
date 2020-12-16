@@ -1,7 +1,7 @@
 <template>
 	<view class="goods_list"  >
-		<view class="goods_item" v-for="(item,index) in res" :key="item.id" @click.s="itemchange(item)">
-			<image :src="item.defaultImage"></image>
+		<view class="goods_item" v-for="(item,index) in res" :key="item.id" @click="itemchange(item)">
+			<view class="tianchong"><image :src="item.defaultImage" ></image></view>
 			<view :class="{xuanfu:isend==true}"><text class="fu">{{item.storeName}}</text></view>
 			<view class="price">
 				<text class="tex">{{item.evaluation}}</text>
@@ -14,7 +14,9 @@
 					<text>{{item.nickname}}</text>
 				</view>
 				<!-- <view class="item" :class="{active:istrue==true}"  @click="ai(istrue)">❤</view> -->
-				<view class="item" :class="{'active':active==index}"  @click="ai(item)">❤</view>
+				<!-- <view class="item active">❤</view> -->
+				<view class="item" :class="{active:active==index}"  @click.stop="dianzan(item.id,index)">❤</view>
+				
 				
 				
 			</view>
@@ -32,7 +34,9 @@
 			return {
 				isend: true,
 				istrue: false,
-				active: "",
+				active: [],
+				zanListId: []
+				
 			};
 		},
 
@@ -58,15 +62,32 @@
 			// 	}
 			// 	return false;
 			// },
-			ai(item) {
-				if (this.item) {
-					
-					this.active = this.index;
-				} else {
-					
-				}
+			// ai(item,index) {
 				
-			},
+					
+			// 		this.active = index;
+					
+			// 		console.log(this.active,"ggggggggggggggggggg");
+			
+				
+			// },
+			dianzan(id,index) {
+			      // let list = this.zanListId;
+				  console.log(this.zanListId)
+				  
+			      if (this.zanListId.indexOf(index) == -1) {
+			       
+					
+			        this.zanListId.push(index);
+					for(var i=0;i<zanListId.length;i++){
+						index = zanListId[i]
+					}
+					
+					}
+					
+				    
+			      
+			    },
 			taobi() {
 				uni.navigateTo({
 					url: '/pages/biji/biji'
@@ -77,6 +98,7 @@
 </script>
 <style lang="scss">
 	.goods_list {
+		box-sizing: border-box;
 		display: flex;
 		padding: 0 15rpx;
 		justify-content: space-between;
@@ -86,32 +108,40 @@
 		.goods_item {
 			position: relative;
 			width: 355rpx;
-			margin-bottom: 15rpx;
+			margin-bottom: 20rpx;
 			background: #fff;
-			padding: 10px;
+			
 			box-sizing: border-box;
-
-			image {
-				height: 150px;
-				width: 100%;
-				mix-width: 160px;
-				margin: 10px auto;
+			.tianchong{
+				background: #eee;
+				image {
+					width: 100%;
+					height: 180px;
+					border-top-left-radius:5px;
+					border-top-right-radius:5px;
+					width: 100%;
+					mix-width: 330rpx;
+					margin: 0 0;
+				}
+				
 			}
 
+			
 			.xuanfu {
 				position: absolute;
-				left: 15px;
-				top: 140px;
-				width: 135px;
+				left: 10px;
+				top: 150px;
+				width: 150px;
 				height: 20px;
 				font-size: 8px;
 				background-color: rgba(118, 115, 114, 0.7);
 				border-radius: 10px;
+				text-align: center;
 
 				text {
 					line-height: 20px;
-					//text-align: center;
-					margin-left: 10px;
+					
+					
 					color: white;
 				}
 			}
@@ -145,7 +175,7 @@
 						width: 20px;
 						height: 20px;
 						position: absolute;
-						top: -10px;
+						top: 0px;
 						line-height: 20px;
 						border-radius: 50%;
 
@@ -178,6 +208,9 @@
 					color : red;
 					
 				} 
+				.act{
+					color: blue;
+				}
 			
 				
 			}
