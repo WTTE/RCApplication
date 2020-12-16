@@ -1,8 +1,9 @@
 <template>
 	<view>
-		<view v-for="item in res">
+		<view v-for="item in res" class="imageFather">
 			<image :src="item.scenicSpotImage" mode="widthFix"></image>
 		</view>
+	
 	</view>
 </template>
 
@@ -13,14 +14,14 @@
 	export default {
 		data() {
 			return {
-				url: []
+				res:[]
 			}
 		},
-		onLoad() {
-			this.getSwiperAdv()
+		onLoad(options) {
+			this.getPicture()
 		},
 		methods: {
-			async getSwiperAdv() {
+			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.morehot.attractions.list", {
 					"cityCode": "320200",
 					"client": "applets",
@@ -39,8 +40,14 @@
 	}
 </script>
 
-<style>
-	image{
-		width: 750rpx;
+<style lang="less">
+	.imageFather{
+		padding: 0 25rpx;
+		image{
+			width: 700rpx;
+			margin-bottom: 20rpx;
+			
+		}
 	}
+	
 </style>

@@ -107,6 +107,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/sleep/sleep",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -116,7 +125,7 @@
 	},
 	"tabBar": {
 		"color": "#000000",
-		"selectedColor": "#ff0000",
+		"selectedColor": "#ee8e67",
 		"list": [{
 				"pagePath": "pages/index/index",
 				"text": "首页",

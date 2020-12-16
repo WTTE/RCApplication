@@ -1,17 +1,11 @@
 <template>
 	<view>
-		<image :src="pics[0]" mode="widthFix"></image>
-		<image :src="pics[1]" mode="widthFix"></image>
-		<image :src="pics[2]" mode="widthFix"></image>
-		<image :src="pics[3]" mode="widthFix"></image>
-		<image :src="pics[4]" mode="widthFix"></image>
-		<image :src="pics[5]" mode="widthFix"></image>
-		<image :src="pics[6]" mode="widthFix"></image>
-		<image :src="pics[7]" mode="widthFix"></image>
-		<image :src="pics[8]" mode="widthFix"></image>
-		<image :src="pics[9]" mode="widthFix"></image>
+		<view v-for="item in pics" :key="item">
+			<image :src="item" mode="widthFix"></image>
+		</view>
+		
 		<view class="footer">
-			<button type="warn" @click="goto('/pages/VIP/VIP')">开通VIP</button>
+			<button type="warn" @click="tan">加入会员</button>
 		</view>
 
 	</view>
@@ -34,10 +28,16 @@
 			}
 		},
 		methods: {
-			goto(url) {
-				uni.navigateTo({
-					url: url
-				})
+			// goto(url) {
+			// 	uni.navigateTo({
+			// 		url: url
+			// 	})
+			// }
+			tan(){
+				uni.showToast({
+				    title: '开通成功',
+				    duration: 2000
+				});
 			}
 		}
 	}
@@ -69,14 +69,6 @@
 				position: fixed;
 			}
 		}
-			// button {
-			// 	width: 325rpx;
-			// 	height: 90rpx;
-			// 	background-color: #fc6315;
-			// 	font-size: 36rpx;
-			// 	font-weight: 700;
-			// 	color: #FFFFFF;
-			// }
-		
+			
 	}
 </style>

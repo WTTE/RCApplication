@@ -8,9 +8,6 @@
 			</swiper>
 
 			<view class="child">
-				<!-- <view v-for="item in res.sellingLabel.split(',')" :key="item" class="sellingLabelFather">
-					<text class="sellingLabel">{{item}}</text>
-				</view> -->
 				<text class="sellingLabel">{{res.sellingLabel.replace(/,/g,"&nbsp;/")}}</text>
 				<view class="subTitleFather">
 					<text class="subTitle">{{res.subTitle}}</text>
@@ -56,7 +53,7 @@
 
 		.child {
 			width: 640rpx;
-			height: 170rpx;
+			height: 200rpx;
 			background-color: #FFFFFF;
 			padding: 20rpx;
 
@@ -72,7 +69,7 @@
 			.subTitleFather{
 				margin-top: 8rpx;
 				.subTitle{
-					margin-top: 10rpx;
+					margin-top: 8rpx;
 					font-size: 45rpx;
 				}
 			}

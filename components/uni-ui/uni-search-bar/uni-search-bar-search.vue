@@ -6,15 +6,15 @@
 			 confirm-type="search" type="text" v-model="searchVal" />
 			<text v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</text>
 			<view v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='')" class="uni-searchbar__box-icon-clear" @click="clear">
-				<uni-icons color="orange" class="" size="24" type="clear" />
+				<uni-icons color="#ee8e67" class="" size="24" type="clear" />
 			</view>
 			<!-- #ifdef MP-ALIPAY -->
 			<view class="uni-searchbar__box-icon-search">
-				<uni-icons color="orange" size="18" type="search" />
+				<uni-icons color="#ee8e67" size="18" type="search" />
 			</view>
 			<!-- #endif -->
 			<!-- #ifndef MP-ALIPAY -->
-			<uni-icons color="orange" class="uni-searchbar__box-icon-search" size="18" type="search" />
+			<uni-icons color="#ee8e67" class="uni-searchbar__box-icon-search" size="18" type="search" />
 			<!-- #endif -->
 		</view>
 		<text @click="cancel" class="uni-searchbar__cancel" v-if="cancelButton ==='always' || show && cancelButton ==='auto'">{{cancelText}}</text>

@@ -6,21 +6,35 @@
 				<image :src="item.pics" mode="widthFix" @click="gopages(item)"></image>
 			</swiper-item>
 		</swiper>
+
 		<!-- 搜索框 -->
 		<uni-search-bar :radius="100" @confirm="search"></uni-search-bar>
+
 		<!-- nav板块 -->
 		<uni-grid :column="4" :highlight="false" :showBorder="false">
 			<uni-grid-item v-for="item in navs" :key="item.title">
 				<image :src="item.pics" @click="gopages(item)"></image>
 			</uni-grid-item>
 		</uni-grid>
+
+		<!-- 试睡专区 -->
+		<view class="sleepFather">
+			<image :src="sleep" mode="widthFix" class="sleep" @click="goSleep"></image>
+		</view>
+
 		<!-- 广告部分 -->
 		<view class="adv">
 			<image :src="adv[0]" mode="widthFix" @click="goVip"></image>
 			<image :src="adv[1]" mode="widthFix" @click="goPrize"></image>
 		</view>
+
+		<!-- 首页浮标 -->
+		<image :src="floatTip" class="floatTip" mode="widthFix" @click="goVip"></image>
+
 		<!-- 下方轮播图 -->
-		
+		<indexSwiper :res="res"></indexSwiper>
+
+		<!-- 底部子组件板块 -->
 	</view>
 </template>
 
@@ -29,7 +43,10 @@
 	import uniSearchBar from '@/components/uni-ui/uni-search-bar/uni-search-bar-search.vue';
 	import uniGrid from "@/components/uni-ui/uni-grid/uni-grid.vue";
 	import uniGridItem from "@/components/uni-ui/uni-grid-item/uni-grid-item.vue"
-	
+	import indexSwiper from "@/components/indexSwiper/indexSwiper.vue"
+	import {
+		myRequestPost
+	} from '@/utils/zgrequest.js'
 	export default {
 		data() {
 			return {
@@ -109,11 +126,12 @@
 					"https://image.ructrip.com/ructrip/1607607428908/【new688】.png",
 					"https://image.ructrip.com/ructrip/1607513447380/双十二.jpg"
 				],
-				
+				floatTip: "https://image.ructrip.com/ructrip/1603255818332/首页浮标1.png",
+				sleep: "https://image.ructrip.com/ructrip/1607512681756/试睡专区通栏.jpg"
 			}
 		},
 		onLoad() {
-			
+			this.getindexSwiper()
 		},
 		methods: {
 			gopages(item) {
@@ -121,21 +139,43 @@
 					url: item.path
 				})
 			},
-			goVip(){
+			goVip() {
 				uni.navigateTo({
-					url:"/pages/welfare/welfare"
+					url: "/pages/welfare/welfare"
 				})
 			},
-			goPrize(){
+			goPrize() {
 				uni.navigateTo({
-					url:"/pages/prize/prize"
+					url: "/pages/prize/prize"
 				})
-			}
+			},
+			goSleep() {
+				uni.navigateTo({
+					url: "/pages/sleep/sleep"
+				})
+			},
+			async getindexSwiper() {
+				let result = await myRequestPost("/sojo.equity.store.anniversary.store.list", {
+					"pageNum": 1,
+					"pageSize": 8,
+					"client": "applets",
+					"mobileBrand": "microsoft",
+					"mobileModel": "microsoft",
+					"osVersion": "Windows 10 x64",
+					"timestamp": 1608125706000,
+					"sign": "BF47BC48F1B83C4DCAD24FCA56ED3177"
+				});
+				if (result.respCode === "00") {
+					this.res = result.respData.equityVoPageInfo.list
+					console.log(this.res, "11111111")
+				}
+			},
 		},
 		components: {
 			uniSearchBar,
 			uniGrid,
-			uniGridItem
+			uniGridItem,
+			indexSwiper
 		}
 	}
 </script>
@@ -147,7 +187,7 @@
 
 			image {
 				width: 750rpx;
-				
+
 			}
 
 		}
@@ -172,8 +212,23 @@
 				margin-right: 18rpx;
 			}
 		}
-		
-	
+
+		.sleepFather {
+			padding: 0 25rpx;
+			margin-bottom: 20rpx;
+
+			.sleep {
+				width: 700rpx;
+			}
+		}
+
+		.floatTip {
+			width: 150rpx;
+			position: fixed;
+			top: 950rpx;
+			left: 570rpx;
+		}
+
 
 	}
 </style>
