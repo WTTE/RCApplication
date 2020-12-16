@@ -26,16 +26,24 @@
 			"enablePullDownRefresh": false
 		}
 
-	}    ,{
-            "path" : "pages/vip/vip",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "如程会员",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	}, {
+		"path": "pages/shouquan/shouquan",
+		"style": {
+			"navigationBarTitleText": "会员登录",
+			"enablePullDownRefresh": false,
+			"navigationBarTextStyle": "white"
+		}
+
+	}, {
+		"path": "pages/vip/vip",
+		"style": {
+			"navigationBarTitleText": "如程会员",
+			"enablePullDownRefresh": false,
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black"
+		}
+
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",

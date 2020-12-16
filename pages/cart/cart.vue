@@ -75,6 +75,7 @@
 	.top-nav {
 		width: 750rpx;
 		position: fixed;
+		
 	}
 	.top-nav-bar {
 		border: 2px solid white;
