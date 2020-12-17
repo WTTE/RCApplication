@@ -13,6 +13,9 @@
 
 <script>
 	import {
+		formatRichText
+	} from '@/utils/format.js'
+	import {
 		myRequestPost
 	} from '@/utils/zgrequest.js'
 	export default {
@@ -36,7 +39,7 @@
 					"sign": "53E5E8A53FCC179B1006E2A61F2D6A8E"
 				});
 				console.log(this.attractionsNearby)
-				this.attractionsNearby = result.respData.attractionsNearby
+				this.attractionsNearby = formatRichText(result.respData.attractionsNearby)
 			}
 		}
 	}

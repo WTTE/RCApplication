@@ -228,7 +228,7 @@
 			// background-color: yellow;
 			border-top-right-radius: 10rpx;
 			border-top-left-radius: 10rpx;
-			
+
 			.sellingLabel {
 				margin-top: 60rpx;
 				margin-left: 40rpx;
@@ -237,6 +237,7 @@
 				line-height: 100rpx;
 				display: flex;
 				z-index: 1000;
+
 				.xing {
 					width: 40px;
 					height: 40px;
@@ -416,8 +417,9 @@
 					height: 300rpx;
 					margin-left: 50rpx;
 				}
-			}
 
+				
+			}
 			.title {
 				margin-top: 20rpx;
 				margin-left: 100rpx;
@@ -425,7 +427,7 @@
 				font-size: 30rpx;
 				font-weight: 300;
 			}
-
+			
 			.nickname {
 				margin-top: 20rpx;
 				margin-left: 260rpx;
@@ -433,6 +435,8 @@
 				font-size: 20rpx;
 				font-weight: 200;
 			}
+
+
 
 			.quanbu {
 				margin-left: 40rpx;
