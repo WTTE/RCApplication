@@ -1,7 +1,7 @@
 <template>
 	<view>
 	<view class="view1">
-		<image class="img" src="../../static/icons/u=3582511192,1930776935&fm=26&gp=0.jpg"></image>
+		此功能未开通
 	</view>
 	<view class="bottom">
 		<button class="left" @click="goDengLu()">立即登录</button>
@@ -29,22 +29,18 @@
 <style>
    .view1{
 	   margin-top: 20px;
-	   margin-left: 74rpx; 
+	   margin-left: 260rpx; 
 	  
-   }
-   .img{
-	   height: 250px;
-	   bottom: 0;
    }
    .bottom{
    	display: flex;
-   	/*position: fixed;*/
+   	position: fixed;
    	bottom: 0;
    	width: 100%;
    	background-color: #FFFFFF;
-   	box-shadow: 0 2px;
-   padding: 95rpx 0;  
-	margin-top: 0;
+   	box-shadow: 0 0px;
+   	padding: 120rpx 0; 
+	
 	}
    	button{
    		width: 325rpx;
