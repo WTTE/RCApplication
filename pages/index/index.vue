@@ -1,9 +1,9 @@
 <template>
 	<view class="home">
 		<Preferent></Preferent>
-		<Search></Search>
-		<view v-if="isActive == 1" v-for="item in number" :key="item">
-			<Suzhou :res="res[item]" :pageNum="pageNum"></Suzhou>
+		<Search :cityCode="cityCode" @func="receive"></Search>
+		<view  v-for="item in res.length" :key="item">
+			<Suzhou :res="res[item]" :pageNum="pageNum" :cityCode="cityCode"></Suzhou>
 		</view>
 		<uni-load-more v-if="!flag" :status="'loading'"></uni-load-more>
 		<uni-load-more v-else :status="'noMore'"></uni-load-more>
@@ -26,13 +26,12 @@
 		},
 		data() {
 			return {
-				isActive:1,
+				
 				res: [],
 				flag: false,
 				pageNum: 1,
-				pageSize:6,
-				number: [0, 1, 2, 3, 4, 5]
-
+				pageSize: 6,
+				cityCode: "",
 
 			}
 		},
@@ -40,16 +39,25 @@
 			this.getword();
 		},
 		methods: {
-		/* 	chenked(type) {
+			receive(code) {
+				console.log(code, "999999999")
+				this.cityCode = code;
+
+				this.pageNum = 1;
+				this.res = [];
+				this.getword()
+			},
+			chenked(type) {
 				this.isActive = type;
 				this.pageNum = 1;
-				
-			}, */
+				this.cityCode = 320200
+			},
+
 			async getword() {
 				let result = await myRequestPost("/sojo.equity.home.listIndexCityMenuRecommend", {
 					"pageNum": this.pageNum,
 					"pageSize": 3,
-					"cityCode": 320500,
+					"cityCode": this.cityCode,
 					"platFrom": 10,
 					"memberCityCode": "320200",
 					"storeNoListStr": "",
@@ -61,15 +69,23 @@
 					"sign": "2BD4F2E388596CE4EB209B0C440BD3EF"
 				});
 				this.res = [...this.res, ...result.respData.list]
-
+				/* list.filter(result.respData.list.item.storeImage =>{
+					return result.respData.list.item.storeImage != null;
+				}) */
+				if(result.respData.list.item.storeImage != null){
+					return res;
+				}
+				
 				console.log(this.res, "11111111")
-				console.log(this.res[0].storeImage)
-				console.log(this.res[0], "0000000000")
+				// console.log(this.res[0].storeImage)
+				/* console.log(this.res[0], "0000000000") */
 
 			},
+			
+
 			onReachBottom() {
 				this.pageNum++;
-				if (this.pageNum <= 6) {
+				if (this.pageNum <= 10) {
 					this.getword();
 
 
@@ -77,11 +93,14 @@
 					//没有更多数据了
 					this.flag = true;
 				}
+				/* switch (){
+					
+				} */
 			},
-		},
+		}
 	}
 </script>
 
-<style lang="scss">
+<style>
 
 </style>

@@ -27,7 +27,16 @@
 			"enablePullDownRefresh": false
 		}
 
-	}],
+	}    ,{
+            "path" : "pages/hotelDetails/hotelDetails",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",

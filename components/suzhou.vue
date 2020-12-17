@@ -1,16 +1,20 @@
 <template>
-	<view class="contents">
+	<view class="contents" @click="hotel(res)">
 		<view class="content1">
 			<swiper :interval="4500" circular>
-				<swiper-item v-for="item in res.storeImage.split(',')" :key="item">
-					<image :src="item" mode="widthFix"></image>
-				</swiper-item>
+				<template v-if="res.storeImage">
+					<swiper-item v-for="item in res.storeImage.split(',')" :key="item">
+						<image :src="item" mode="widthFix"></image>
+					</swiper-item>
+				</template>
 			</swiper>
 		</view>
 		<view class="word">
 			<view class="laber">
 				<text class="reserve">{{res.storeReserve}}</text>
-				<text v-for="item in res.sellingLabel.split(',')">{{item}}</text>
+				<template v-if="res.sellingLabel">
+					<text v-for="item in res&&res.sellingLabel&&res.sellingLabel.split(',')">{{item}}</text>
+				</template>
 			</view>
 			<view class="title">
 				{{res.subTitle}}
@@ -29,14 +33,21 @@
 		myRequestPost
 	} from "@/utils/request.js"
 	export default {
-		props: ['res', 'pageNum'],
+		props: ['res', 'pageNum', 'cityCode'],
 		data() {
 			return {
-
+				storeNo:""
 			}
 		},
 
 		methods: {
+			hotel(res) {
+				uni.navigateTo({
+					url: "/pages/hotelDetails/hotelDetails?storeNo=" + res.storeNo,
+				});
+
+			},
+
 
 		}
 	}
@@ -65,11 +76,11 @@
 		}
 
 		.word {
-			width: 96%;
-			margin: auto;
+
+			margin-left: 20rpx;
 
 			.laber {
-
+				opacity: 0.8;
 				display: flex;
 
 				.reserve {
@@ -88,6 +99,7 @@
 			}
 
 			.title {
+				opacity: 0.8;
 				margin-top: 30rpx;
 				display: block;
 				font-size: 42rpx;
@@ -98,6 +110,7 @@
 
 		.name {
 			display: flex;
+			opacity: 0.5;
 
 			text {
 				display: block;
