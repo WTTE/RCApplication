@@ -65,7 +65,7 @@
 			button {
 				margin-left: 40rpx;
 				width: 670rpx;
-				
+				background-color: #fc6315;	
 				position: fixed;
 			}
 		}

@@ -12,7 +12,6 @@
 
 <script>
 	import swiperAdv from '@/components/swiperAdv/swiperAdv.vue'
-	
 	import {
 		myRequestPost
 	} from '@/utils/zgrequest.js'

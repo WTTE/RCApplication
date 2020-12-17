@@ -8,8 +8,8 @@
 		</swiper>
 
 		<!-- 搜索框 -->
-		<uni-search-bar :radius="100" @confirm="search"></uni-search-bar>
-
+		<button @click="search" class="search">根据城市/出行日程进行搜索</button>
+		
 		<!-- nav板块 -->
 		<uni-grid :column="4" :highlight="false" :showBorder="false">
 			<uni-grid-item v-for="item in navs" :key="item.title">
@@ -31,36 +31,78 @@
 		<!-- 首页浮标 -->
 		<image :src="floatTip" class="floatTip" mode="widthFix" @click="goVip"></image>
 
-		<!-- 下方轮播图 -->
-		<indexSwiper :res="res"></indexSwiper>
+
+		<!-- 文字部分 -->
+		<view class="words">
+			<text class="words-up">最新上线</text>
+			<text class="words-down">空房预约，快速入住~</text>
+		</view>
+
+		<!-- 轮播图部分 -->
+		<!-- <view class="downSwiper">
+			<uni-swiper-dot :info="info" :current="current" :mode="nav" :dots-styles="dotsStyles" field="content">
+				<swiper class="swiper-box" @change="change">
+					<swiper-item v-for="(item, index) in info" :key="index">
+						<view :class="item.colorClass" class="swiper-item">
+							<image class="image" :src="item.url" mode="aspectFill" />
+						</view>
+					</swiper-item>
+				</swiper>
+			</uni-swiper-dot>
+		</view> -->
+
 
 		<!-- 底部子组件板块 -->
+		
 	</view>
 </template>
 
 <script>
-	import uniBadge from "@/components/uni-ui/uni-badge/uni-badge.vue";
-	import uniSearchBar from '@/components/uni-ui/uni-search-bar/uni-search-bar-search.vue';
-	import uniGrid from "@/components/uni-ui/uni-grid/uni-grid.vue";
+	import uniBadge from "@/components/uni-ui/uni-badge/uni-badge.vue"
+	import uniGrid from "@/components/uni-ui/uni-grid/uni-grid.vue"
 	import uniGridItem from "@/components/uni-ui/uni-grid-item/uni-grid-item.vue"
-	import indexSwiper from "@/components/indexSwiper/indexSwiper.vue"
-	import {
-		myRequestPost
-	} from '@/utils/zgrequest.js'
+	import uniSwiperDot from "@/components/uni-ui/uni-swiper-dot/uni-swiper-dot.vue"
+	// import {
+	// 	myRequestPost
+	// } from '@/utils/zgrequest.js'
 	export default {
 		data() {
 			return {
+				// resPic: [],
+				info: [{
+					index: 0,
+					url: "https://image.ructrip.com/ructrip/1608023690656/DSC_9499-1.jpg",
+					content: '1/5'
+				}, {
+					index: 1,
+					url: "https://image.ructrip.com/ructrip/1608014044445/DSC_0172-1.jpg",
+					content: '2/5'
+				}, {
+					index: 2,
+					url: "https://image.ructrip.com/ructrip/1607949042234/封一.jpg",
+					content: '3/5'
+				}, {
+					index: 3,
+					url: "https://image.ructrip.com/ructrip/1607516137549/1601154983921.jpg",
+					content: '4/5'
+				}, {
+					index: 4,
+					url: "https://image.ructrip.com/ructrip/1607426919075/封一.jpg",
+					content: '5/5'
+				}],
+				current: 0,
+				mode: 'round',
 				swipers: [{
 						id: 0,
-						pics: "https://image.ructrip.com/ructrip/1607512632892/双十二每日抢购头图的副本banner.jpg",
-						title: "双十二每日抢购",
-						path: "/pages/welfare/welfare"
-					},
-					{
-						id: 1,
 						pics: "https://image.ructrip.com/ructrip/1607437690458/NO46&47民宿上新banner-双十二  新版.jpg",
 						title: "民宿上新",
 						path: "/pages/news/news"
+					},
+					{
+						id: 1,
+						pics: "https://image.ructrip.com/ructrip/1607512632892/双十二每日抢购头图的副本banner.jpg",
+						title: "双十二每日抢购",
+						path: "/pages/welfare/welfare"
 					},
 					{
 						id: 2,
@@ -79,6 +121,12 @@
 						pics: "https://image.ructrip.com/ructrip/1607420414465/1204-如程小程序版本更新-12月上新预告.jpg",
 						title: "上新预告",
 						path: "/pages/hotel/hotel"
+					},
+					{
+						id: 5,
+						pics: "https://image.ructrip.com/ructrip/1608128246925/%E5%8F%8C%E5%8D%81%E4%BA%8C%E5%B2%81%E6%9C%AB%E6%9A%96%E5%86%AC%E5%AD%A3banner.jpg",
+						title: "冬季福利",
+						path: "/pages/winter/winter"
 					}
 				],
 				navs: [{
@@ -130,10 +178,15 @@
 				sleep: "https://image.ructrip.com/ructrip/1607512681756/试睡专区通栏.jpg"
 			}
 		},
-		onLoad() {
-			this.getindexSwiper()
+		onLoad(options) {
+			// this.getindexSwiper()
 		},
 		methods: {
+			search(){
+				uni.navigateTo({
+					url: "/pages/search/search"
+				})
+			},
 			gopages(item) {
 				uni.navigateTo({
 					url: item.path
@@ -154,28 +207,31 @@
 					url: "/pages/sleep/sleep"
 				})
 			},
-			async getindexSwiper() {
-				let result = await myRequestPost("/sojo.equity.store.anniversary.store.list", {
-					"pageNum": 1,
-					"pageSize": 8,
-					"client": "applets",
-					"mobileBrand": "microsoft",
-					"mobileModel": "microsoft",
-					"osVersion": "Windows 10 x64",
-					"timestamp": 1608125706000,
-					"sign": "BF47BC48F1B83C4DCAD24FCA56ED3177"
-				});
-				if (result.respCode === "00") {
-					this.res = result.respData.equityVoPageInfo.list
-					console.log(this.res, "11111111")
-				}
-			},
+			// async getindexSwiper() {
+			// 	let result = await myRequestPost("/sojo.equity.store.anniversary.store.list", {
+			// 		"pageNum": 1,
+			// 		"pageSize": 5,
+			// 		"client": "applets",
+			// 		"mobileBrand": "microsoft",
+			// 		"mobileModel": "microsoft",
+			// 		"osVersion": "Windows 10 x64",
+			// 		"timestamp": 1608125706000,
+			// 		"sign": "BF47BC48F1B83C4DCAD24FCA56ED3177"
+			// 	});
+			// 	if (result.respCode === "00") {
+			// 		this.res = result.respData.equityVoPageInfo.list
+			// 		for (var i = 0; i < 5; i++) {
+			// 			this.resPic[i] = this.res[i].storeImage.split(',')[0]
+			// 		}
+			// 		console.log(this.resPic, "22222222")
+			// 	}
+			// }
 		},
 		components: {
-			uniSearchBar,
 			uniGrid,
 			uniGridItem,
-			indexSwiper
+			uniSwiperDot
+
 		}
 	}
 </script>
@@ -183,7 +239,7 @@
 <style lang="scss">
 	.home {
 		swiper {
-			height: 450rpx;
+			height: 572rpx;
 
 			image {
 				width: 750rpx;
@@ -191,7 +247,21 @@
 			}
 
 		}
-
+		.search{
+			margin-top: 10rpx;
+			width: 700rpx;
+			height: 100rpx;
+			line-height: 100rpx;
+			border:1px solid white;
+			outline: none;
+			outline-color: #FFFFFF;
+			border-radius: 35rpx;
+			background-color: #FFFFFF;
+			color: #9d9d9d;
+			position: absolute;
+			margin-left:25rpx;
+			top:410rpx;
+		}
 		.uni-grid-item {
 			text-align: center;
 
@@ -227,8 +297,38 @@
 			position: fixed;
 			top: 950rpx;
 			left: 570rpx;
+			z-index: 999;
 		}
+		.words{
+			.words-up{
+				display: block;
+				text-align: left;
+				padding-left: 30rpx;
+				margin-top: 30rpx;
+				margin-bottom: 7rpx;
+				color: #ec7041;
+				font-weight: 700;
+			}
+			.words-down{
+				display: block;
+				text-align: left;
+				padding-left: 30rpx;
+				margin-bottom: 10rpx;
+				color: #9b9b9b;
+				font-size: 25rpx;
+			}
+		}
+		.downSwiper {
+			swiper {
+				height: 380rpx;
 
+				image {
+					width: 750rpx;
+
+				}
+
+			}
+		}
 
 	}
 </style>
