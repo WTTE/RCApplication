@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view @click="getNewsDetail">
+		<view @click="getNewsDetail" class="container">
 			<!-- #ifdef MP-WEIXIN -->
 			<rich-text :nodes="content"></rich-text>
 			<!-- #endif -->
@@ -49,5 +49,9 @@
 </script>
 
 <style>
-
+	.container{
+		padding: 70rpx 20rpx;
+		font-size: 30rpx;
+		color: #636363;
+			}
 </style>

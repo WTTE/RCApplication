@@ -131,7 +131,7 @@
 				userinfo: {}
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			options.userInfo && (this.userInfo = JSON.parse(options.userInfo))	
 		},
 		methods: {
