@@ -1,20 +1,22 @@
 <template>
 
 	<view class="hot_goods">
-		<view class="buju">
-			<view class="zuixin" @click="chenked(1)">
-				<text class="wen">最新发布</text>
-			</view>
-			<view class="zuixin active">
-				|
-			</view>
-			<view class="zuixin" @click="chenked(2)">
-				<text class="ben">最多点赞</text>
+		
+		<view class="haha">
+			<view class="buju">
+				<view class="zuixin" @click="chenked(1)">
+					<text class="wen">最新发布</text>
+				</view>
+				<view class="zuixin active">
+					|
+				</view>
+				<view class="zuixin" @click="chenked(2)">
+					<text class="ben">最多点赞</text>
+				</view>
 			</view>
 		</view>
-		
 		<view v-if="isActive == 1" >
-			<Goods :res="res" :pageNum="pageNum"></Goods>
+			<Goods :arr="arr" :pageNum="pageNum"></Goods>
 		</view>
 		<view v-if="isActive == 2">
 			<Dianzan :msg="msg"></Dianzan>
@@ -46,13 +48,16 @@
 				msg: [],
 				flag: false,
 				pageNum: 1,
-				result: []
+				result: [],
+				arr:[]
 			}
 		},
 		onLoad() {
 			this.getList();
 			this.getLoods();
 		},
+		
+			
 		methods: {
 			chenked(type) {
 				this.isActive = type;
@@ -61,6 +66,7 @@
 			
 			
 			},
+			
 			async getList() {
 
 				let result = await myRequestPost("/sojo.order.evaluation.list.page", {
@@ -76,19 +82,36 @@
 					"timestamp": 1607427013000,
 
 				});
+				
                  // result.respData.list[1].storeName="既见桑梓特色度假酒店";
 				
 			// 	console.log(ab,"ssssssssssssssssssssssssssss")
 			// 	console.log(result,"llllllllllllllllll")
 			
 			// 	console.log(ab,"ppppppp")
-				this.res = [...this.res, ...result.respData.list]
+				// this.res = [...this.res, ...result.respData.list]
+				this.res = result.respData.list
 
 				console.log(this.res,"ffffffffffffffffffffffff");
-
+				this.getData();
+                console.log(this.arr,"wfffffffffffffffffffffffffffffffffwwwww")
 
 
 			},
+			getData() {
+							for (var i = 0; i < this.res.length; i++) {
+								var obj1={
+									arr1:[],
+									flg:false,
+									in:i
+								}
+								
+								obj1.arr1 = this.res[i]
+								this.arr.push(obj1)
+								
+							}
+							console.log(this.arr,"wwwwwwwwwwwwwwww")
+						},
 			async getLoods() {
 
 				let res = await myRequestPost("/sojo.order.evaluation.list.page", {
@@ -111,16 +134,13 @@
 				});
 
 				this.msg = [...this.msg, ...res.respData.list]
-				console.log(this.msg);
+				// console.log(this.msg);
 			},
 			
 
 		},
 		onReachBottom() {
 			this.pageNum++;
-			
-				
-			
 			if (this.pageNum <= 5) {
 				this.getLoods();
 				this.getList()
@@ -147,7 +167,7 @@
 			this.pageNum=1;
 			this.flag= false;
 			this.msg= [];
-			this.res= [];
+			this.arr= [];
 		    this.getList().then(()=>{
 				uni.stopPullDownRefresh()
 			});
@@ -167,7 +187,9 @@
 <style lang="scss">
 	.hot_goods {
 		background: #eee;
-
+         .haha{
+         	height: 56px;
+         	
 		.buju {
 			
 			display: flex;
@@ -176,8 +198,10 @@
 			
 			background-color: white;
 			margin-bottom: 10px;
-			position: sticky;
-			top: 0;
+			// position: sticky;
+			// top: 0;
+			position: fixed;
+			// top: 0;
 			z-index: 2;
 
 			.zuixin {
@@ -205,6 +229,8 @@
 			.active {
 				font-size: 10px;
 			}
+		}
+		
 		}
 		.gaodu{
 			margin-top: 20px;

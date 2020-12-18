@@ -1,41 +1,48 @@
 <template>
-	<view class="goods_list"  >
-		<view class="goods_item" v-for="(item,index) in res" :key="item.id" @click="itemchange(item)">
-			<view class="tianchong"><image :src="item.defaultImage" ></image></view>
-			<view :class="{xuanfu:isend==true}"><text class="fu">{{item.storeName}}</text></view>
+	<view class="goods_list">
+		<view class="goods_item" v-for="(item,index) in arr" :key="item.arr1.id" @click="itemchange(item)">
+			<view class="tianchong">
+				<image :src="item.arr1.defaultImage"></image>
+			</view>
+			<view :class="{xuanfu:isend==true}"><text class="fu">{{item.arr1.storeName}}</text></view>
 			<view class="price">
-				<text class="tex">{{item.evaluation}}</text>
+				<text class="tex">{{item.arr1.evaluation}}</text>
 			</view>
 			<view class="bao">
 				<view class="tupian">
-					<image :src="item.avatarLink" mode=""></image>
+					<image :src="item.arr1.avatarLink" mode=""></image>
 				</view>
 				<view class="info">
-					<text>{{item.nickname}}</text>
+					<text>{{item.arr1.nickname}}</text>
 				</view>
 				<!-- <view class="item" :class="{active:istrue==true}"  @click="ai(istrue)">❤</view> -->
 				<!-- <view class="item active">❤</view> -->
-				<view class="item" :class="{active:active==index}"  @click.stop="dianzan(item.id,index)">❤</view>
-				
-				
-				
+				<!-- <view class="item" :class="{active:active==index}" @click.stop="dianzan(item.id,index)">❤</view> -->
+				<view class="item" :style="item.flg?'color:red':''" @click.stop="addone(index)">❤</view>
+				<!-- <text @click.stop="addone(index)">{{item.arr1.id}}个收藏</text> -->
+
+
+
 			</view>
 		</view>
-		<view class="biji" @click="taobi">
-			<text>写笔记</text>
+		<view @click="send">
+			<view class="biji" @click="taobi">
+				<text>写笔记</text>
+			</view>
 		</view>
+
 	</view>
 </template>
 
 <script>
+	import uniIcons from "@/components/uni-ui/uni-icons/uni-icons.vue";
 	export default {
-		props: ['res', "pageNum"],
+		props: ['arr', "pageNum"],
 		data() {
 			return {
 				isend: true,
 				istrue: false,
 				active: [],
-				zanListId: []
 				
 			};
 		},
@@ -51,8 +58,11 @@
 			// },
 			itemchange(item) {
 				uni.navigateTo({
-					url: '/pages/finddetail/finddetail?id=' + item.id
+					url: '/pages/finddetail/finddetail?id=' + item.in
 				})
+			},
+			send() {
+				this.$emit("func", zanListId)
 			},
 			// ai(istrue) {
 			// 	if (istrue) {
@@ -63,31 +73,47 @@
 			// 	return false;
 			// },
 			// ai(item,index) {
-				
-					
+
+
 			// 		this.active = index;
-					
+
 			// 		console.log(this.active,"ggggggggggggggggggg");
-			
-				
+
+
 			// },
-			dianzan(id,index) {
-			      // let list = this.zanListId;
-				  console.log(this.zanListId)
-				  
-			      if (this.zanListId.indexOf(index) == -1) {
-			       
-					
-			        this.zanListId.push(index);
-					for(var i=0;i<zanListId.length;i++){
-						index = zanListId[i]
-					}
-					
-					}
-					
-				    
-			      
-			    },
+			// dianzan(id, index) {
+			// 	// let list = this.zanListId;
+			// 	console.log(this.zanListId)
+
+			// 	if (this.zanListId.indexOf(index) == -1) {
+
+
+			// 		this.zanListId.push(index);
+
+
+			// 	}
+
+
+
+			// },
+			addone(i) {
+							// console.log(e)
+							// console.log(i)
+							// console.log(item)
+							//console.log(this.arr[i].arr1)
+							// console.log(this.newsList)
+							if (i  == this.arr[i].in) {
+								
+								if(this.arr[i].flg==false){
+									// this.arr[i].arr1.id = this.arr[i].arr1.id + 1
+									this.arr[i].flg = true
+								}else{
+									// this.arr[i].arr1.id = this.arr[i].arr1.id - 1
+									this.arr[i].flag = false
+								}
+								
+							}
+						},
 			taobi() {
 				uni.navigateTo({
 					url: '/pages/biji/biji'
@@ -110,23 +136,25 @@
 			width: 355rpx;
 			margin-bottom: 20rpx;
 			background: #fff;
-			
+
 			box-sizing: border-box;
-			.tianchong{
+
+			.tianchong {
 				background: #eee;
+
 				image {
 					width: 100%;
 					height: 180px;
-					border-top-left-radius:5px;
-					border-top-right-radius:5px;
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
 					width: 100%;
 					mix-width: 330rpx;
 					margin: 0 0;
 				}
-				
+
 			}
 
-			
+
 			.xuanfu {
 				position: absolute;
 				left: 10px;
@@ -140,8 +168,8 @@
 
 				text {
 					line-height: 20px;
-					
-					
+
+
 					color: white;
 				}
 			}
@@ -204,15 +232,16 @@
 					line-height: 20px;
 				}
 
-				.active{
-					color : red;
-					
-				} 
-				.act{
+				.active {
+					color: red;
+
+				}
+
+				.act {
 					color: blue;
 				}
-			
-				
+
+
 			}
 
 		}
