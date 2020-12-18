@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="body">
+		<view class="body" @click="hotel(res)">
 			<swiper indicator-dots :autoplay="true" :interval="4500" circular>
 				<swiper-item v-for="item in res.storeImage.split(',')" :key="item">
 					<image :src="item" mode="widthFix"></image>
@@ -31,7 +31,12 @@
 		},
 
 		methods: {
-
+			hotel(res) {
+				uni.navigateTo({
+					url: "/pages/hotelDetails/hotelDetails?storeNo=" + res.storeNo,
+				});
+			
+			}
 		}
 	}
 </script>

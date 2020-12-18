@@ -28,11 +28,6 @@
 			}
 		},
 		methods: {
-			// goto(url) {
-			// 	uni.navigateTo({
-			// 		url: url
-			// 	})
-			// }
 			tan(){
 				uni.showToast({
 				    title: '开通成功',

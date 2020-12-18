@@ -41,28 +41,22 @@
 		<!-- 文字部分 -->
 		<view class="words">
 			<text class="words-up">最新上线</text>
-			<!-- <text class="words-down">空房预约，快速入住~</text> -->
 			<uni-notice-bar scrollable="true" single="true" text="全国酒店 , 空房预约 , 现在下单 , 即刻入住 ~"></uni-notice-bar>
 			
 		</view>
 
-		<!-- 轮播图部分 -->
-		<!-- <view class="downSwiper">
-			<uni-swiper-dot :info="info" :current="current" :mode="nav" :dots-styles="dotsStyles" field="content">
-				<swiper class="swiper-box" @change="change">
-					<swiper-item v-for="(item, index) in info" :key="index">
-						<view :class="item.colorClass" class="swiper-item">
-							<image class="image" :src="item.url" mode="aspectFill" />
-						</view>
-					</swiper-item>
-				</swiper>
-			</uni-swiper-dot>
-		</view> -->
-
-
 		<!-- 底部子组件板块 -->
-
-	</view>
+		<view>
+			<Preferent></Preferent>
+			<Search :cityCode="cityCode" @func="receive"></Search>
+			<view v-for="item in res.length" :key="item">
+				<Suzhou :res="res[item]" :pageNum="pageNum" :cityCode="cityCode"></Suzhou>
+			</view>
+			<uni-load-more v-if="!flag" :status="'loading'"></uni-load-more>
+			<uni-load-more v-else :status="'noMore'"></uni-load-more>
+		</view>
+		
+	</view>	
 </template>
 
 <script>
@@ -71,36 +65,20 @@
 	import uniGridItem from "@/components/uni-ui/uni-grid-item/uni-grid-item.vue"
 	import uniSwiperDot from "@/components/uni-ui/uni-swiper-dot/uni-swiper-dot.vue"
 	import uniNoticeBar from '@/components/uni-ui/uni-notice-bar/uni-notice-bar.vue'
-	// import {
-	// 	myRequestPost
-	// } from '@/utils/zgrequest.js'
+	import Search from '@/components/search/search.vue'
+	import Preferent from '@/components/preferent/preferent.vue'
+	import Suzhou from '@/components/suzhou/suzhou.vue'
+	import uniLoadMore from "@/components/uni-ui/uni-load-more/uni-load-more.vue"
+	import {
+		myRequestPost
+	} from "@/utils/zgrequest.js"
 	export default {
 		data() {
 			return {
-				// resPic: [],
-				// info: [{
-				// 	index: 0,
-				// 	url: "https://image.ructrip.com/ructrip/1608023690656/DSC_9499-1.jpg",
-				// 	content: '1/5'
-				// }, {
-				// 	index: 1,
-				// 	url: "https://image.ructrip.com/ructrip/1608014044445/DSC_0172-1.jpg",
-				// 	content: '2/5'
-				// }, {
-				// 	index: 2,
-				// 	url: "https://image.ructrip.com/ructrip/1607949042234/封一.jpg",
-				// 	content: '3/5'
-				// }, {
-				// 	index: 3,
-				// 	url: "https://image.ructrip.com/ructrip/1607516137549/1601154983921.jpg",
-				// 	content: '4/5'
-				// }, {
-				// 	index: 4,
-				// 	url: "https://image.ructrip.com/ructrip/1607426919075/封一.jpg",
-				// 	content: '5/5'
-				// }],
-				// current: 0,
-				// mode: 'round',
+				pageNum: 1,
+				cityCode: "",
+				res: [],
+				flag: false,
 				swipers: [{
 						id: 0,
 						pics: "https://image.ructrip.com/ructrip/1607437690458/NO46&47民宿上新banner-双十二  新版.jpg",
@@ -188,8 +166,8 @@
 				iconType: ['success']
 			}
 		},
-		onLoad(options) {
-			// this.getindexSwiper()
+		onLoad() {
+			this.getword();
 		},
 		methods: {
 			search() {
@@ -217,31 +195,82 @@
 					url: "/pages/sleep/sleep"
 				})
 			},
-			// async getindexSwiper() {
-			// 	let result = await myRequestPost("/sojo.equity.store.anniversary.store.list", {
-			// 		"pageNum": 1,
-			// 		"pageSize": 5,
-			// 		"client": "applets",
-			// 		"mobileBrand": "microsoft",
-			// 		"mobileModel": "microsoft",
-			// 		"osVersion": "Windows 10 x64",
-			// 		"timestamp": 1608125706000,
-			// 		"sign": "BF47BC48F1B83C4DCAD24FCA56ED3177"
-			// 	});
-			// 	if (result.respCode === "00") {
-			// 		this.res = result.respData.equityVoPageInfo.list
-			// 		for (var i = 0; i < 5; i++) {
-			// 			this.resPic[i] = this.res[i].storeImage.split(',')[0]
-			// 		}
-			// 		console.log(this.resPic, "22222222")
-			// 	}
-			// }
+			receive(code) {
+				console.log(code, "999999999")
+				this.cityCode = code;
+			
+				this.pageNum = 1;
+				this.res = [];
+				this.getword()
+			},
+			async getword() {
+				let result = await myRequestPost("/sojo.equity.home.listIndexCityMenuRecommend", {
+					"pageNum": this.pageNum,
+					"pageSize": 3,
+					"cityCode": this.cityCode,
+					"platFrom": 10,
+					"memberCityCode": "320200",
+					"storeNoListStr": "",
+					"client": "applets",
+					"mobileBrand": "microsoft",
+					"mobileModel": "microsoft",
+					"osVersion": "Windows 10 x64",
+					"timestamp": 1608105167000,
+					"sign": "2BD4F2E388596CE4EB209B0C440BD3EF"
+				});
+				this.res = [...this.res, ...result.respData.list]
+				this.page=result.respData.pages
+				this.res = this.res.filter(item=>{
+					if(item.storeImage){
+						return item;
+					}
+				})
+				
+			},
+			onReachBottom() {
+				this.pageNum++;
+				if (this.pageNum <= this.page) {
+					this.getword();
+			
+			
+				} else {
+					//没有更多数据了item.length
+					this.flag = true;
+				}
+				/* switch (){
+					
+				} */
+			},
+			
+			onPullDownRefresh() {
+				uni.showNavigationBarLoading(); //在标题栏中显示加载图标
+				uni.request({
+					url: 'https://capi.ructrip.com/sojo.equity.home.listIndexCityMenuRecommend',
+					method: 'POST',
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {},
+					success: function(res) {
+						
+					},
+					fail: function(res) {},
+					complete: function(res) {
+						uni.hideNavigationBarLoading(); //完成停止加载图标
+						uni.stopPullDownRefresh();
+					}
+				})
+			}
 		},
 		components: {
 			uniGrid,
 			uniGridItem,
 			uniSwiperDot,
-			uniNoticeBar
+			uniNoticeBar,
+			Search,
+			Preferent,
+			Suzhou,
+			uniLoadMore
 
 		}
 	}

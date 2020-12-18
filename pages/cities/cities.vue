@@ -42,9 +42,9 @@
 
 <style lang="less">
 	.imageFather{
-		padding: 0 25rpx;
+		padding: 0 35rpx;
 		image{
-			width: 700rpx;
+			width: 680rpx;
 			margin-bottom: 20rpx;
 			
 		}

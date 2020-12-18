@@ -130,12 +130,66 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "搜索",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/citiesList/citiesList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
-            "path" : "pages/searchCities/searchCities",
+            "path" : "pages/hotelDetails/hotelDetails",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/trafficGuidance/trafficGuidance",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/map/map",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/viewAllphotos/viewAllphotos",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/toViewmore/toViewmore",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/viewDetails/viewDetails",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
