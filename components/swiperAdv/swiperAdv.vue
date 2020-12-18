@@ -41,7 +41,6 @@
 		// background-color: #000000;
 		padding: 0 35rpx;
 		margin-bottom: 25rpx;
-		margin-top: 15rpx;
 		swiper {
 			height: 380rpx;
 

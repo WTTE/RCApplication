@@ -102,7 +102,7 @@
             "path" : "pages/questions/questions",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "常见问题",
                 "enablePullDownRefresh": false
             }
             
@@ -111,7 +111,7 @@
             "path" : "pages/sleep/sleep",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "试睡专区",
                 "enablePullDownRefresh": false
             }
             
@@ -120,13 +120,22 @@
             "path" : "pages/winter/winter",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "冬季福利",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
             "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/searchCities/searchCities",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

@@ -35,6 +35,7 @@
 
 <script>
 	import uniCountdown from '@/components/uni-ui/uni-countdown/uni-countdown.vue'
+
 	export default {
 		data() {
 			return {
@@ -58,6 +59,7 @@
 		},
 		components: {
 			uniCountdown
+			
 
 		}
 	}
@@ -118,7 +120,7 @@
 					display: inline-block;
 					width: 300rpx;
 					height: 100rpx;
-					
+					margin-top: 3rpx;
 					float: left;
 				}
 			}

@@ -8,8 +8,14 @@
 		</swiper>
 
 		<!-- 搜索框 -->
-		<button @click="search" class="search">根据城市/出行日程进行搜索</button>
-		
+		<button @click="search" class="search">
+			<text class="country">全国</text>
+			<text class="icon1 icon-jiantou9 iconfont"></text>
+			<text class="line">|</text>
+			根据城市/出行日程进行搜索
+			<text class="icon2 icon-sousuo iconfont"></text>
+		</button>
+
 		<!-- nav板块 -->
 		<uni-grid :column="4" :highlight="false" :showBorder="false">
 			<uni-grid-item v-for="item in navs" :key="item.title">
@@ -35,7 +41,9 @@
 		<!-- 文字部分 -->
 		<view class="words">
 			<text class="words-up">最新上线</text>
-			<text class="words-down">空房预约，快速入住~</text>
+			<!-- <text class="words-down">空房预约，快速入住~</text> -->
+			<uni-notice-bar scrollable="true" single="true" text="全国酒店 , 空房预约 , 现在下单 , 即刻入住 ~"></uni-notice-bar>
+			
 		</view>
 
 		<!-- 轮播图部分 -->
@@ -53,7 +61,7 @@
 
 
 		<!-- 底部子组件板块 -->
-		
+
 	</view>
 </template>
 
@@ -62,6 +70,7 @@
 	import uniGrid from "@/components/uni-ui/uni-grid/uni-grid.vue"
 	import uniGridItem from "@/components/uni-ui/uni-grid-item/uni-grid-item.vue"
 	import uniSwiperDot from "@/components/uni-ui/uni-swiper-dot/uni-swiper-dot.vue"
+	import uniNoticeBar from '@/components/uni-ui/uni-notice-bar/uni-notice-bar.vue'
 	// import {
 	// 	myRequestPost
 	// } from '@/utils/zgrequest.js'
@@ -69,29 +78,29 @@
 		data() {
 			return {
 				// resPic: [],
-				info: [{
-					index: 0,
-					url: "https://image.ructrip.com/ructrip/1608023690656/DSC_9499-1.jpg",
-					content: '1/5'
-				}, {
-					index: 1,
-					url: "https://image.ructrip.com/ructrip/1608014044445/DSC_0172-1.jpg",
-					content: '2/5'
-				}, {
-					index: 2,
-					url: "https://image.ructrip.com/ructrip/1607949042234/封一.jpg",
-					content: '3/5'
-				}, {
-					index: 3,
-					url: "https://image.ructrip.com/ructrip/1607516137549/1601154983921.jpg",
-					content: '4/5'
-				}, {
-					index: 4,
-					url: "https://image.ructrip.com/ructrip/1607426919075/封一.jpg",
-					content: '5/5'
-				}],
-				current: 0,
-				mode: 'round',
+				// info: [{
+				// 	index: 0,
+				// 	url: "https://image.ructrip.com/ructrip/1608023690656/DSC_9499-1.jpg",
+				// 	content: '1/5'
+				// }, {
+				// 	index: 1,
+				// 	url: "https://image.ructrip.com/ructrip/1608014044445/DSC_0172-1.jpg",
+				// 	content: '2/5'
+				// }, {
+				// 	index: 2,
+				// 	url: "https://image.ructrip.com/ructrip/1607949042234/封一.jpg",
+				// 	content: '3/5'
+				// }, {
+				// 	index: 3,
+				// 	url: "https://image.ructrip.com/ructrip/1607516137549/1601154983921.jpg",
+				// 	content: '4/5'
+				// }, {
+				// 	index: 4,
+				// 	url: "https://image.ructrip.com/ructrip/1607426919075/封一.jpg",
+				// 	content: '5/5'
+				// }],
+				// current: 0,
+				// mode: 'round',
 				swipers: [{
 						id: 0,
 						pics: "https://image.ructrip.com/ructrip/1607437690458/NO46&47民宿上新banner-双十二  新版.jpg",
@@ -175,14 +184,15 @@
 					"https://image.ructrip.com/ructrip/1607513447380/双十二.jpg"
 				],
 				floatTip: "https://image.ructrip.com/ructrip/1603255818332/首页浮标1.png",
-				sleep: "https://image.ructrip.com/ructrip/1607512681756/试睡专区通栏.jpg"
+				sleep: "https://image.ructrip.com/ructrip/1607512681756/试睡专区通栏.jpg",
+				iconType: ['success']
 			}
 		},
 		onLoad(options) {
 			// this.getindexSwiper()
 		},
 		methods: {
-			search(){
+			search() {
 				uni.navigateTo({
 					url: "/pages/search/search"
 				})
@@ -230,7 +240,8 @@
 		components: {
 			uniGrid,
 			uniGridItem,
-			uniSwiperDot
+			uniSwiperDot,
+			uniNoticeBar
 
 		}
 	}
@@ -247,21 +258,41 @@
 			}
 
 		}
-		.search{
+
+		.search {
 			margin-top: 10rpx;
-			width: 700rpx;
+			width: 680rpx;
 			height: 100rpx;
 			line-height: 100rpx;
-			border:1px solid white;
-			outline: none;
-			outline-color: #FFFFFF;
-			border-radius: 35rpx;
+			border-radius: 45rpx;
 			background-color: #FFFFFF;
 			color: #9d9d9d;
 			position: absolute;
-			margin-left:25rpx;
-			top:410rpx;
+			margin-left: 35rpx;
+			top: 410rpx;
+			font-size: 28rpx;
+			.country {
+				font-size: 34rpx;
+				font-weight: 600;
+				color: #4a4a4a;
+				margin-right: 25rpx;
+			}
+			.icon1{
+				font-size: 25rpx;
+				color: #b1b1b1;
+				margin-right: 15rpx;
+			}
+			.icon2 {
+				font-size: 33rpx;
+				margin-left: 10rpx;
+				color: #fd885d;
+			}
+
+			.line {
+				margin: 0 10rpx;
+			}
 		}
+
 		.uni-grid-item {
 			text-align: center;
 
@@ -299,8 +330,9 @@
 			left: 570rpx;
 			z-index: 999;
 		}
-		.words{
-			.words-up{
+
+		.words {
+			.words-up {
 				display: block;
 				text-align: left;
 				padding-left: 30rpx;
@@ -309,7 +341,8 @@
 				color: #ec7041;
 				font-weight: 700;
 			}
-			.words-down{
+
+			.words-down {
 				display: block;
 				text-align: left;
 				padding-left: 30rpx;
@@ -318,6 +351,7 @@
 				font-size: 25rpx;
 			}
 		}
+
 		.downSwiper {
 			swiper {
 				height: 380rpx;
