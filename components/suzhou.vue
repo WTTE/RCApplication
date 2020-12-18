@@ -19,7 +19,7 @@
 			<view class="title">
 				{{res.subTitle}}
 			</view>
-			<view class="name">
+			<view class="word1">
 				<text>{{res.storeName}}</text>
 				<text>特色度假酒店</text>
 			</view>
@@ -33,14 +33,15 @@
 		myRequestPost
 	} from "@/utils/request.js"
 	export default {
-		props: ['res', 'pageNum', 'cityCode'],
+		props: ['res'],
 		data() {
 			return {
-				storeNo:""
+				storeImage:[]
 			}
 		},
 
 		methods: {
+
 			hotel(res) {
 				uni.navigateTo({
 					url: "/pages/hotelDetails/hotelDetails?storeNo=" + res.storeNo,
@@ -58,7 +59,7 @@
 		width: 93%;
 		margin: auto;
 		margin-top: 30rpx;
-		border: 2rpx solid #eeee;
+		border: 2rpx solid #EEEEEE;
 
 		.content1 {
 			height: 440rpx;
@@ -76,31 +77,34 @@
 		}
 
 		.word {
-
+			margin-top: -20rpx;
 			margin-left: 20rpx;
 
 			.laber {
-				opacity: 0.8;
+				
 				display: flex;
 
 				.reserve {
-					color: orangered;
+					color: #ff6c36;
+					background-color:#fff6f3 ;
 				}
 
 				text {
+					overflow: hidden;
+					white-space: nowrap;
+					color: #777777;
+					padding: 5rpx;
 					display: block;
-
-
-					font-size: 15rpx;
-					background-color: #eee;
+					font-size: 25rpx;
+					background-color: #f8f8f7;
 					margin-right: 8rpx;
 
 				}
 			}
 
 			.title {
-				opacity: 0.8;
-				margin-top: 30rpx;
+				color: #00004f;
+				margin-top: 20rpx;
 				display: block;
 				font-size: 42rpx;
 				font-weight: 300;
@@ -108,13 +112,13 @@
 			}
 		}
 
-		.name {
+		.word1 {
 			display: flex;
-			opacity: 0.5;
 
 			text {
+				color: #b7b7b7;
 				display: block;
-				margin-bottom: 30rpx;
+				margin-bottom: 40rpx;
 			}
 		}
 	}

@@ -25,12 +25,14 @@
 			}
 		},
 		onLoad(options) {
+			this.storeNo=options.storeNo
+			
 			this.getPicture()
 		},
 		methods: {
 			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.store.detail.v.two", {
-					"storeNo": "401000002719",
+					"storeNo": this.storeNo,
 					"client": "applets",
 					"mobileBrand": "microsoft",
 					"mobileModel": "microsoft",
@@ -38,8 +40,8 @@
 					"timestamp": 1607425661000,
 					"sign": "53E5E8A53FCC179B1006E2A61F2D6A8E"
 				});
-				console.log(this.enterNotice)
 				this.enterNotice = result.respData.enterNotice
+				console.log(this.enterNotice)
 			}
 		}
 	}

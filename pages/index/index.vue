@@ -2,7 +2,7 @@
 	<view class="home">
 		<Preferent></Preferent>
 		<Search :cityCode="cityCode" @func="receive"></Search>
-		<view  v-for="item in res.length" :key="item">
+		<view v-for="item in res.length" :key="item">
 			<Suzhou :res="res[item]" :pageNum="pageNum" :cityCode="cityCode"></Suzhou>
 		</view>
 		<uni-load-more v-if="!flag" :status="'loading'"></uni-load-more>
@@ -11,9 +11,9 @@
 </template>
 
 <script>
-	import Search from '../../components/search.vue'
-	import Preferent from '../../components/preferent.vue'
-	import Suzhou from '../../components/suzhou.vue'
+	import Search from '@/components/search.vue'
+	import Preferent from '@/components/preferent.vue'
+	import Suzhou from '@/components/suzhou.vue'
 	import uniLoadMore from "@/components/uni-ui/uni-load-more/uni-load-more.vue"
 	import {
 		myRequestPost
@@ -26,12 +26,13 @@
 		},
 		data() {
 			return {
-				
+
 				res: [],
 				flag: false,
 				pageNum: 1,
 				pageSize: 6,
 				cityCode: "",
+				storeImage: []
 
 			}
 		},
@@ -69,23 +70,30 @@
 					"sign": "2BD4F2E388596CE4EB209B0C440BD3EF"
 				});
 				this.res = [...this.res, ...result.respData.list]
+				
+				this.res = this.res.filter(item=>{
+					if(item.storeImage){
+						return item;
+					}
+				})
+				
 				/* list.filter(result.respData.list.item.storeImage =>{
 					return result.respData.list.item.storeImage != null;
 				}) */
-				if(result.respData.list.item.storeImage != null){
-					return res;
-				}
-				
-				console.log(this.res, "11111111")
-				// console.log(this.res[0].storeImage)
-				/* console.log(this.res[0], "0000000000") */
+				// var resp = this.res
+				// if (result.respData.list.item.storeImage != null) {
+				// 	return resp;
+
+				// }
+				// console.log(this.res, "11111111")
+
 
 			},
-			
+
 
 			onReachBottom() {
 				this.pageNum++;
-				if (this.pageNum <= 10) {
+				if (this.pageNum <= 30) {
 					this.getword();
 
 
@@ -97,7 +105,29 @@
 					
 				} */
 			},
-		}
+
+			onPullDownRefresh() {
+				uni.showNavigationBarLoading(); //在标题栏中显示加载图标
+				uni.request({
+					url: 'https://capi.ructrip.com/sojo.equity.home.listIndexCityMenuRecommend',
+					method: 'POST',
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {},
+					success: function(res) {
+						
+					},
+					fail: function(res) {},
+					complete: function(res) {
+						uni.hideNavigationBarLoading(); //完成停止加载图标
+						uni.stopPullDownRefresh();
+					}
+				})
+			}
+
+		},
+
 	}
 </script>
 

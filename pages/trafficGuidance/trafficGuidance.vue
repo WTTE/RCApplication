@@ -9,6 +9,7 @@
 </template>
 
 <script>
+	
 	import {
 		myRequestPost
 	} from '@/utils/zgrequest.js'
@@ -16,15 +17,19 @@
 		data() {
 			return {
 				trafficGuide: [],
+				storeNo:""
 			}
 		},
 		onLoad(options) {
+			this.storeNo=options.storeNo;
+			console.log(options.storeNo)
+			console.log(this.storeNo,"44444444")
 			this.getPicture()
 		},
 		methods: {
 			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.store.detail.v.two", {
-					"storeNo": "401000002719",
+					"storeNo": this.storeNo,
 					"client": "applets",
 					"mobileBrand": "microsoft",
 					"mobileModel": "microsoft",

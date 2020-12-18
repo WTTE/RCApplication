@@ -22,12 +22,13 @@
 			}
 		},
 		onLoad(options) {
+			this.storeNo=options.storeNo
 			this.getPicture()
 		},
 		methods: {
 			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.store.detail.v.two", {
-					"storeNo": "401000002719",
+					"storeNo": this.storeNo,
 					"client": "applets",
 					"mobileBrand": "microsoft",
 					"mobileModel": "microsoft",

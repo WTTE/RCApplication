@@ -1,10 +1,10 @@
 <template>
 	<view class="searchall">
-		<swiper :interval="4500">
+		<swiper :interval="2000">
 			<swiper-item>
 				<text class="search" @click="change1()">推荐</text>
 				<text class="search" @click="change2()">无锡</text>
-				<text class="search" @click="change4()">苏州</text>
+				<text class="search" @click="change3()">苏州</text>
 				<text class="search" @click="change4()">湖州</text>
 				<text class="search" @click="change5()">常州</text>
 			</swiper-item>
@@ -31,7 +31,10 @@
 		methods:{
 			change1(){
 				var code=320200
-				this.$emit("func",code)
+				this.$emit("func",code);
+				
+				
+				
 			},
 			change2(){
 				var code= 320200
