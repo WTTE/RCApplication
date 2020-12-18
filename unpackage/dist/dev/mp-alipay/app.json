@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/find/find",
+    "pages/cart/cart",
+    "pages/map/map",
+    "pages/mine/mine",
+    "pages/hotelDetails/hotelDetails",
+    "pages/trafficGuidance/trafficGuidance",
+    "pages/viewAllphotos/viewAllphotos",
+    "pages/toViewmore/toViewmore",
+    "pages/viewDetails/viewDetails"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "首页",
+    "titleBarColor": "#1989fa",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/icons/首页.png",
+        "activeIcon": "static/icons/首页 (2).png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "name": "发现",
+        "icon": "static/icons/发现.png",
+        "activeIcon": "static/icons/发现 (1).png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "name": "订单",
+        "icon": "static/icons/订单.png",
+        "activeIcon": "static/icons/订单 (1).png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "static/icons/我的.png",
+        "activeIcon": "static/icons/我的 (1).png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

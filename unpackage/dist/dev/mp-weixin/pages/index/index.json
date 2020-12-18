@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "search": "/components/search",
+    "preferent": "/components/preferent",
+    "suzhou": "/components/suzhou"
+  }
+}

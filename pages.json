@@ -3,7 +3,8 @@
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh": false
+				"onReachBottomDistance": 50,
+				"enablePullDownRefresh": true
 			}
 		}, {
 			"path": "pages/find/find",
@@ -20,6 +21,13 @@
 			}
 
 		}, {
+			"path": "pages/map/map",
+			"style": {
+				"navigationBarTitleText": "地图",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
 			"path": "pages/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
@@ -29,56 +37,41 @@
 		}, {
 			"path": "pages/hotelDetails/hotelDetails",
 			"style": {
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "酒店详情",
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8"
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
-		}, {
-			"path": "pages/viewAllphotos/viewAllphotos",
-			"style": {
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": ""
-			}
-		}, {
-			"path": "pages/toViewmore/toViewmore",
-			"style": {
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": ""
-			}
-		}
 
-		, {
-			"path": "pages/viewDetails/viewDetails",
-			"style": {
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": ""
-			}
 		}, {
 			"path": "pages/trafficGuidance/trafficGuidance",
 			"style": {
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "交通指南",
+				"enablePullDownRefresh": false
 			}
+
+		}, {
+			"path": "pages/viewAllphotos/viewAllphotos",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/toViewmore/toViewmore",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/viewDetails/viewDetails",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/map/map",
-            "style" : {
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": ""
-			}
-        }
-    ],
+
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",

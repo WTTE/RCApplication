@@ -1,0 +1,1 @@
+<view class="content"><view class="respData" a:for="{{respData}}" a:for-item="item" a:for-index="__i0__" a:key="moduleId"><view class="title">{{''+item.title+''}}</view><view class="picture"><view a:for="{{item.storeModuleImageVos}}" a:for-item="item2" a:for-index="__i1__"><image src="{{item2.imageUrl}}" mode="widthFix"></image></view></view></view></view>

@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content .picture {
+  width: 100%;
+}
+.content .picture image {
+  width: 100%;
+}
+.content .all {
+  width: 100%;
+  height: 3400rpx;
+  -webkit-border-top-right-radius: 10rpx;
+          border-top-right-radius: 10rpx;
+  -webkit-border-top-left-radius: 10rpx;
+          border-top-left-radius: 10rpx;
+}
+.content .all .sellingLabel {
+  margin-top: 60rpx;
+  /* margin-left: 40rpx; */
+  margin-left: 40rpx;
+  font-size: 25rpx;
+  font-weight: 200;
+  line-height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  z-index: 1000;
+}
+.content .all .sellingLabel .xing {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 150rpx;
+}
+.content .all .sellingLabel .fen {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 50rpx;
+}
+.content .all .subTitle {
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  font-weight: 300;
+}
+.content .all .ab {
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  height: 130rpx;
+  background-color: #f8f7f9;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 40rpx;
+}
+.content .all .ab .storeName {
+  margin-top: 5px;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 30rpx;
+  font-weight: 300;
+  line-height: 45px;
+}
+.content .all .ab .storeName .area {
+  margin-top: -40rpx;
+  font-size: 16rpx;
+  font-weight: 100;
+}
+.content .all .ab .storeName .area .ke {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 65rpx;
+  top: 930rpx;
+  /* margin-left: 170rpx;
+						float: right;
+						right: 30rpx; */
+  /* bottom: 100rpx; */
+}
+.content .all .huiyuan {
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.content .all .jiaotong {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #0399d4;
+}
+.content .all .canguan {
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  font-weight: 600;
+  color: #595959;
+}
+.content .all .storeModuleInageVos {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+}
+.content .all .storeModuleInageVos .san {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+}
+.content .all .storeModuleInageVos image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 20rpx;
+}
+.content .all .storeModuleInageVos .gongqu {
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-weight: 200;
+}
+.content .all .cakan {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  color: #0399d4;
+}
+.content .all .attractionsImage {
+  text-align: center;
+  margin-top: 40rpx;
+}
+.content .all .attractionsImage image {
+  height: 400rpx;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+}
+.content .all .attractionsTitle {
+  font-size: 29rpx;
+  font-weight: 300;
+  margin-top: 40rpx;
+  margin-left: 35rpx;
+  margin-right: 30rpx;
+}
+.content .all .youwan {
+  margin-top: 100rpx;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  font-weight: 600;
+  color: #595959;
+}
+.content .all .gengduo {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  color: #0399d4;
+}
+.content .all .dingfang {
+  margin-top: 100rpx;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  font-weight: 600;
+  color: #595959;
+}
+.content .all .enterNoticeSubTitle {
+  font-size: 29rpx;
+  font-weight: 300;
+  /* text-align: center; */
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  margin-right: 30rpx;
+}
+.content .all .xiangqing {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  color: #0399d4;
+}
+.content .all .ruzhu {
+  margin-top: 100rpx;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  font-weight: 600;
+  color: #595959;
+}
+.content .all .defaultImage {
+  margin-top: 20rpx;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+}
+.content .all .defaultImage image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 20rpx;
+}
+.content .all .zz {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 15rpx;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  overflow: hidden;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.content .all .zz .dddd {
+  width: 355rpx;
+  margin-bottom: 15rpx;
+  background: #fff;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.content .all .zz .dddd image {
+  height: 150px;
+  width: 150px;
+  mix-width: 160px;
+  margin: 0px auto;
+  margin-left: 0px;
+}
+.content .all .zz .title {
+  /* margin-top: 30rpx; */
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-weight: 100;
+  color: #ccc;
+  float: left;
+}
+.content .all .zz .nickname {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-weight: 100;
+  color: #ccc;
+  float: left;
+}
+.content .all .quanbu {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  color: #0399d4;
+}
+

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "首页",
+  "pullRefresh": true,
+  "usingComponents": {
+    "search": "/components/search",
+    "preferent": "/components/preferent",
+    "suzhou": "/components/suzhou"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="all"><view class="content"><rich-text nodes="{{attractionsNearby}}" aline="center"></rich-text></view></view>

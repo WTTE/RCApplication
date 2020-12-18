@@ -1,0 +1,16 @@
+
+.content{
+	height: 100rpx;
+	width: 95%;
+	margin: auto;
+}
+.word{
+	font-size: 40rpx;
+	margin-bottom:15rpx;
+	opacity: 0.9;
+}
+.word1{
+	opacity: 0.6;
+}
+
+
