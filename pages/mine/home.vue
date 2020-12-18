@@ -15,7 +15,7 @@
 	import coupon from '@/components/coolc-coupon/coolc-coupon';
 	export default {
 		components: {
-			coupon
+			coupon 
 		},
 		data(){
 			return {

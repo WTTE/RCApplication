@@ -27,7 +27,7 @@
 			no() {
 				uni.showToast({
 					title: '此功能暂未开通',
-					duration: 1000,
+					duration: 1000, 
 					icon:'none'
 				});
 			},

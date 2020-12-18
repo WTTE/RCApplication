@@ -14,7 +14,7 @@ export function myRequestPost(url,data){
 				resolve(res.data)
 			},
 			fail:function(err){
-				reject(err)
+				reject(err) 
 			}
 		})
 	})
