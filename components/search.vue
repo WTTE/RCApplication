@@ -32,9 +32,7 @@
 			change1(){
 				var code=320200
 				this.$emit("func",code);
-				
-				
-				
+				this.flag = !this.flag;
 			},
 			change2(){
 				var code= 320200

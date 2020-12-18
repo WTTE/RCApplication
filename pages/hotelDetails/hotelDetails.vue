@@ -84,7 +84,7 @@
 					{{item.nickname}}
 				</view>
 			</view>
-			
+
 			<view class="quanbu">
 				查看全部
 			</view>
@@ -376,7 +376,7 @@
 			.attractionsTitle {
 				font-size: 29rpx;
 				font-weight: 300;
-				
+
 				margin-top: 40rpx;
 				margin-left: 35rpx;
 				margin-right: 30rpx;
@@ -425,21 +425,15 @@
 				font-size: 45rpx;
 				font-weight: 600;
 			}
-			.ruzhu1{
-				width: 300rpx;
-				height: 400rpx;
-				border: 1rpx solid #EEEEEE;
-				margin-top: 20rpx;
-				margin-left: 50rpx;
-			}
-			
-
 			.defaultImage {
+				margin-top: 20rpx;
 				display: inline-flex;
 				flex-direction: row;
+
 				image {
 					width: 300rpx;
 					height: 300rpx;
+					margin-left: 50rpx;
 				}
 
 
