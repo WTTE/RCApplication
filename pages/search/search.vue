@@ -140,7 +140,7 @@
 			margin-left: 35rpx;
 			font-size: 28rpx;
 			position: relative;
-
+			padding-left: 30rpx;
 			.country {
 				font-size: 28rpx;
 				font-weight: 600;

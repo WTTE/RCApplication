@@ -17,6 +17,7 @@
 			<text class="icon2 icon-sousuo iconfont"></text>
 		</button>
 		<!-- #endif -->
+		
 		<!-- #ifdef MP-ALIPAY -->
 		<view class="searchAl" @click="search"><text class="icon3 icon-sousuo iconfont"></text></view>
 		<!-- #endif -->
