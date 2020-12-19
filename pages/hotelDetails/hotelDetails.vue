@@ -8,12 +8,12 @@
 			<!-- 分享、收藏、介绍 -->
 			<view class="sellingLabel">
 				<text>{{sellingLabel}}</text>
-				<!-- <uni-fav :checked="checked" @click="onClick"></uni-fav>
-				<uni-fav :checked="checked" class="favBtn" circle="true" bg-color="#dd524d" bg-color-checked="#007aff" @click="onClick"></uni-fav> -->
-				<!-- <image class="xing" src="../../images/五角星.png"></image>
-				<image class="fen" src="../../images/分享.png"></image> -->
-				<uni-icons class="xing" @click="zan" type="heart" size="25" :style="flag?'color:red':''"></uni-icons>
-				<uni-icons class="fen" type="redo" size="25" color="#636e72"></uni-icons>
+				<view class="xing">
+					<uni-icons  @click="zan" type="heart" size="25" :style="flag?'color:red':''"></uni-icons>
+				</view>
+				<view class="fen">
+					<uni-icons type="redo" size="25" color="#636e72"></uni-icons>
+				</view>
 			</view>
 			<!-- 宾馆名称 -->
 			<view class="subTitle">
@@ -102,12 +102,12 @@
 					</view>
 				</swiper-item>
 			</swiper> -->
-			<view class="ruzhu1">
-				<!-- <view class="defaultImage" v-for="item in defaultImageList" :key="item.storeNo">
+			<!-- <view class="ruzhu1">
+				<view class="defaultImage" v-for="item in defaultImageList" :key="item.storeNo">
 					<image :src="item.defaultImage"></image>
-				</view> -->
+				</view>
 
-			</view>
+			</view> -->
 
 			<!-- <view class="quanbu">
 				查看全部
@@ -139,6 +139,7 @@
 
 		data() {
 			return {
+				pics:"https://image.ructrip.com/ructrip/1608122201728/1204-未购卡-任享会员688+20天会期-通用通览.jpg",
 				flag: false,
 				res: "",
 				sellingLabel: {},
@@ -151,8 +152,8 @@
 				attractionsImage: "",
 				attractionsTitle: {},
 				enterNoticeSubTitle: {},
-				defaultImageList: [],
-				pics:"https://image.ructrip.com/ructrip/1608122201728/1204-未购卡-任享会员688+20天会期-通用通览.jpg"
+				defaultImageList: []
+
 			}
 		},
 		// components: {uniFav},
@@ -168,6 +169,11 @@
 			Suzhou
 		},
 		methods: {
+			goVip() {
+				uni.navigateTo({
+					url: "/pages/welfare/welfare"
+				})
+			},
 			zan() {
 				this.flag = !this.flag;
 				console.log(this.flag)
@@ -199,11 +205,6 @@
 					url: "/pages/viewDetails/viewDetails?storeNo=" + this.storeNo
 				});
 			},
-			goVip() {
-				uni.navigateTo({
-					url: "/pages/welfare/welfare"
-				})
-			},
 			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.store.detail.v.two", {
 					"storeNo": this.storeNo,
@@ -226,7 +227,7 @@
 				this.attractionsImage = result.respData.attractionsImage
 				this.attractionsTitle = result.respData.attractionsTitle
 				this.enterNoticeSubTitle = result.respData.enterNoticeSubTitle
-				console.log(this.res, "888888888888888888888888888");
+				// console.log(this.res, "888888888888888888888888888");
 			},
 			async getName() {
 				let result = await myRequestPost("/sojo.order.store.evaluation.list.es", {
@@ -243,7 +244,7 @@
 					"sign": "636A7A1B8055E3A979B9A941A18239F2"
 				});
 				this.defaultImageList = result.respData.list
-				console.log(this.defaultImageList, "111111111111111111111")
+				// console.log(this.defaultImageList, "111111111111111111111")
 
 			}
 		}
@@ -284,16 +285,16 @@
 				.xing {
 					width: 40px;
 					height: 40px;
-					position: absolute;
-					right: 150rpx;
+					// position: absolute;
+					margin-left: 70rpx;
 
 				}
 
 				.fen {
 					width: 40px;
 					height: 40px;
-					position: absolute;
-					right: 50rpx;
+					// position: absolute;
+					margin-left: 10rpx;
 				}
 			}
 
@@ -344,8 +345,12 @@
 
 			.huiyuan {
 				width: 100%;
-				text-align: center;
+				margin-left: 25rpx;
+				// text-align: center;
 				margin-top: 30rpx;
+				image{
+					width: 700rpx;
+				}
 			}
 
 			.jiaotong {
@@ -395,7 +400,8 @@
 			}
 
 			.attractionsImage {
-				text-align: center;
+				// text-align: center;
+				margin-left: 40rpx;
 				margin-top: 40rpx;
 
 				image {
@@ -474,38 +480,21 @@
 
 			}
 
-			// .border{
-			// 	border: 2rpx solid #EEEEEE;
-			// 	.photo{
-			// 		width: 150px;
-			// 		height: 150px;
-			// 		float: left;
-			// 		display: block;
-
-			// 	}
-			// 	// .title{
-			// 	// 	display: block;
-			// 	// 	float: left;
-			// 	// }
-			// 	// .nickname{
-			// 	// 	display: block;
-			// 	// 	float: left;
-			// 	// }
-			// }
 			.zz {
 				display: flex;
-				padding: 0 15rpx;
+				padding: 0 ;
 				justify-content: space-between;
 				overflow: hidden;
-				flex-wrap: wrap;
-
+				flex-wrap: nowrap;
+				margin-left: 40rpx;
+				width: 335px;
 				.dddd {
 					width: 355rpx;
 					margin-bottom: 15rpx;
 					background: #fff;
-					padding: 0px;
+					padding: 10px;
 					box-sizing: border-box;
-
+					padding-top: 15px;
 
 					image {
 						height: 150px;
@@ -519,7 +508,7 @@
 				.title {
 					/* margin-top: 30rpx; */
 					margin-top: 10rpx;
-					margin-left: 20rpx;
+					margin-left: 10rpx;
 					font-size: 35rpx;
 					font-weight: 100;
 					color: #ccc;
@@ -529,7 +518,7 @@
 
 				.nickname {
 					margin-top: 10rpx;
-					margin-left: 20rpx;
+					margin-left: 10rpx;
 					font-size: 35rpx;
 					font-weight: 100;
 					color: #ccc;
@@ -548,4 +537,3 @@
 		}
 	}
 </style>
-

@@ -7,11 +7,15 @@
 			<!-- #ifdef MP-WEIXIN -->
 			<rich-text :nodes="attractionsNearby" aline="center"></rich-text>
 			<!-- #endif -->
+			<!-- #ifdef MP-ALIPAY -->
+			<rich-text :nodes="htmlNodes" aline="center"></rich-text>
+			<!-- #endif -->
 		</view>
 	</view>
 </template>
 
 <script>
+	import parse from '@/utils/htmlparser.js';
 	import {
 		formatRichText
 	} from '@/utils/format.js'
@@ -22,6 +26,7 @@
 		data() {
 			return {
 				attractionsNearby: [],
+				htmlNodes: []
 			}
 		},
 		onLoad(options) {
@@ -41,6 +46,10 @@
 				});
 				console.log(this.attractionsNearby)
 				this.attractionsNearby = formatRichText(result.respData.attractionsNearby)
+				//#ifdef MP-ALIPAY
+				//支付宝小程序rich-text不支持字符串，需要是nodes数组
+				this.htmlNodes = parse(this.attractionsNearby)
+				//#endif
 			}
 		}
 	}
@@ -52,3 +61,4 @@
 		color: gray;
 	}
 </style>
+

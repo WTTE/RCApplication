@@ -47,17 +47,27 @@
 </script>
 
 <style lang="scss">
-	.respData {
-		margin-left: 60rpx;
+	.content {
+		.respData {
+			
 
-		.picture {
-			margin-top: 40rpx;
+			text-align: center;
+			
+			.picture {
+				margin-top: 40rpx;
+
+				
+				image {
+					margin-top: 20px;
+					
+				}
+			}
 		}
-	}
 
-	.title {
-		margin-top: 40rpx;
-		font-size: 40rpx;
-		font-weight: 600;
+		.title {
+			margin-top: 40rpx;
+			font-size: 40rpx;
+			font-weight: 600;
+		}
 	}
 </style>

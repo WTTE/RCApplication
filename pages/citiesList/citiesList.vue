@@ -275,7 +275,7 @@
 		},
 		methods: {
 			goCity(item) {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: "/pages/search/search?cityCode=" + item.cityCode
 				})
 			}

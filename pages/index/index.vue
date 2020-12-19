@@ -9,7 +9,7 @@
 
 		<!-- 搜索框 -->
 		<!-- #ifdef MP-WEIXIN|H5 -->
-		<button @click="search" class="search">
+		<button @click="search" class="searchWH">
 			<text class="country">全国</text>
 			<text class="icon1 icon-jiantou9 iconfont"></text>
 			<text class="line">|</text>
@@ -295,7 +295,7 @@
 
 		}
 
-		.search {
+		.searchWH {
 			margin-top: 10rpx;
 			width: 680rpx;
 			height: 100rpx;

@@ -8,28 +8,29 @@
 			<rich-text :nodes="trafficGuide"></rich-text>
 			<!-- #endif -->
 			<!-- #ifdef MP-ALIPAY -->
-			<rich-text :nodes="trafficGuide"></rich-text>
+			<rich-text :nodes="htmlNodes"></rich-text>
 			<!-- #endif -->
 		</view>
 	</view>
 </template>
 
 <script>
-	
+	import parse from '@/utils/htmlparser.js';
 	import {
 		myRequestPost
 	} from '@/utils/zgrequest.js'
 	export default {
 		data() {
 			return {
+				htmlNodes: [],
 				trafficGuide: [],
-				storeNo:""
+				storeNo: ""
 			}
 		},
 		onLoad(options) {
-			this.storeNo=options.storeNo;
+			this.storeNo = options.storeNo;
 			console.log(options.storeNo)
-			console.log(this.storeNo,"44444444")
+			console.log(this.storeNo, "44444444")
 			this.getPicture()
 		},
 		methods: {
@@ -45,6 +46,10 @@
 				});
 				console.log(this.trafficGuide)
 				this.trafficGuide = result.respData.trafficGuide
+				//#ifdef MP-ALIPAY
+				//支付宝小程序rich-text不支持字符串，需要是nodes数组
+				this.htmlNodes = parse(this.trafficGuide)
+				//#endif
 			}
 		}
 	}

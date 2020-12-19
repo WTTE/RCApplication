@@ -197,6 +197,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/shouquan/shouquan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

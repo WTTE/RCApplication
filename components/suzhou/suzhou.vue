@@ -11,7 +11,7 @@
 		</view>
 		<view class="word">
 			<view class="laber">
-				<text class="reserve">{{res.storeReserve}}</text>
+				<text class="reserve">{{res.storeReserve||"本月可订"}}</text>
 				<template v-if="res.sellingLabel">
 					<text v-for="item in res&&res.sellingLabel&&res.sellingLabel.split(',')">{{item}}</text>
 				</template>
@@ -36,7 +36,7 @@
 		props: ['res'],
 		data() {
 			return {
-				storeImage:[]
+				storeImage: []
 			}
 		},
 
@@ -56,39 +56,41 @@
 
 <style lang="less">
 	.contents {
-		width: 93%;
+		width: 710.28rpx;
 		margin: auto;
 		margin-top: 30rpx;
-		border: 2rpx solid #EEEEEE;
-	
+		border: 1rpx solid #EEEEEE;
+
 		.content1 {
-			height: 440rpx;
-	
+			height: 404rpx;
+
 			swiper {
-				height: 196px;
-	
+				height: 404rpx;
+
 				image {
-					width: 348px;
-					height: 210px;
-	
+					width: 712.28rpx;
+					height: 404rpx;
+					margin-left: 1rpx;
+					margin-top: 1rpx;
+
 				}
 			}
-	
+
 		}
-	
+
 		.word {
-			margin-top: -20rpx;
+			margin-top: 35rpx;
 			margin-left: 20rpx;
-	
+
 			.laber {
-				
+
 				display: flex;
-	
+
 				.reserve {
 					color: #ff6c36;
-					background-color:#fff6f3 ;
+					background-color: #fff6f3;
 				}
-	
+
 				text {
 					overflow: hidden;
 					white-space: nowrap;
@@ -98,10 +100,10 @@
 					font-size: 25rpx;
 					background-color: #f8f8f7;
 					margin-right: 8rpx;
-	
+
 				}
 			}
-	
+
 			.title {
 				color: #00004f;
 				margin-top: 20rpx;
@@ -111,10 +113,10 @@
 				margin-bottom: 20rpx;
 			}
 		}
-	
+
 		.word1 {
 			display: flex;
-	
+
 			text {
 				color: #b7b7b7;
 				display: block;
