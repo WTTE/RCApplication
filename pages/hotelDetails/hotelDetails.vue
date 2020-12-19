@@ -36,7 +36,7 @@
 				查看交通指南
 			</view>
 			<view class="huiyuan">
-				<image :src="pics" mode="widthFix"></image>
+				<image :src="pics" mode="widthFix" @click="goVip"></image>
 			</view>
 			<!-- {{JSON.stringify(storeModuleInfoVos)}} -->
 			<view class="canguan">
@@ -198,6 +198,11 @@
 				uni.navigateTo({
 					url: "/pages/viewDetails/viewDetails?storeNo=" + this.storeNo
 				});
+			},
+			goVip() {
+				uni.navigateTo({
+					url: "/pages/welfare/welfare"
+				})
 			},
 			async getPicture() {
 				let result = await myRequestPost("/sojo.equity.store.detail.v.two", {

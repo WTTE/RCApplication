@@ -8,6 +8,7 @@
 		</swiper>
 
 		<!-- 搜索框 -->
+		<!-- #ifdef MP-WEIXIN|H5 -->
 		<button @click="search" class="search">
 			<text class="country">全国</text>
 			<text class="icon1 icon-jiantou9 iconfont"></text>
@@ -15,6 +16,10 @@
 			根据城市/出行日程进行搜索
 			<text class="icon2 icon-sousuo iconfont"></text>
 		</button>
+		<!-- #endif -->
+		<!-- #ifdef MP-ALIPAY -->
+		<view class="searchAl" @click="search"><text class="icon3 icon-sousuo iconfont"></text></view>
+		<!-- #endif -->
 
 		<!-- nav板块 -->
 		<uni-grid :column="4" :highlight="false" :showBorder="false">
@@ -42,7 +47,7 @@
 		<view class="words">
 			<text class="words-up">最新上线</text>
 			<uni-notice-bar scrollable="true" single="true" text="全国酒店 , 空房预约 , 现在下单 , 即刻入住 ~"></uni-notice-bar>
-			
+
 		</view>
 
 		<!-- 底部子组件板块 -->
@@ -55,8 +60,8 @@
 			<uni-load-more v-if="!flag" :status="'loading'"></uni-load-more>
 			<uni-load-more v-else :status="'noMore'"></uni-load-more>
 		</view>
-		
-	</view>	
+
+	</view>
 </template>
 
 <script>
@@ -198,7 +203,7 @@
 			receive(code) {
 				console.log(code, "999999999")
 				this.cityCode = code;
-			
+
 				this.pageNum = 1;
 				this.res = [];
 				this.getword()
@@ -219,20 +224,20 @@
 					"sign": "2BD4F2E388596CE4EB209B0C440BD3EF"
 				});
 				this.res = [...this.res, ...result.respData.list]
-				this.page=result.respData.pages
-				this.res = this.res.filter(item=>{
-					if(item.storeImage){
+				this.page = result.respData.pages
+				this.res = this.res.filter(item => {
+					if (item.storeImage) {
 						return item;
 					}
 				})
-				
+
 			},
 			onReachBottom() {
 				this.pageNum++;
 				if (this.pageNum <= this.page) {
 					this.getword();
-			
-			
+
+
 				} else {
 					//没有更多数据了item.length
 					this.flag = true;
@@ -241,7 +246,7 @@
 					
 				} */
 			},
-			
+
 			onPullDownRefresh() {
 				uni.showNavigationBarLoading(); //在标题栏中显示加载图标
 				uni.request({
@@ -252,7 +257,7 @@
 					},
 					data: {},
 					success: function(res) {
-						
+
 					},
 					fail: function(res) {},
 					complete: function(res) {
@@ -278,6 +283,8 @@
 
 <style lang="scss">
 	.home {
+		background-color: #FFFFFF;
+
 		swiper {
 			height: 572rpx;
 
@@ -300,17 +307,21 @@
 			margin-left: 35rpx;
 			top: 410rpx;
 			font-size: 28rpx;
+			z-index: 999;
+
 			.country {
 				font-size: 34rpx;
 				font-weight: 600;
 				color: #4a4a4a;
 				margin-right: 25rpx;
 			}
-			.icon1{
+
+			.icon1 {
 				font-size: 25rpx;
 				color: #b1b1b1;
 				margin-right: 15rpx;
 			}
+
 			.icon2 {
 				font-size: 33rpx;
 				margin-left: 10rpx;
@@ -319,6 +330,26 @@
 
 			.line {
 				margin: 0 10rpx;
+			}
+		}
+
+		.searchAl {
+			width: 120rpx;
+			height: 120rpx;
+			border-radius: 50%;
+			box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+			background-color: #FFFFFF;
+			color: black;
+			position: fixed;
+			top: 965rpx;
+			left: 40rpx;
+			z-index: 998;
+			text-align: center;
+			line-height: 120rpx;
+			.icon3{
+				font-size: 50rpx;
+				// margin-left: 10rpx;
+				color: #fd885d;
 			}
 		}
 
