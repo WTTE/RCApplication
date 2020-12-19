@@ -32,7 +32,8 @@
             {
                 "navigationBarTitleText": "会员登录",
                 "enablePullDownRefresh": false,
-				"navigationBarTextStyle":"white"
+				"navigationBarTextStyle":"white",
+				"navigationStyle": "custom"
             }
             
         }
@@ -47,11 +48,14 @@
             }
             
         },{
-			"path": "pages/mine/home",
-			"style": {
+			"path": "pages/mine/coupon",
+			"style" : {
 				"navigationBarTitleText": "优惠券",
 				"navigationBarBackgroundColor":"#FFFFFF",
-				"navigationBarTextStyle":"black"
+				"navigationBarTextStyle":"black",
+				"app-plus":{
+					"bounce":"none"
+				}
 			}
 		},
 		{
@@ -105,6 +109,23 @@
 				"navigationBarTextStyle":"black"
             }
             
+        },{
+            "path" : "pages/mine/setting",
+            "style" : {
+            	"navigationBarBackgroundColor":"#f8f8f8",
+            	"navigationBarTitleText":"我的设置",
+            	"backgroundColorTop":"#ffffff",
+            	"backgroundColorBottom":"#f3f3f3",
+				"navigationBarTextStyle":"black"
+            }
+        } ,{
+            "path" : "pages/mine/myQR",
+            "style" : {
+				"navigationBarTitleText":"我的二维码",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+			}
         }
     ],
 	"globalStyle": {

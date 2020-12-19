@@ -5,8 +5,8 @@
 		<view class="user-section">
 			<view class="top">
 				<view class="shezhi">
-					<text class="iconfont icon-xianxingtubiao_huabanfuben tit1 "></text>
-					<text class="iconfont icon-btn_scan tit1 jl"></text>
+					<view class="iconfont icon-xianxingtubiao_huabanfuben tit1 " @tap="toSetting"></view>
+					<view class="iconfont icon-erweima1 tit1 jl" @tap="toMyQR"></view>
 				</view>
 				<view class="user-info-box" @click="goLogin">
 					<view class="portrait-box">
@@ -17,6 +17,7 @@
 							{{userinfo.nickName || '注册/登录'}}
 						</text>
 					</view>
+				
 				</view>
 			</view>
 
@@ -78,7 +79,7 @@
 				<text>收藏</text>
 			</view>
 			<view class="order-item" @click="no">
-				<text class="iconfont icon-biji red"></text>
+				<text class="iconfont icon-shu red"></text>
 				<text>笔记</text>
 			</view>
 		</view>
@@ -131,10 +132,21 @@
 				userinfo: {}
 			}
 		},
-		onLoad(options) {
-			options.userInfo && (this.userInfo = JSON.parse(options.userInfo))	
-		},
+		onShow() {
+		   const userinfo = uni.getStorageSync("userinfo");
+		   this.userinfo = JSON.parse(userinfo)
+		  },
 		methods: {
+			toMyQR(){
+				uni.navigateTo({
+					url:'/pages/mine/myQR'
+				})
+			},
+			toSetting(){
+				uni.navigateTo({
+					url:'/pages/mine/setting'
+				})
+			},
 			goLogin() {
 				uni.navigateTo({
 					url: `/pages/mine/login`,
@@ -154,7 +166,7 @@
 			},
 			goCoupon() {
 				uni.navigateTo({
-					url: `/pages/mine/home`,
+					url: `/pages/mine/coupon`,
 				})
 			},
 			goCenter() {
@@ -200,7 +212,7 @@
 		background-color: #f5f5f5;
 		height: 100%;
 	}
-
+	
 	.user-section {
 		height: 790rpx;
 		padding: 50rpx 15rpx 0;
@@ -329,7 +341,7 @@
 			left: 0;
 			top: 8rpx;
 			width: 100%;
-			height: 36rpx;
+			height: 38rpx;
 		}
 	}
 
@@ -418,7 +430,7 @@
 		background: #fff;
 		border-radius: 10rpx;
 		font-weight: 700;
-		height: 420rpx;
+		height: 540rpx;
 		flex-direction: column;
 
 		view {

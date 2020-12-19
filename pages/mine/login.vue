@@ -8,7 +8,7 @@
 			</text>
 		</view>
 
-		<button type="primary" open-type="getUserInfo" @getuserinfo="handleGetUserInfo">微信授权登录</button>
+		<button type="primary" open-type="getUserInfo" @getuserinfo="getUserInfo">微信授权登录</button>
 	</view>
 </template>
 
@@ -20,7 +20,7 @@
 			}
 		},
 		methods: {
-			/* getUserInfo(e) {
+			getUserInfo(e) {
 				// console.log(e)
 				const userinfo = e.detail.rawData;
 				// console.log(userinfo)
@@ -28,14 +28,14 @@
 				uni.navigateBack({
 					delta: 1
 				});
-			} */
-			handleGetUserInfo(event) {
-				if (event.detail.userInfo) {
-					uni.reLaunch({
-						url: '/pages/personal/personal?userInfo=' + JSON.stringify(event.detail.userInfo)
-					})
-				}
 			}
+			// handleGetUserInfo(event) {
+			// 	if (event.detail.userInfo) {
+			// 		uni.reLaunch({
+			// 			url: '/pages/personal/personal?userInfo=' + JSON.stringify(event.detail.userInfo)
+			// 		})
+			// 	}
+			// }
 		}
 	}
 </script>

@@ -1,19 +1,12 @@
 <template>
 	<view>
 		<view>
-			<image src="https://image.ructrip.com/ructrip/1597395391331/1280元如程详情页更新-官方.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670328318/1280元如程详情页更新-官方_03.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670352795/1280元如程详情页更新-官方_04.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1593312867801/如程详情页更新-官方_05.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670361565/1280元如程详情页更新-官方_06.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670364380/1280元如程详情页更新-官方_07.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670367646/1280元如程详情页更新-官方_08.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670370975/1280元如程详情页更新-官方_09.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670386417/1280%E5%85%83%E5%A6%82%E7%A8%8B%E8%AF%A6%E6%83%85%E9%A1%B5%E6%9B%B4%E6%96%B0-%E5%AE%98%E6%96%B9_10.jpg"
-			 mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670408037/1280元如程详情页更新-官方_15.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670432771/1280元如程详情页更新-官方_17.jpg" mode="widthFix"></image>
-			<image src="https://image.ructrip.com/ructrip/1585670437598/1280元如程详情页更新-官方_20.jpg" mode="widthFix"></image>
+			<!-- #ifdef H5 || MP-WEIXIN -->
+			<rich-text :nodes="content"></rich-text>
+			<!-- #endif -->
+			<!-- #ifdef MP-ALIPAY-->
+			<rich-text :nodes="htmlNodes"></rich-text>
+			<!-- #endif -->
 			<view class="bottom">
 				<button class="left" @click="tan">加入会员</button>
 				<button class="right" @click="tan">为亲友开通</button>
@@ -23,15 +16,42 @@
 </template>
 
 <script>
-	
-
+	import { myRequestPost } from "@/utils/zgrequest.js";
+	import parse from '@/utils/html.js'
+	import {
+		formatRichText
+	} from '@/utils/format.js'
 	export default {
 		data() {
 			return {
+				content:"",
+				arr:[],
+				htmlNodes:""
 				}
 		},
-		
+		mounted() {
+			this.getNewsDetail()
+		},
 		methods: {
+			async getNewsDetail(){
+				const res = await myRequestPost('/sojo.equity.plantw.detail',
+				{"channelCode":301000000003,
+				"memberPlanNo":301000000003,
+				"client":"applets",
+				"mobileBrand":"microsoft",
+				"mobileModel":"microsoft",
+				"osVersion":"Windows 10 x64",
+				"timestamp":1608343589000,
+				"sign":"D94078076E3F17F5E3B0D03DD7262D84"})
+				for(let i=0;i<3;i++){
+					this.content = res.respData[i].content
+					this.arr.push(this.content)
+				}
+				this.content = formatRichText(this.arr.join(','))
+				//#ifdef MP-ALIPAY
+				this.htmlNodes = parse(this.content)
+				// #endif
+				},
 			tan(){
 				uni.showToast({
 				    title: '开通成功',
@@ -56,7 +76,7 @@
 		box-shadow: 0 2px;
 		padding: 16rpx 0;
 		button{
-			width: 325rpx;
+			width: 375rpx;
 			height: 90rpx;
 			background-color: #fc6315;
 			font-size: 36rpx;
