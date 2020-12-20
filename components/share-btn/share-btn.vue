@@ -3,7 +3,7 @@
 		<view class="uni-share">
 			<view class="words"><text>听说，可爱的人都很喜欢分享哦~</text></view>
 			<view class="uni-share-content">
-				<view v-for="(item, index) in bottomData" :key="index" class="uni-share-content-box" >
+				<view v-for="(item, index) in bottomData" :key="index" class="uni-share-content-box">
 					<view class="uni-share-content-image">
 						<image :src="item.icon" class="content-image" />
 					</view>
@@ -28,14 +28,14 @@
 						icon: '/static/icons/复制链接.png',
 						name: 'copy'
 					},
-					
+
 				],
-				
+
 			}
 		},
 
 		methods: {
-			
+
 		}
 	}
 </script>
@@ -45,6 +45,7 @@
 	.sharebtn {
 		background-color: #FFFFFF;
 		height: 300rpx;
+
 		.uni-share {
 			width: 690rpx;
 			margin: 30rpx;
@@ -54,13 +55,14 @@
 			flex-direction: column;
 			/* #endif */
 			background-color: #fff;
-			
-			.words{
+
+			.words {
 				font-size: 30rpx;
 				color: grey;
 				text-align: center;
 				margin-top: 25rpx;
 			}
+
 			.uni-share-content {
 				/* #ifndef APP-NVUE */
 				display: flex;
@@ -70,6 +72,7 @@
 				justify-content: center;
 				overflow-x: scroll;
 				padding: 15px 50rpx;
+
 				.uni-share-content-box {
 					/* #ifndef APP-NVUE */
 					display: flex;
@@ -77,9 +80,11 @@
 					flex-direction: column;
 					align-items: center;
 					margin-right: 60rpx;
+
 					&:nth-last-child(1) {
 						margin-right: 0;
 					}
+
 					.uni-share-content-image {
 						/* #ifndef APP-NVUE */
 						display: flex;
@@ -92,19 +97,21 @@
 						overflow: hidden;
 						border-radius: 50%;
 						// background-color: orange;
-						
-						
+
+
 						.content-image {
 							width: 90rpx;
 							height: 90rpx;
 						}
 					}
-					&:nth-last-child(1){
+
+					&:nth-last-child(1) {
 						.uni-share-content-image .content-image {
-							width: 50rpx!important;
-							height: 50rpx!important;
+							width: 50rpx !important;
+							height: 50rpx !important;
 						}
 					}
+
 					.uni-share-content-text {
 						font-size: 26rpx;
 						color: #333;

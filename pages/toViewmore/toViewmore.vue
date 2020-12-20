@@ -30,7 +30,7 @@
 			}
 		},
 		onLoad(options) {
-			this.storeNo=options.storeNo
+			this.storeNo = options.storeNo
 			this.getPicture()
 		},
 		methods: {
@@ -55,10 +55,9 @@
 	}
 </script>
 <style lang="scss">
-	.content{
+	.content {
 		padding: 15rpx;
 		font-size: 28rpx;
 		color: gray;
 	}
 </style>
-

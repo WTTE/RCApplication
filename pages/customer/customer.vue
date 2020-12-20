@@ -27,11 +27,11 @@
 			no() {
 				uni.showToast({
 					title: '此功能暂未开通',
-					duration: 1000, 
-					icon:'none'
+					duration: 1000,
+					icon: 'none'
 				});
 			},
-			goQs(){
+			goQs() {
 				uni.navigateTo({
 					url: `/pages/mine/qusetion`,
 				})
@@ -40,7 +40,7 @@
 	}
 </script>
 
-<style  lang="less">
+<style lang="less">
 	page {
 		height: 100%;
 		background-color: #f8f8f8;
@@ -49,40 +49,43 @@
 	.bg {
 		// background-color: #f8f8f8;
 		margin: 80rpx 40rpx;
-		
-		
-		button{
+
+
+		button {
 			display: flex;
-			background-color:#FFFFFF;
-			font-size:  30rpx;
+			background-color: #FFFFFF;
+			font-size: 30rpx;
 			font-weight: 700;
-			height:111rpx;
+			height: 111rpx;
 			line-height: 111rpx;
-			.fl{
+
+			.fl {
 				text-align: left;
 				padding-left: 41rpx;
 				width: 520rpx;
 			}
-			.fl1{
+
+			.fl1 {
 				flex: 1;
 			}
-			span{
-				font-size:25rpx;
+
+			span {
+				font-size: 25rpx;
 				font-weight: 400;
 				color: #ccc;
 			}
-			.icon{
+
+			.icon {
 				flex: 1;
 				font-size: 39rpx;
-				
+
 			}
 		}
-		
+
 		.qs {
 			margin-bottom: 30rpx;
-			
+
 		}
-		
+
 	}
 </style>
-

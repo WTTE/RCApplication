@@ -29,9 +29,9 @@
 				保证金将在退房完成后一个工作日内退还至会员付款的银行或其他收款账户中
 			</collapse-item>
 		</collapse>
-		
+
 	</view>
-	
+
 </template>
 
 <script>
@@ -42,7 +42,7 @@
 		data() {
 			return {
 				activeNames: ['1'],
-				accordion:false
+				accordion: false
 			}
 		},
 		components: {
@@ -56,12 +56,11 @@
 </script>
 
 <style lang="less">
-	.container{
-		margin-top:89rpx;
+	.container {
+		margin-top: 89rpx;
 	}
-	
-	.uni-collapse-cell{
+
+	.uni-collapse-cell {
 		margin: 0 40rpx;
 	}
 </style>
-

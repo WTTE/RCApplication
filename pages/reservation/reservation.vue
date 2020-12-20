@@ -9,14 +9,14 @@
 		data() {
 			return {
 				webviewStyles: {
-				    progress: {
-				        color: '#FF3333'
-				    }
+					progress: {
+						color: '#FF3333'
+					}
 				}
 			}
 		},
 		methods: {
-			
+
 		}
 	}
 </script>

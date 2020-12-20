@@ -6,15 +6,15 @@
 			<text class="icon1 icon-jiantou9 iconfont"></text>
 			<text class="city">{{title}}</text>
 		</button>
-		
+
 		<!-- 广告部分 -->
 		<image :src="url" mode="widthFix" @click="goVip"></image>
-		
+
 		<!-- 城市列表 -->
 		<view v-for="item in res.length" :key="item">
 			<Suzhou :res="res[item]" :pageNum="pageNum" :cityCode="cityCode"></Suzhou>
 		</view>
-		
+
 		<!-- 下拉加载 -->
 		<uni-load-more v-if="!flag" :status="'loading'"></uni-load-more>
 		<uni-load-more v-else :status="'noMore'"></uni-load-more>
@@ -43,7 +43,7 @@
 			console.log(this.cityCode, "1111111111");
 			// this.getPicture();
 			// this.getName()
-			
+
 			this.getword()
 		},
 		methods: {
@@ -73,22 +73,22 @@
 					"sign": "2BD4F2E388596CE4EB209B0C440BD3EF"
 				});
 				this.res = [...this.res, ...result.respData.list]
-				
-				this.res = this.res.filter(item=>{
-					if(item.storeImage){
+
+				this.res = this.res.filter(item => {
+					if (item.storeImage) {
 						return item;
 					}
 				})
-				this.page=result.respData.pages
-			
-			
+				this.page = result.respData.pages
+
+
 			},
 			onReachBottom() {
 				this.pageNum++;
 				if (this.pageNum <= this.page) {
 					this.getword();
-			
-			
+
+
 				} else {
 					//没有更多数据了item.length
 					this.flag = true;
@@ -97,7 +97,7 @@
 					
 				} */
 			},
-			
+
 			onPullDownRefresh() {
 				uni.showNavigationBarLoading(); //在标题栏中显示加载图标
 				uni.request({
@@ -108,7 +108,7 @@
 					},
 					data: {},
 					success: function(res) {
-						
+
 					},
 					fail: function(res) {},
 					complete: function(res) {
@@ -117,9 +117,9 @@
 					}
 				})
 			}
-			
+
 		},
-		components:{
+		components: {
 			Suzhou,
 			uniLoadMore
 		}
@@ -141,6 +141,7 @@
 			font-size: 28rpx;
 			position: relative;
 			padding-left: 30rpx;
+
 			.country {
 				font-size: 28rpx;
 				font-weight: 600;

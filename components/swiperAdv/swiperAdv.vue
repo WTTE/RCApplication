@@ -35,7 +35,7 @@
 				uni.navigateTo({
 					url: "/pages/hotelDetails/hotelDetails?storeNo=" + res.storeNo,
 				});
-			
+
 			}
 		}
 	}
@@ -46,6 +46,7 @@
 		// background-color: #000000;
 		padding: 0 35rpx;
 		margin-bottom: 25rpx;
+
 		swiper {
 			height: 380rpx;
 
@@ -70,21 +71,25 @@
 				color: gray;
 				border-radius: 12rpx;
 			}
-			.subTitleFather{
+
+			.subTitleFather {
 				margin-top: 8rpx;
-				.subTitle{
+
+				.subTitle {
 					margin-top: 8rpx;
 					font-size: 45rpx;
 				}
 			}
-			.storeNameFather{
+
+			.storeNameFather {
 				margin-top: 8rpx;
-				.storeName{
+
+				.storeName {
 					color: grey;
 				}
 			}
-			
-			
+
+
 		}
 	}
 </style>

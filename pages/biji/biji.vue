@@ -3,11 +3,11 @@
 		<view class="tianjia">
 			<text>+</text>
 		</view>
-		
+
 		<view class="fabu">
 			<input type="text" placeholder="想好一个标题会有更多的赞哦" />
 			<textarea placeholder="多说一说~" />
-		</view>
+			</view>
 		
 		<view class="address">
 			<uni-icons type="location-filled" size="30"></uni-icons>

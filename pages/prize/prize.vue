@@ -1,8 +1,17 @@
 <template>
 	<view>
+		<!-- #ifdef MP-WEIXIN -->
 		<uni-popup ref="popup" type="dialog">
-			<uni-popup-dialog type="input" message="成功" :duration="2000" :before-close="true" @close="goIndex" @confirm="goIndex"></uni-popup-dialog>
+			<uni-popup-dialog title="该功能暂未开通" type="info" message="成功消息" :duration="2000" :before-close="true" @close="close"
+			 @confirm="confirm"></uni-popup-dialog>
 		</uni-popup>
+		<!-- #endif -->
+		
+		<!-- #ifdef MP-ALIPAY|H5 -->
+			<view class="tips">
+				<text>该功能暂未开通哦，请耐心等待~</text>
+			</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -20,12 +29,15 @@
 			this.$refs.popup.open()
 		},
 		methods: {
-			goIndex(done) {
-				done(),
-				uni.navigateTo({
-					url: "/pages/index/index"
-				})
-			}
+			close(done) {
+				done()
+			},
+
+			confirm(done) {
+				done()
+			},
+
+			
 		},
 		components: {
 			uniPopup,
@@ -35,6 +47,13 @@
 	}
 </script>
 
-<style>
-
+<style lang="less">
+	.tips{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		width: 750rpx;
+		height: 1000rpx;
+		color: gray;
+	}
 </style>

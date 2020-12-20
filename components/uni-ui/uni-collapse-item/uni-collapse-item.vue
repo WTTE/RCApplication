@@ -118,22 +118,19 @@
 <style lang="scss" scoped>
 	.uni-collapse-cell {
 		flex-direction: column;
-		border-color: $uni-border-color;
-		border-bottom-width: 1px;
-		border-bottom-style: solid;
 	}
 
 
 	.uni-collapse-cell--hover {
-		background-color: $uni-bg-color-hover;
+		background-color:#fff;
 	}
 
 	.uni-collapse-cell--open {
-		background-color: $uni-bg-color-hover;
+		background-color: #fff;
 	}
 
 	.uni-collapse-cell--disabled {
-		background-color: $uni-bg-color-hover;
+		background-color: #fff;
 		// opacity: 0.3;
 	}
 
@@ -150,7 +147,7 @@
 	}
 
 	.uni-collapse-cell__title {
-		padding: 12px 12px;
+		// padding: 12px 12px;
 		position: relative;
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -162,10 +159,13 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+		border-color: #f2f2f2;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 	}
 
 	.uni-collapse-cell__title:active {
-		background-color: $uni-bg-color-hover;
+		background-color: #fff;
 	}
 
 	.uni-collapse-cell__title-img {
@@ -188,10 +188,10 @@
 
 	.uni-collapse-cell__title-text {
 		flex: 1;
-		font-size: $uni-font-size-base;
+		font-size: 33rpx;
 		/* #ifndef APP-NVUE */
 		white-space: nowrap;
-		color: inherit;
+		color: #333333;
 		/* #endif */
 		/* #ifdef APP-NVUE */
 		lines: 1;
@@ -205,10 +205,16 @@
 	}
 
 	.uni-collapse-cell__wrapper {
+		padding: 40rpx 0;
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
 		flex-direction: column;
+		font-size: 30rpx;
+		color: #828282;
+		border-color: #f2f2f2;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 	}
 
 	.uni-collapse-cell__content--hide {

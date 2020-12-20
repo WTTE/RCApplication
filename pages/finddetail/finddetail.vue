@@ -117,7 +117,7 @@
 			},
 			itemchange(item) {
 				uni.navigateTo({
-					url: '/pages/finddetail/finddetail?id='+ item.id
+					url: '/pages/finddetail/finddetail?id=' + item.id
 				})
 			},
 			async getSwipers() {

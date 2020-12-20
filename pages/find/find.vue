@@ -1,7 +1,7 @@
 <template>
 
 	<view class="hot_goods">
-		
+
 		<view class="haha">
 			<view class="buju">
 				<view class="zuixin" @click="chenked(1)">
@@ -15,7 +15,7 @@
 				</view>
 			</view>
 		</view>
-		<view v-if="isActive == 1" >
+		<view v-if="isActive == 1">
 			<Goods :arr="arr" :a="a"></Goods>
 		</view>
 		<view v-if="isActive == 2">
@@ -42,33 +42,33 @@
 	export default {
 		data() {
 			return {
-				htmlNodes:[],
+				htmlNodes: [],
 				isActive: 1,
 				res: [],
 				msg: [],
 				flag: false,
 				pageNum: 1,
 				result: [],
-				arr:[],
-				a:1
+				arr: [],
+				a: 1
 			}
 		},
 		onLoad() {
 			this.getList();
 			this.getLoods();
-			console.log(this.pageNum,"pppppppppppppp")
+			console.log(this.pageNum, "pppppppppppppp")
 		},
-		
-			
+
+
 		methods: {
 			chenked(type) {
 				this.isActive = type;
-				this.pageNum=1;
-				
-			
-			
+				this.pageNum = 1;
+
+
+
 			},
-			
+
 			async getList() {
 
 				let result = await myRequestPost("/sojo.order.evaluation.list.page", {
@@ -84,68 +84,68 @@
 					"timestamp": 1607427013000,
 
 				});
-				
-				
-                 // result.respData.list[1].storeName="既见桑梓特色度假酒店";
-				
-			// 	console.log(ab,"ssssssssssssssssssssssssssss")
-			// 	console.log(result,"llllllllllllllllll")
-			
-			// 	console.log(ab,"ppppppp")
+
+
+				// result.respData.list[1].storeName="既见桑梓特色度假酒店";
+
+				// 	console.log(ab,"ssssssssssssssssssssssssssss")
+				// 	console.log(result,"llllllllllllllllll")
+
+				// 	console.log(ab,"ppppppp")
 				// this.res = [...this.res, ...result.respData.list]
 				this.res = result.respData.list
 
 				// console.log(this.res,"ffffffffffffffffffffffff");
 				this.getData();
-                console.log(this.arr,"wfffffffffffffffffffffffffffffffffwwwww")
+				console.log(this.arr, "wfffffffffffffffffffffffffffffffffwwwww")
 
 
 			},
 			getData() {
-							for (var i = 0; i < this.res.length; i++) {
-								var obj1={
-									arr1:[],
-									flg:false,
-									in:i
-								}
-								
-								obj1.arr1 = this.res[i]
-								this.arr.push(obj1)
-								
-							}
-							console.log(this.arr,"wwwwwwwwwwwwwwww")
-						},
+				for (var i = 0; i < this.res.length; i++) {
+					var obj1 = {
+						arr1: [],
+						flg: false,
+						in: i
+					}
+
+					obj1.arr1 = this.res[i]
+					this.arr.push(obj1)
+
+				}
+				console.log(this.arr, "wwwwwwwwwwwwwwww")
+			},
 			async getLoods() {
 
 				let res = await myRequestPost("/sojo.order.evaluation.list.page", {
 
 
-					
-						"pageSize": 6,
-						"pageNum": this.pageNum,
-						"orderByType": 20,
-						"userGuid": "rc355e390778041925cb4d",
-						"client": "applets",
-						"mobileBrand": "microsoft",
-						"mobileModel": "microsoft",
-						"osVersion": "Windows 10 x64",
-						"timestamp": 1607426292000,
-						"sign": "45A1C99613B96EE1F0A16A1A46EA4DEC"
-					
+
+					"pageSize": 6,
+					"pageNum": this.pageNum,
+					"orderByType": 20,
+					"userGuid": "rc355e390778041925cb4d",
+					"client": "applets",
+					"mobileBrand": "microsoft",
+					"mobileModel": "microsoft",
+					"osVersion": "Windows 10 x64",
+					"timestamp": 1607426292000,
+					"sign": "45A1C99613B96EE1F0A16A1A46EA4DEC"
+
 
 
 				});
-				
+
 
 				this.msg = [...this.msg, ...res.respData.list]
 				// console.log(this.msg);
 			},
-			
+
 
 		},
 		onReachBottom() {
 			this.pageNum++;
-			this.a=this.pageNum;
+			this.a = this.pageNum;
 			console.log(this.a)
 			if (this.pageNum <= 5) {
 				this.getLoods();
@@ -170,18 +170,18 @@
 			}
 		},
 		onPullDownRefresh() {
-			this.pageNum=1;
-			this.flag= false;
-			this.msg= [];
-			this.arr= [];
-		    this.getList().then(()=>{
+			this.pageNum = 1;
+			this.flag = false;
+			this.msg = [];
+			this.arr = [];
+			this.getList().then(() => {
 				uni.stopPullDownRefresh()
 			});
-			this.getLoods().then(()=>{
+			this.getLoods().then(() => {
 				uni.stopPullDownRefresh()
 			});
-			
-			
+
+
 		},
 		components: {
 			uniLoadMore,
@@ -193,52 +193,54 @@
 <style lang="scss">
 	.hot_goods {
 		background: #eee;
-         .haha{
-         	height: 56px;
-         	
-		.buju {
-			
-			display: flex;
-			width: 750rpx;
-			height: 100rpx;
-			
-			background-color: white;
-			margin-bottom: 10px;
-			// position: sticky;
-			// top: 0;
-			position: fixed;
-			// top: 0;
-			z-index: 2;
 
-			.zuixin {
-				
-				flex: 1;
-				font-size: 16px;
-				color: rgb(74, 74, 74);
+		.haha {
+			height: 56px;
 
-				text-align: center;
-				line-height: 100rpx;
-				
+			.buju {
 
-				.wen {
-					position: absolute;
-					left: 50px;
+				display: flex;
+				width: 750rpx;
+				height: 100rpx;
+
+				background-color: white;
+				margin-bottom: 10px;
+				// position: sticky;
+				// top: 0;
+				position: fixed;
+				// top: 0;
+				z-index: 2;
+
+				.zuixin {
+
+					flex: 1;
+					font-size: 16px;
+					color: rgb(74, 74, 74);
+
+					text-align: center;
+					line-height: 100rpx;
+
+
+					.wen {
+						position: absolute;
+						left: 50px;
+					}
+
+					.ben {
+						position: absolute;
+						right: 50px;
+					}
+
 				}
 
-				.ben {
-					position: absolute;
-					right: 50px;
+				.active {
+					font-size: 10px;
 				}
-
 			}
 
-			.active {
-				font-size: 10px;
-			}
 		}
-		
-		}
-		.gaodu{
+
+		.gaodu {
 			margin-top: 20px;
 		}
 

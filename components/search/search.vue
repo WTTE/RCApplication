@@ -25,52 +25,52 @@
 		props: ['cityCode'],
 		data() {
 			return {
-				
+
 			};
 		},
-		methods:{
-			change1(){
-				var code=320200
-				this.$emit("func",code)
+		methods: {
+			change1() {
+				var code = 320200
+				this.$emit("func", code)
 			},
-			change2(){
-				var code= 320200
-				this.$emit("func",code)
+			change2() {
+				var code = 320200
+				this.$emit("func", code)
 			},
-			change3(){
-				var code= 320500
-				this.$emit("func",code)
+			change3() {
+				var code = 320500
+				this.$emit("func", code)
 			},
-			change4(){
-				var code= 330500
-				this.$emit("func",code)
+			change4() {
+				var code = 330500
+				this.$emit("func", code)
 			},
-			change5(){
-				var code= 320400
-				this.$emit("func",code)
+			change5() {
+				var code = 320400
+				this.$emit("func", code)
 			},
-			change6(){
-				var code= 330400
-				this.$emit("func",code)
+			change6() {
+				var code = 330400
+				this.$emit("func", code)
 			},
-			change7(){
-				var code= 320600
-				this.$emit("func",code)
+			change7() {
+				var code = 320600
+				this.$emit("func", code)
 			},
-			change8(){
-				var code= 321000
-				this.$emit("func",code)
+			change8() {
+				var code = 321000
+				this.$emit("func", code)
 			},
-			change9(){
-				var code= 320100
-				this.$emit("func",code)
+			change9() {
+				var code = 320100
+				this.$emit("func", code)
 			},
-			change10(){
-				var code= 310100
-				this.$emit("func",code)
+			change10() {
+				var code = 310100
+				this.$emit("func", code)
 			},
 		}
-		
+
 
 	}
 </script>

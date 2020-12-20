@@ -16,7 +16,9 @@
 </template>
 
 <script>
-	import { myRequestPost } from "@/utils/zgrequest.js";
+	import {
+		myRequestPost
+	} from "@/utils/zgrequest.js";
 	import parse from '@/utils/html.js'
 	import {
 		formatRichText
@@ -24,26 +26,27 @@
 	export default {
 		data() {
 			return {
-				content:"",
-				arr:[],
-				htmlNodes:""
-				}
+				content: "",
+				arr: [],
+				htmlNodes: ""
+			}
 		},
 		mounted() {
 			this.getNewsDetail()
 		},
 		methods: {
-			async getNewsDetail(){
-				const res = await myRequestPost('/sojo.equity.plantw.detail',
-				{"channelCode":301000000003,
-				"memberPlanNo":301000000003,
-				"client":"applets",
-				"mobileBrand":"microsoft",
-				"mobileModel":"microsoft",
-				"osVersion":"Windows 10 x64",
-				"timestamp":1608343589000,
-				"sign":"D94078076E3F17F5E3B0D03DD7262D84"})
-				for(let i=0;i<3;i++){
+			async getNewsDetail() {
+				const res = await myRequestPost('/sojo.equity.plantw.detail', {
+					"channelCode": 301000000003,
+					"memberPlanNo": 301000000003,
+					"client": "applets",
+					"mobileBrand": "microsoft",
+					"mobileModel": "microsoft",
+					"osVersion": "Windows 10 x64",
+					"timestamp": 1608343589000,
+					"sign": "D94078076E3F17F5E3B0D03DD7262D84"
+				})
+				for (let i = 0; i < 3; i++) {
 					this.content = res.respData[i].content
 					this.arr.push(this.content)
 				}
@@ -51,11 +54,11 @@
 				//#ifdef MP-ALIPAY
 				this.htmlNodes = parse(this.content)
 				// #endif
-				},
-			tan(){
+			},
+			tan() {
 				uni.showToast({
-				    title: '开通成功',
-				    duration: 2000
+					title: '开通成功',
+					duration: 2000
 				});
 			}
 		}
@@ -67,7 +70,8 @@
 	image {
 		width: 100%;
 	}
-	.bottom{
+
+	.bottom {
 		display: flex;
 		position: fixed;
 		bottom: 0;
@@ -75,7 +79,8 @@
 		background-color: #FFFFFF;
 		box-shadow: 0 2px;
 		padding: 16rpx 0;
-		button{
+
+		button {
 			width: 375rpx;
 			height: 90rpx;
 			background-color: #fc6315;
@@ -83,6 +88,5 @@
 			font-weight: 700;
 			color: #FFFFFF;
 		}
-		}
+	}
 </style>
-

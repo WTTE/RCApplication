@@ -49,17 +49,17 @@
 <style lang="scss">
 	.content {
 		.respData {
-			
+
 
 			text-align: center;
-			
+
 			.picture {
 				margin-top: 40rpx;
 
-				
+
 				image {
 					margin-top: 20px;
-					
+
 				}
 			}
 		}

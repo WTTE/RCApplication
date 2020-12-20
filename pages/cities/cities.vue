@@ -3,7 +3,7 @@
 		<view v-for="item in res" class="imageFather">
 			<image :src="item.scenicSpotImage" mode="widthFix"></image>
 		</view>
-	
+
 	</view>
 </template>
 
@@ -14,7 +14,7 @@
 	export default {
 		data() {
 			return {
-				res:[]
+				res: []
 			}
 		},
 		onLoad(options) {
@@ -33,7 +33,7 @@
 				});
 				if (result.respCode === "00") {
 					this.res = result.respData
-					console.log(this.res,"11111111111")
+					console.log(this.res, "11111111111")
 				}
 			},
 		}
@@ -41,13 +41,13 @@
 </script>
 
 <style lang="less">
-	.imageFather{
+	.imageFather {
 		padding: 0 35rpx;
-		image{
+
+		image {
 			width: 680rpx;
 			margin-bottom: 20rpx;
-			
+
 		}
 	}
-	
 </style>

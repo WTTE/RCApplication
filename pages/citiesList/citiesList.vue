@@ -289,9 +289,10 @@
 		button {
 			background-color: #FFFFFF;
 			margin-bottom: 8rpx;
-			.buttonWords{
+
+			.buttonWords {
 				font-size: 30rpx;
-				
+
 			}
 		}
 	}

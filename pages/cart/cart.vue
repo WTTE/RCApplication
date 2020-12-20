@@ -76,8 +76,9 @@
 	.top-nav {
 		width: 750rpx;
 		position: fixed;
-		
+
 	}
+
 	.top-nav-bar {
 		border: 2px solid white;
 		display: flex;
@@ -89,20 +90,24 @@
 		color: #353b48;
 		border-top: 0px solid #e5e5e5;
 	}
+
 	.nav-item {
 		flex: 1;
 	}
+
 	.item {
 		width: 70px;
 		text-align: center;
 		line-height: 33px;
 		height: 33px;
 	}
+
 	.active {
 		color: #ff0000;
 		font-weight: 550;
 		position: relative;
 	}
+
 	.active::after {
 		content: '';
 		position: absolute;
@@ -115,9 +120,9 @@
 		bottom: 0px;
 		margin: auto;
 	}
+
 	image {
 		width: 750rpx;
 		height: 120rpx;
 	}
 </style>
-

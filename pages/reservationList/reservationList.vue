@@ -2,7 +2,7 @@
 	<view class="home">
 		<!-- 顶部标题图片 -->
 		<image :src="topurl" mode="widthFix"></image>
-		
+
 		<!-- 子组件轮播图部分 -->
 		<view v-for="item in number">
 			<swiperAdv v-if="res.length" :res="res[item]"></swiperAdv>
@@ -20,9 +20,9 @@
 		data() {
 			return {
 				topurl: "https://s3.ax1x.com/2020/12/13/reVo7T.png",
-				res:[],
-				number:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-				
+				res: [],
+				number: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
 			}
 		},
 
@@ -43,15 +43,15 @@
 				if (result.respCode === "00") {
 					// this.RespData = result.respData
 					// console.log(this.RespData)
-					this.res=[...this.res,...result.respData]
-					console.log(this.res,"11111111")
+					this.res = [...this.res, ...result.respData]
+					console.log(this.res, "11111111")
 				}
 			},
 		},
-		
+
 		components: {
 			swiperAdv,
-			
+
 		}
 	}
 </script>
@@ -59,6 +59,7 @@
 <style lang="less">
 	.home {
 		background-color: #000000;
+
 		image {
 			display: block;
 			width: 750rpx;

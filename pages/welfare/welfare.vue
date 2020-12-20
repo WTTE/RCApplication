@@ -3,7 +3,7 @@
 		<view v-for="item in pics" :key="item">
 			<image :src="item" mode="widthFix"></image>
 		</view>
-		
+
 		<view class="footer">
 			<button type="warn" @click="tan">加入会员</button>
 		</view>
@@ -28,10 +28,10 @@
 			}
 		},
 		methods: {
-			tan(){
+			tan() {
 				uni.showToast({
-				    title: '开通成功',
-				    duration: 2000
+					title: '开通成功',
+					duration: 2000
 				});
 			}
 		}
@@ -46,8 +46,8 @@
 			display: block;
 			width: 750rpx;
 		}
-		
-		
+
+
 		.footer {
 			display: flex;
 			position: fixed;
@@ -55,15 +55,15 @@
 			width: 100%;
 			background-color: #FFFFFF;
 			box-shadow: 0 2px;
-			
-			
+
+
 			button {
 				margin-left: 40rpx;
 				width: 670rpx;
-				background-color: #fc6315;	
+				background-color: #fc6315;
 				position: fixed;
 			}
 		}
-			
+
 	}
 </style>

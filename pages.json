@@ -138,7 +138,7 @@
             "path" : "pages/citiesList/citiesList",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "城市列表",
                 "enablePullDownRefresh": false
             }
             
@@ -147,7 +147,7 @@
             "path" : "pages/hotelDetails/hotelDetails",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "酒店详情",
                 "enablePullDownRefresh": false
             }
             
@@ -156,7 +156,7 @@
             "path" : "pages/trafficGuidance/trafficGuidance",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "交通指南",
                 "enablePullDownRefresh": false
             }
             
@@ -165,7 +165,7 @@
             "path" : "pages/map/map",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "地图",
                 "enablePullDownRefresh": false
             }
             
@@ -174,7 +174,7 @@
             "path" : "pages/viewAllphotos/viewAllphotos",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "全部图片",
                 "enablePullDownRefresh": false
             }
             
@@ -183,7 +183,7 @@
             "path" : "pages/toViewmore/toViewmore",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "更多",
                 "enablePullDownRefresh": false
             }
             
@@ -192,7 +192,7 @@
             "path" : "pages/viewDetails/viewDetails",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "订房必读",
                 "enablePullDownRefresh": false
             }
             
@@ -201,7 +201,7 @@
             "path" : "pages/shouquan/shouquan",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "登录",
                 "enablePullDownRefresh": false
             }
             
@@ -210,7 +210,7 @@
             "path" : "pages/biji/biji",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "笔记",
                 "enablePullDownRefresh": false
             }
             
@@ -219,7 +219,7 @@
             "path" : "pages/finddetail/finddetail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "体验详情",
                 "enablePullDownRefresh": false
             }
             
@@ -228,7 +228,7 @@
             "path" : "pages/mine/center",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "兑换中心",
                 "enablePullDownRefresh": false
             }
             
@@ -237,7 +237,7 @@
             "path" : "pages/mine/coupon",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "优惠详情",
                 "enablePullDownRefresh": false
             }
             
@@ -246,7 +246,7 @@
             "path" : "pages/mine/hands",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "酒店合作",
                 "enablePullDownRefresh": false
             }
             
@@ -255,7 +255,7 @@
             "path" : "pages/mine/join",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "开通会员",
                 "enablePullDownRefresh": false
             }
             
@@ -264,7 +264,7 @@
             "path" : "pages/mine/login",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "登录",
                 "enablePullDownRefresh": false
             }
             
@@ -273,7 +273,7 @@
             "path" : "pages/mine/myQR",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "添加好友",
                 "enablePullDownRefresh": false
             }
             
@@ -282,7 +282,7 @@
             "path" : "pages/mine/notice",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "程客须知",
                 "enablePullDownRefresh": false
             }
             
@@ -291,7 +291,7 @@
             "path" : "pages/mine/qusetion",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "常见问题",
                 "enablePullDownRefresh": false
             }
             
@@ -300,7 +300,7 @@
             "path" : "pages/mine/service",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "专属客服",
                 "enablePullDownRefresh": false
             }
             
@@ -309,7 +309,7 @@
             "path" : "pages/mine/setting",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "个人设置",
                 "enablePullDownRefresh": false
             }
             
@@ -327,26 +327,26 @@
 		"list": [{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "static/icons/首页.png",
-				"selectedIconPath": "static/icons/首页 (2).png"
+				"iconPath": "static/icons/index.png",
+				"selectedIconPath": "static/icons/index1.png"
 			},
 			{
 				"pagePath": "pages/find/find",
 				"text": "发现",
-				"iconPath": "static/icons/发现.png",
-				"selectedIconPath": "static/icons/发现 (1).png"
+				"iconPath": "static/icons/find.png",
+				"selectedIconPath": "static/icons/find1.png"
 			},
 			{
 				"pagePath": "pages/cart/cart",
 				"text": "订单",
-				"iconPath": "static/icons/订单.png",
-				"selectedIconPath": "static/icons/订单 (1).png"
+				"iconPath": "static/icons/cart.png",
+				"selectedIconPath": "static/icons/cart1.png"
 			},
 			{
 				"pagePath": "pages/mine/mine",
 				"text": "我的",
-				"iconPath": "static/icons/我的.png",
-				"selectedIconPath": "static/icons/我的 (1).png"
+				"iconPath": "static/icons/mine.png",
+				"selectedIconPath": "static/icons/mine1.png"
 			}
 		]
 	}

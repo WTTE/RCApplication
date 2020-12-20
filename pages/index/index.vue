@@ -17,7 +17,7 @@
 			<text class="icon2 icon-sousuo iconfont"></text>
 		</button>
 		<!-- #endif -->
-		
+
 		<!-- #ifdef MP-ALIPAY -->
 		<view class="searchAl" @click="search"><text class="icon3 icon-sousuo iconfont"></text></view>
 		<!-- #endif -->
@@ -85,38 +85,21 @@
 				cityCode: "",
 				res: [],
 				flag: false,
-				swipers: [{
-						id: 0,
-						pics: "https://image.ructrip.com/ructrip/1607437690458/NO46&47民宿上新banner-双十二  新版.jpg",
-						title: "民宿上新",
-						path: "/pages/news/news"
-					},
+				swipers: [
 					{
-						id: 1,
+						id: 0,
 						pics: "https://image.ructrip.com/ructrip/1607512632892/双十二每日抢购头图的副本banner.jpg",
 						title: "双十二每日抢购",
 						path: "/pages/welfare/welfare"
 					},
 					{
-						id: 2,
-						pics: "https://image.ructrip.com/ructrip/1608030369899/1215 如程-高定（江西丨高岭宿集）banner.jpg",
-						title: "高定（江西丨高岭宿集）",
-						path: "/pages/reservationList/reservationList"
-					},
-					{
-						id: 3,
-						pics: "https://image.ructrip.com/ructrip/1607420370102/1204-如程小程序版本更新-客服热线-banner .jpg",
-						title: "小程序版本更新",
-						path: "/pages/customer/customer"
-					},
-					{
-						id: 4,
+						id: 1,
 						pics: "https://image.ructrip.com/ructrip/1607420414465/1204-如程小程序版本更新-12月上新预告.jpg",
 						title: "上新预告",
 						path: "/pages/hotel/hotel"
 					},
 					{
-						id: 5,
+						id: 2,
 						pics: "https://image.ructrip.com/ructrip/1608128246925/%E5%8F%8C%E5%8D%81%E4%BA%8C%E5%B2%81%E6%9C%AB%E6%9A%96%E5%86%AC%E5%AD%A3banner.jpg",
 						title: "冬季福利",
 						path: "/pages/winter/winter"
@@ -291,7 +274,6 @@
 
 			image {
 				width: 750rpx;
-
 			}
 
 		}
@@ -347,7 +329,8 @@
 			z-index: 998;
 			text-align: center;
 			line-height: 120rpx;
-			.icon3{
+
+			.icon3 {
 				font-size: 50rpx;
 				// margin-left: 10rpx;
 				color: #fd885d;

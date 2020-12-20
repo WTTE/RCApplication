@@ -1,14 +1,16 @@
 <template>
 	<view class="goods_list">
 		<view class="goods_item" v-for="(item,index) in msg" :key="index" @click="itemchange(item)">
-			<view class="tianchong"><image :src="item.defaultImage" mode="scaleToFill"></image></view>
-			<view :class="{xuanfu:isend==true}" ><text class="fu">{{item.storeName}}</text></view>
+			<view class="tianchong">
+				<image :src="item.defaultImage" mode="scaleToFill"></image>
+			</view>
+			<view :class="{xuanfu:isend==true}"><text class="fu">{{item.storeName}}</text></view>
 			<view class="price">
 				<text class="tex">{{item.evaluation}}</text>
 			</view>
 			<view class="bao">
 				<view class="tupian">
-					<image :src="item.avatarLink" ></image>
+					<image :src="item.avatarLink"></image>
 				</view>
 				<view class="info">
 					<text>{{item.nickname}}</text>
@@ -24,7 +26,7 @@
 		props: ['msg'],
 		data() {
 			return {
-				isend :true,
+				isend: true,
 				istrue: false
 			};
 		},
@@ -40,7 +42,7 @@
 			// },
 			itemchange(item) {
 				uni.navigateTo({
-					url: '/pages/finddetail/finddetail?id='+ item.id
+					url: '/pages/finddetail/finddetail?id=' + item.id
 				})
 			},
 			ai(istrue) {
@@ -69,20 +71,22 @@
 			background: #fff;
 			box-sizing: border-box;
 
-			.tianchong{
+			.tianchong {
 				background: #eee;
+
 				image {
 					// height: 150px;
-					border-top-left-radius:5px;
-					border-top-right-radius:5px;
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
 					width: 100%;
 					height: 360rpx;
 					mix-width: 330rpx;
-					
+
 					margin: 0 0;
 				}
-				
+
 			}
+
 			.xuanfu {
 				overflow: hidden;
 				position: absolute;
@@ -93,15 +97,16 @@
 				font-size: 10px;
 				background-color: rgba(118, 115, 114, 0.7);
 				border-radius: 20rpx;
-			    text-align: center;
+				text-align: center;
+
 				text {
-					line-height: 40rpx;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+					line-height: 40rpx;
 					//text-align: center;
-					
+
 					color: white;
 				}
 			}
-			
+
 
 			.price {
 
@@ -135,7 +140,7 @@
 						top: 0px;
 						line-height: 40rpx;
 						border-radius: 50%;
-						
+
 					}
 				}
 
@@ -146,9 +151,9 @@
 						font-size: 8px;
 						position: absolute;
 						left: 50rpx;
-						top:-4rpx;
+						top: -4rpx;
 						line-height: 40rpx;
-						
+
 					}
 				}
 
@@ -157,7 +162,7 @@
 					flex: 1;
 					display: inline-block;
 					text-align: right;
-					
+
 					line-height: 40rpx;
 				}
 

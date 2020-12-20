@@ -10,7 +10,7 @@
 			</view>
 			<view class="bao">
 				<view class="tupian">
-					<image :src="item.arr1.avatarLink" ></image>
+					<image :src="item.arr1.avatarLink"></image>
 				</view>
 				<view class="info">
 					<text>{{item.arr1.nickname}}</text>
@@ -25,7 +25,7 @@
 
 			</view>
 		</view>
-		<view >
+		<view>
 			<view class="biji" @click="taobi">
 				<text>写笔记</text>
 			</view>
@@ -43,12 +43,11 @@
 				isend: true,
 				istrue: false,
 				active: [],
-				
-				
+
+
 			};
 		},
-		mounted() {
-		},
+		mounted() {},
 
 		methods: {
 			// shan(item){
@@ -61,32 +60,32 @@
 			// },
 			itemchange(item) {
 				uni.navigateTo({
-					url: '/pages/finddetail/finddetail?id=' + item.arr1.id 
+					url: '/pages/finddetail/finddetail?id=' + item.arr1.id
 				})
 			},
-		
-		
+
+
 			addone(i) {
-							// console.log(e)
-							// console.log(i)
-							// console.log(item)
-							//console.log(this.arr[i].arr1)
-							// console.log(this.newsList)
-						console.log(this.a,"pppppppppffffffffffffp")
-								if (6*(this.a-1)+this.arr[i].in  == i) {
-									
-									if(this.arr[i].flg==false){
-										// this.arr[i].arr1.id = this.arr[i].arr1.id + 1
-										this.arr[i].flg = true
-									}else{
-										// this.arr[i].arr1.id = this.arr[i].arr1.id - 1
-										this.arr[i].flag = false
-									}
-									
-								}
-							
-							
-						},
+				// console.log(e)
+				// console.log(i)
+				// console.log(item)
+				//console.log(this.arr[i].arr1)
+				// console.log(this.newsList)
+				console.log(this.a, "pppppppppffffffffffffp")
+				if (6 * (this.a - 1) + this.arr[i].in == i) {
+
+					if (this.arr[i].flg == false) {
+						// this.arr[i].arr1.id = this.arr[i].arr1.id + 1
+						this.arr[i].flg = true
+					} else {
+						// this.arr[i].arr1.id = this.arr[i].arr1.id - 1
+						this.arr[i].flag = false
+					}
+
+				}
+
+
+			},
 			taobi() {
 				uni.navigateTo({
 					url: '/pages/biji/biji'

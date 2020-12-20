@@ -9,7 +9,7 @@
 			<view class="sellingLabel">
 				<text>{{sellingLabel}}</text>
 				<view class="xing">
-					<uni-icons  @click="zan" type="heart" size="25" :style="flag?'color:red':''"></uni-icons>
+					<uni-icons @click="zan" type="heart" size="25" :style="flag?'color:red':''"></uni-icons>
 				</view>
 				<view class="fen">
 					<uni-icons type="redo" size="25" color="#636e72"></uni-icons>
@@ -139,7 +139,7 @@
 
 		data() {
 			return {
-				pics:"https://image.ructrip.com/ructrip/1608122201728/1204-未购卡-任享会员688+20天会期-通用通览.jpg",
+				pics: "https://image.ructrip.com/ructrip/1608122201728/1204-未购卡-任享会员688+20天会期-通用通览.jpg",
 				flag: false,
 				res: "",
 				sellingLabel: {},
@@ -348,7 +348,8 @@
 				margin-left: 25rpx;
 				// text-align: center;
 				margin-top: 30rpx;
-				image{
+
+				image {
 					width: 700rpx;
 				}
 			}
@@ -482,12 +483,13 @@
 
 			.zz {
 				display: flex;
-				padding: 0 ;
+				padding: 0;
 				justify-content: space-between;
 				overflow: hidden;
 				flex-wrap: nowrap;
 				margin-left: 40rpx;
 				width: 335px;
+
 				.dddd {
 					width: 355rpx;
 					margin-bottom: 15rpx;
@@ -513,7 +515,7 @@
 					font-weight: 100;
 					color: #ccc;
 					float: left;
-					
+
 				}
 
 				.nickname {
