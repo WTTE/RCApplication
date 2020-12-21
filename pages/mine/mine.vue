@@ -29,25 +29,25 @@
 				<view class="tb">
 					<view class="cell1">
 						<view class="zheng">
-							<image :src="require('../../static/image/图层1.png')" mode="widthFix" class="img"></image>
+							<image :src="require('../../static/image/tuceng1.png')" mode="widthFix" class="img"></image>
 						</view>
 						<text class="tit1">全年免费住</text>
 					</view>
 					<view class="cell2">
 						<view class="zheng">
-							<image :src="require('../../static/image/图层2.png')" mode="widthFix" class="image1"></image>
+							<image :src="require('../../static/image/tuceng2.png')" mode="widthFix" class="image1"></image>
 						</view>
 						<text class="tit1">节假日通用</text>
 					</view>
 					<view class="cell3">
 						<view class="zheng">
-							<image :src="require('../../static/image/图层3.png')" mode="widthFix" class="image1"></image>
+							<image :src="require('../../static/image/tuceng3.png')" mode="widthFix" class="image1"></image>
 						</view>
 						<text class="tit1">节假日通用</text>
 					</view>
 					<view class="cell4">
 						<view class="zheng">
-							<image :src="require('../../static/image/图层4.png')" mode="widthFix" class="image1"></image>
+							<image :src="require('../../static/image/tuceng4.png')" mode="widthFix" class="image1"></image>
 						</view>
 						<text class="tit1">房型无限制</text>
 					</view>

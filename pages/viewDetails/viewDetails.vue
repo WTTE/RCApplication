@@ -1,10 +1,7 @@
 <template>
 	<view class="all">
 		<view class="content">
-			<!-- #ifdef H5 -->
-			<rich-text :nodes="enterNotice"></rich-text>
-			<!-- #endif -->
-			<!-- #ifdef MP-WEIXIN -->
+			<!-- #ifdef MP-WEIXIN|H5|APP-PLUS-->
 			<rich-text :nodes="enterNotice"></rich-text>
 			<!-- #endif -->
 			<!-- #ifdef MP-ALIPAY -->

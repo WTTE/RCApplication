@@ -1,6 +1,6 @@
 <template>
 	<view class="goods_list">
-		<view class="goods_item" v-for="(item,index) in arr" :key="item.arr1.id" @click="itemchange(item)">
+		<view class="goods_item" v-for="(item,index) in arr" :key="index" @click="itemchange(item)">
 			<view class="tianchong">
 				<image :src="item.arr1.defaultImage"></image>
 			</view>
@@ -15,12 +15,9 @@
 				<view class="info">
 					<text>{{item.arr1.nickname}}</text>
 				</view>
-				<!-- <view class="item" :class="{active:istrue==true}"  @click="ai(istrue)">❤</view> -->
-				<!-- <view class="item active">❤</view> -->
-				<!-- <view class="item" :class="{active:active==index}" @click.stop="dianzan(item.id,index)">❤</view> -->
-				<view class="item" :style="item.flg?'color:red':''" @click.stop="addone(index)">❤</view>
-				<!-- <text @click.stop="addone(index)">{{item.arr1.id}}个收藏</text> -->
-
+				<view class="item" @click.stop="addone(index)">
+					<uni-icons type="heart" size="18" :style="item.flg?'color:red':''"></uni-icons>
+				</view>
 
 
 			</view>
@@ -92,6 +89,10 @@
 				})
 			}
 		},
+		components: {
+			uniIcons
+
+		}
 	}
 </script>
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view>
-			<!-- #ifdef H5 || MP-WEIXIN -->
+			<!-- #ifdef H5|MP-WEIXIN|APP-PLUS-->
 			<rich-text :nodes="content"></rich-text>
 			<!-- #endif -->
 			<!-- #ifdef MP-ALIPAY-->

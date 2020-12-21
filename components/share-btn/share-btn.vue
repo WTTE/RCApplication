@@ -20,12 +20,12 @@
 			return {
 				bottomData: [{
 						text: '微信好友',
-						icon: '/static/icons/微信.png',
+						icon: '/static/icons/weixin.png',
 						name: 'wx'
 					},
 					{
 						text: '生成美图',
-						icon: '/static/icons/复制链接.png',
+						icon: '/static/icons/copy.png',
 						name: 'copy'
 					},
 

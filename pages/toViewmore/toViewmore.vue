@@ -1,13 +1,10 @@
 <template>
 	<view class="all">
 		<view class="content">
-			<!-- #ifdef H5 -->
+			<!-- #ifdef MP-WEIXIN|APP-PLUS|H5 -->
 			<rich-text :nodes="attractionsNearby" aline="center"></rich-text>
 			<!-- #endif -->
-			<!-- #ifdef MP-WEIXIN -->
-			<rich-text :nodes="attractionsNearby" aline="center"></rich-text>
-			<!-- #endif -->
-			<!-- #ifdef MP-ALIPAY -->
+			<!-- #ifdef MP-ALIPAY-->
 			<rich-text :nodes="htmlNodes" aline="center"></rich-text>
 			<!-- #endif -->
 		</view>

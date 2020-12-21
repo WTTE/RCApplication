@@ -25,7 +25,7 @@
 				<view class="word"><text>{{res.evaluation}}</text></view>
 
 				<!-- middle -->
-				<view class="middle" @click="hotel(res)">
+				<view class="middle" @click="hotel(res)" v-if="wor">
 					<view class="left">
 						<image :src="res.storeImage"></image>
 					</view>

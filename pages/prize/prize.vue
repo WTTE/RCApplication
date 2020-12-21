@@ -7,7 +7,7 @@
 		</uni-popup>
 		<!-- #endif -->
 		
-		<!-- #ifdef MP-ALIPAY|H5 -->
+		<!-- #ifdef MP-ALIPAY|H5|APP-PLUS -->
 			<view class="tips">
 				<text>该功能暂未开通哦，请耐心等待~</text>
 			</view>

@@ -19,7 +19,7 @@
 		methods: {
 			goDengLu() {
 				uni.navigateTo({
-					url: "/pages/shouquan/shouquan"
+					url: "/pages/mine/login"
 				})
 			},
 		},

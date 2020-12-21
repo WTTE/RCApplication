@@ -8,7 +8,7 @@
 	}, {
 		"path": "pages/find/find",
 		"style": {
-			"navigationBarTitleText": "发现",
+			"navigationBarTitleText": "体验",
 			"enablePullDownRefresh": true
 		}
 
@@ -332,7 +332,7 @@
 			},
 			{
 				"pagePath": "pages/find/find",
-				"text": "发现",
+				"text": "体验",
 				"iconPath": "static/icons/find.png",
 				"selectedIconPath": "static/icons/find1.png"
 			},

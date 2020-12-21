@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view @click="getNewsDetail" class="container">
-			<!-- #ifdef MP-WEIXIN -->
+			<!-- #ifdef MP-WEIXIN|APP-PLUS -->
 			<rich-text :nodes="content"></rich-text>
 			<!-- #endif -->
 			<!-- #ifdef MP-ALIPAY -->

@@ -8,7 +8,7 @@
 		</swiper>
 
 		<!-- 搜索框 -->
-		<!-- #ifdef MP-WEIXIN|H5 -->
+		<!-- #ifdef MP-WEIXIN|H5|APP-PLUS-->
 		<button @click="search" class="searchWH">
 			<text class="country">全国</text>
 			<text class="icon1 icon-jiantou9 iconfont"></text>
@@ -18,7 +18,7 @@
 		</button>
 		<!-- #endif -->
 
-		<!-- #ifdef MP-ALIPAY -->
+		<!-- #ifdef MP-ALIPAY-->
 		<view class="searchAl" @click="search"><text class="icon3 icon-sousuo iconfont"></text></view>
 		<!-- #endif -->
 

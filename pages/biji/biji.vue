@@ -86,15 +86,16 @@
 		width: 750rpx;
 		height: 500rpx;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		// flex-wrap: wrap;
+		// justify-content: space-between;
 		align-content: center;
 		flex-direction: column;	
-	
+		margin-left: 50rpx;
+		margin-bottom: 45rpx;
 		input{
 			width: 650rpx;
 			height: 80rpx;
-			
+			margin-bottom: 20rpx;
 			background-color: rgb(245,245,245);
 			// margin-top: 30rpx;
 		}

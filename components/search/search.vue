@@ -10,7 +10,7 @@
 			</swiper-item>
 			<swiper-item>
 				<text class="search" @click="change6()">嘉兴</text>
-				<text class="search" @click="change7()">南通</text>
+				<text class="search" @click="change7()">北京</text>
 				<text class="search" @click="change8()">扬州</text>
 				<text class="search" @click="change9()">南京</text>
 				<text class="search" @click="change10()">上海</text>
@@ -54,7 +54,7 @@
 				this.$emit("func", code)
 			},
 			change7() {
-				var code = 320600
+				var code = 110100
 				this.$emit("func", code)
 			},
 			change8() {
